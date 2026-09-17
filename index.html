@@ -863,7 +863,7 @@
                         <span class="drop-arrow">▾</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="index.html" class="dropdown-item">🏠 Studio Dashboard</a>
+                        <a href="index.html" class="dropdown-item nav-item-active">🏠 Studio Dashboard</a>
                         <a href="lighting.html" class="dropdown-item">💡 A-Roll Lighting &amp; Darkness</a>
                         <a href="#footage-setup" class="dropdown-item">🎥 Background &amp; Footage Setup</a>
                         <a href="#checklist" class="dropdown-item">📋 5-Stage Pre-Shoot Checklist</a>
@@ -899,10 +899,12 @@
                     </div>
                 </div>
 
-                <!-- Standalone Action Buttons -->
-                <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
+                <!-- Standalone Action Buttons (All 6 Steps + GitHub) -->
+                <a href="index.html" class="nav-pill-btn gh-btn nav-item-active">🏠 Studio</a>
                 <a href="lighting.html" class="nav-pill-btn gh-btn">💡 Lighting</a>
-                <a href="courage.html" class="nav-pill-btn highlight-btn">🔥 Courage</a>
+                <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
+                <a href="courage.html" class="nav-pill-btn gh-btn">🔥 Courage</a>
+                <a href="rationale.html" class="nav-pill-btn gh-btn">💃 Rationale</a>
                 <a href="pivot.html" class="nav-pill-btn gh-btn">🔄 The Pivot</a>
                 <a href="https://github.com/rifaterdemsahin" target="_blank" class="nav-pill-btn gh-btn">
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -976,6 +978,25 @@
                 <a href="pivot.html" class="step-card">
                     <span class="step-card-num">Step 06</span>
                     <span class="step-card-title">🔄 The Pivot</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mac Pro Work Recording Reminder Mandate Banner (Task 2) -->
+        <div class="mac-pro-reminder-banner">
+            <div class="mac-pro-reminder-icon">🖥️</div>
+            <div class="mac-pro-reminder-content">
+                <span class="mac-pro-reminder-badge">🚨 Founder Mandate &bull; Work = Shoot</span>
+                <div class="mac-pro-reminder-title">When You Work, Shoot the Video on the Mac Pro As Well!</div>
+                <p class="mac-pro-reminder-desc">
+                    Never solve architecture puzzles, debug agent pipelines, or write production code in isolation. 
+                    Whenever you sit down to work at the <strong>Mac Pro workstation</strong>, <strong>turn on OBS screen &amp; mic recording</strong>! 
+                    Every hour of authentic problem-solving and terminal execution is compounding footage for the <em>Hands-On DO</em> vault.
+                </p>
+            </div>
+            <div style="flex-shrink: 0;">
+                <a href="#assistant" class="btn" style="background: #4f46e5; color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);">
+                    ⚡ Mac Pro Setup &rarr;
                 </a>
             </div>
         </div>
@@ -1298,12 +1319,13 @@
                     </ul>
                 </div>
 
-                <div class="spec-box">
-                    <h4>💻 Mac M1 Hub &amp; OBS Encoding</h4>
+                <div class="spec-box" style="border-top: 3px solid #6366f1;">
+                    <h4>💻 Mac Pro &amp; M1 Hub &amp; OBS Encoding</h4>
                     <ul>
-                        <li><strong>Encoder:</strong> Apple VT H264 Hardware Encoder (harnesses M1 media engine, sub-5% CPU usage).</li>
+                        <li><strong>The "Work = Shoot" Mandate:</strong> Whenever sitting down to work or code on the Mac Pro, launch OBS / Screen Capture immediately! Record the raw engineering, prompts, and architecture sessions.</li>
+                        <li><strong>Encoder:</strong> Apple VT H264 Hardware Encoder (harnesses Apple Silicon media engine, sub-5% CPU usage).</li>
                         <li><strong>Format &amp; Bitrate:</strong> Record in <strong>MKV</strong> (crash-resilient). Remux to MP4 later in OBS. Bitrate 15,000–25,000 Kbps at 60 FPS.</li>
-                        <li><strong>Resolution:</strong> Canvas 1080p (1920x1080) or 4K (3840x2160) matching your monitor aspect ratio.</li>
+                        <li><strong>Resolution:</strong> Canvas 1080p (1920x1080) or 4K (3840x2160) matching your Mac Pro monitor aspect ratio.</li>
                     </ul>
                 </div>
             </div>
@@ -1443,6 +1465,11 @@
                     <div style="color: #10b981; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.4rem;">Step 4: The Never-Stop Stumble Rule</div>
                     <p style="font-size: 0.92rem; color: #475569; line-height: 1.55;">If you stumble over a sentence, make a coding typo, or the AI hallucinates: <strong>DO NOT STOP RECORDING</strong>. Pause for 2 seconds, take a breath, repeat the phrase or solve the bug live. Real engineering builds deep trust with your community.</p>
                 </div>
+
+                <div style="background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%); border: 2px solid #6366f1; border-radius: 10px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);">
+                    <div style="color: #4f46e5; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.4rem;">Step 5: The "Work = Shoot" Rule on Mac Pro</div>
+                    <p style="font-size: 0.92rem; color: #475569; line-height: 1.55;"><strong>Whenever you work on the Mac Pro, shoot the video as well!</strong> Don't solve tough architectural challenges, write scripts, or debug AI subagents in private silence. Hit record on the Mac Pro so your raw problem-solving becomes an immortal module for Hands-On DO.</p>
+                </div>
             </div>
         </div>
 
@@ -1454,7 +1481,7 @@
             </div>
 
             <div class="progress-label">
-                <span id="progress-text">0 of 20 Completed</span>
+                <span id="progress-text">0 of 21 Completed</span>
                 <span id="progress-pct">0%</span>
             </div>
             <div class="progress-wrapper">
@@ -1563,6 +1590,10 @@
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c20">
                     <span class="check-item-text"><strong>MKV Recording Active:</strong> Verify recording format is set to MKV in OBS Settings &gt; Output &gt; Recording, then hit "Start Recording"!</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c21">
+                    <span class="check-item-text"><strong>Mac Pro "Work = Shoot" Reminder:</strong> When sitting down to work, code, or debug on the Mac Pro, turn on video recording as well to capture raw engineering.</span>
                 </label>
             </div>
 

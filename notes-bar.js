@@ -159,6 +159,13 @@
     function renderBottomBar() {
         const current = getCurrentStep();
         const allNotes = loadNotes();
+        
+        // Task 2: Provide default reminder note for Step 01 if not already customized
+        if (!allNotes['index.html']) {
+            allNotes['index.html'] = 'remind when you work shoot the video on the mac pro as well';
+            saveNotes(allNotes);
+        }
+        
         const initialNote = allNotes[current.id] || '';
         const isMinimized = localStorage.getItem(MINIMIZED_KEY) === 'true';
 
@@ -168,6 +175,10 @@
             bar.classList.add('minimized');
         }
 
+        const macProReminderHtml = (current.id === 'index.html' || current.id === '') 
+            ? `<span class="notes-header-reminder-pill">🖥️ Work Rule: Shoot video on Mac Pro as well!</span>` 
+            : '';
+
         bar.innerHTML = `
             <div class="notes-bar-inner">
                 <div class="notes-bar-header" id="notes-toggle-trigger">
@@ -176,6 +187,7 @@
                         <div class="notes-bar-title">
                             <span>Step ${current.num} Notes</span>
                             <span class="notes-step-badge">${current.short}</span>
+                            ${macProReminderHtml}
                             <span class="notes-save-status saved" id="notes-status-text">💾 Saved in cookie</span>
                         </div>
                     </div>
@@ -195,7 +207,7 @@
                     <textarea 
                         class="notes-textarea" 
                         id="notes-input" 
-                        placeholder="Write your private notes, production ideas, or comments for Step ${current.num} (${current.title})... Everything auto-saves to your cookie!">${initialNote}</textarea>
+                        placeholder="${(current.id === 'index.html') ? 'remind when you work shoot the video on the mac pro as well' : `Write your private notes, production ideas, or comments for Step ${current.num} (${current.title})... Everything auto-saves to your cookie!` }">${initialNote}</textarea>
                     <div class="notes-bar-footer">
                         <div class="notes-storage-hint">
                             <span>Cookie: <span class="cookie-pill">handson_notes</span></span>
@@ -284,10 +296,52 @@
         });
     }
 
+    // Task 1: Highlight the active page in the top menu dynamically
+    function highlightCurrentPageInNav() {
+        const path = window.location.pathname;
+        let pageName = path.substring(path.lastIndexOf('/') + 1);
+        if (!pageName || pageName === '') {
+            pageName = 'index.html';
+        }
+
+        // Highlight nav brand if on index.html
+        if (pageName === 'index.html') {
+            document.querySelectorAll('.nav-brand').forEach(el => el.classList.add('nav-item-active'));
+        }
+
+        // Search all links in shared-nav
+        document.querySelectorAll('.shared-nav a').forEach(a => {
+            const href = a.getAttribute('href');
+            if (!href) return;
+            const cleanHref = href.split('#')[0].split('?')[0].replace(/^\.\//, '');
+            
+            const isMatch = (cleanHref === pageName) || 
+                            (pageName === 'index.html' && (cleanHref === '' || cleanHref === 'index.html'));
+
+            if (isMatch && !href.startsWith('#')) {
+                a.classList.add('nav-item-active');
+
+                // Highlight parent dropdown button if inside one
+                const parentDropdown = a.closest('.nav-dropdown');
+                if (parentDropdown) {
+                    const dropBtn = parentDropdown.querySelector('.nav-drop-btn');
+                    if (dropBtn) {
+                        dropBtn.classList.add('nav-dropdown-active');
+                    }
+                }
+            }
+        });
+    }
+
+    function init() {
+        highlightCurrentPageInNav();
+        renderBottomBar();
+    }
+
     // Initialize on DOM ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', renderBottomBar);
+        document.addEventListener('DOMContentLoaded', init);
     } else {
-        renderBottomBar();
+        init();
     }
 })();

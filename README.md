@@ -73,11 +73,13 @@ Read the full deep-dive at [courage.html](file:///Users/rifaterdemsahin/projects
 
 ## 🤖 Production Assistant Protocol & Visual Setup
 
+- **The "Work = Shoot" Rule on Mac Pro**: Whenever you sit down to work, code, or debug on the Mac Pro workstation, **turn on OBS/Screen Recording as well**! Never solve hard architectural puzzles or agentic coding sessions in isolation; every hour of genuine problem solving is compounding footage for the Hands-On DO vault.
 - **7-Minute Launch Protocol**: "Lens-only" decluttering (never tidy the whole room before shooting), 3-switch hardware boot, 5-second sit-down rule, and the never-stop stumble recovery.
 - **Visuals on the Footage**:
   - *Optical Bokeh*: Sony ZV-1 aperture set to `f/1.8`–`f/2.8` creating creamy depth of field from flat walls.
   - *Color Temperature Separation*: 5600K crisp daylight key light on face vs 2700K warm background lamp.
   - *The 3 Scenes*: Scene 1 (Talking Head / Hook) &bull; Scene 2 (Screen Share + 20% PIP Facecam at 135% editor zoom) &bull; Scene 3 (Clean Full Screen Monitor for architecture diagrams and logs).
+- **Top Navigation Active Highlighting**: The sticky top menu dynamically highlights the active page across all standalone pills (`.nav-item-active`), dropdown links, and parent dropdown menus (`.nav-dropdown-active`) with glowing indicators and live pulse dots.
 
 ---
 

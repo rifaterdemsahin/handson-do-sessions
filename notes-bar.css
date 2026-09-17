@@ -403,3 +403,144 @@ body {
         flex-direction: column;
     }
 }
+
+/* ==========================================================================
+   Task 1: Active Top Menu Highlights (When in a page, highlight in top menu)
+   ========================================================================== */
+.nav-brand.nav-item-active {
+    color: #a5b4fc !important;
+    text-shadow: 0 0 14px rgba(129, 140, 248, 0.7);
+}
+
+.nav-pill-btn.nav-item-active {
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid #a5b4fc !important;
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    font-weight: 700 !important;
+    position: relative;
+    padding-left: 0.9rem !important;
+}
+
+.nav-pill-btn.nav-item-active::before {
+    content: "●";
+    display: inline-block;
+    color: #34d399;
+    margin-right: 0.38rem;
+    font-size: 0.75rem;
+    animation: activePulse 2s infinite ease-in-out;
+}
+
+@keyframes activePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+.nav-drop-btn.nav-dropdown-active {
+    border-color: #6366f1 !important;
+    background: rgba(99, 102, 241, 0.22) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    font-weight: 700 !important;
+}
+
+.nav-drop-btn.nav-dropdown-active::before {
+    content: "●";
+    display: inline-block;
+    color: #818cf8;
+    margin-right: 0.35rem;
+    font-size: 0.7rem;
+    animation: activePulse 2s infinite ease-in-out;
+}
+
+.dropdown-item.nav-item-active {
+    background: rgba(99, 102, 241, 0.28) !important;
+    color: #c7d2fe !important;
+    font-weight: 700 !important;
+    border-left: 3px solid #818cf8 !important;
+    padding-left: 1.15rem !important;
+}
+
+.dropdown-item.nav-item-active::after {
+    content: " (Active)";
+    font-size: 0.72rem;
+    color: #34d399;
+    font-weight: 700;
+    margin-left: 0.45rem;
+}
+
+/* ==========================================================================
+   Task 2: Mac Pro Work Recording Reminder Banner & Helpers
+   ========================================================================== */
+.mac-pro-reminder-banner {
+    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+    border: 2px solid #6366f1;
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.25rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.22);
+}
+
+.mac-pro-reminder-icon {
+    font-size: 2.4rem;
+    background: rgba(99, 102, 241, 0.25);
+    border: 1px solid rgba(165, 180, 252, 0.3);
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mac-pro-reminder-content {
+    flex: 1;
+}
+
+.mac-pro-reminder-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #e11d48;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    margin-bottom: 0.5rem;
+}
+
+.mac-pro-reminder-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.01em;
+}
+
+.mac-pro-reminder-desc {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.notes-header-reminder-pill {
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fbbf24;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+

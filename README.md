@@ -33,15 +33,17 @@ These sessions deconstruct real-world open-source repositories from [github.com/
 
 ---
 
-## 💡 The Founder's "Keep Dancing" Rationale
+## 💡 The Founder's "Keep Dancing" Rationale & Leadership Metaphor
 
-Why run hands-on workshops on Skool when attendance can be sparse?
+Why run live hands-on workshops on Skool when attendance can be sparse?
 
-- **The Founder Keeps Dancing**: When the music plays at the scheduled hour (Monday, Tuesday, Friday), the founder dances. Rain or shine, empty room or packed crowd, the session happens.
-- **Helping Those Left Behind in Fear**: The rapid pace of AI leaves many developers and creators frozen in anxiety. Traditional workshops demand participation, which increases friction. Here, members can quietly drop in, lurk, observe real engineering with all its bugs and triumphs, and ask questions while the founder builds.
-- **The DO Sessions Pile Up**: Every session is recorded, remuxed, and cataloged. Over time, the DO sessions compound into a massive vault of practical builds, allowing members to learn asynchronously at their own pace.
+- **🎬 The Derek Sivers Leadership Metaphor ([Watch on YouTube](https://www.youtube.com/watch?v=fW8amMCVAJQ))**: Leadership starts with a person willing to stand alone, looking ridiculous, dancing on an empty hill before anyone joins. The first follower validates the leader, but the movement only begins because the leader had the courage to dance alone.
+- **🚫 Zero AI-Generated B-Roll**: Anyone can prompt synthetic stock video, text-to-speech voiceovers, or abstract slide decks. Real engineers smell AI slop instantly. Erdem **cannot** rely on AI B-roll. He must show his real hands, real terminal, live debugging, and authentic human voice.
+- **🛌 Early to Bed, Energy to Shoot**: True hands-on execution cannot be phoned in. It requires immense cognitive presence and verbal clarity. Going to bed early is the biological foundation that gives Erdem the stamina to command 3 shoots a week (Mon, Tue, Fri).
+- **🌐 Reaching the Outer Circle**: While close peers already understand the vision, the broader *outer circle*—thousands of developers feeling overwhelmed, paralyzed, and isolated by the AI velocity—needs an accessible beacon.
+- **⚡ Filling the Skills Gap with AI**: Viewers don't lack interest; they suffer from a practical execution gap. By deconstructing real working repositories from [github.com/rifaterdemsahin](https://github.com/rifaterdemsahin), Erdem bridges their skills gaps hands-on.
 
-Read the full philosophical breakdown at [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html).
+Read the full philosophical breakdown and watch the embedded video at [rationale.html#dancing-leader](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html#dancing-leader) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html#dancing-leader](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html#dancing-leader).
 
 ---
 

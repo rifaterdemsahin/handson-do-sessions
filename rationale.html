@@ -272,6 +272,122 @@
             background: #ffffff;
         }
 
+        /* Leadership Video Spotlight & Hands-On Principles */
+        .video-spotlight-card {
+            background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 50%, #090d16 100%);
+            border: 1px solid #3b4261;
+            border-radius: 18px;
+            padding: 2.5rem;
+            color: white;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-spotlight-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 2rem;
+        }
+
+        .video-spotlight-header .badge-spotlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(244, 63, 94, 0.2);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            color: #fecdd3;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.8rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
+        }
+
+        .video-spotlight-header h2 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.01em;
+        }
+
+        .video-spotlight-header p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .video-embed-wrap {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin: 0 auto 2.5rem;
+            max-width: 860px;
+            background: #000;
+        }
+
+        .video-embed-wrap iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .leadership-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .leader-pillar-card {
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.4rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .leader-pillar-card:hover {
+            transform: translateY(-2px);
+            border-color: #818cf8;
+            background: rgba(30, 41, 59, 1);
+        }
+
+        .pillar-icon-row {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar-icon {
+            font-size: 1.5rem;
+        }
+
+        .pillar-title {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+
+        .pillar-desc {
+            font-size: 0.92rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
         /* Logically Grouped Shared Sticky Top Menu */
         .shared-nav {
             position: sticky;
@@ -579,6 +695,73 @@
                 "When the music plays at the scheduled hour, the founder dances. Empty dancefloor or packed stadium—it doesn't matter. You keep dancing. Over time, the music becomes undeniable."
             </blockquote>
             <cite>— Rifat Erdem Sahin &bull; Hands-On DO Sessions</cite>
+        </div>
+
+        <!-- Leadership Spotlight: The Dancing Guy & The Hands-On Mandate -->
+        <div class="video-spotlight-card" id="dancing-leader">
+            <div class="video-spotlight-header">
+                <span class="badge-spotlight">🎬 Leadership Metaphor • The Origin of "Keep Dancing"</span>
+                <h2>The Leader Dancing When No One Is Dancing</h2>
+                <p>
+                    Derek Sivers’ seminal 3-minute TED talk reveals the core dynamic of leadership: standing alone on a hill, looking ridiculous, and continuing to move with passion before anyone joins. The first follower validates the leader, but the movement never starts without the courage to dance alone.
+                </p>
+            </div>
+
+            <!-- YouTube Video Embed -->
+            <div class="video-embed-wrap">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/fW8amMCVAJQ?rel=0" 
+                    title="First Follower: Leadership Lessons from Dancing Guy - Derek Sivers" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="leadership-pillars">
+                <!-- Pillar 1: Why Erdem Must Shoot Real Hands-On -->
+                <div class="leader-pillar-card">
+                    <div class="pillar-icon-row">
+                        <span class="pillar-icon">🚫</span>
+                        <h3 class="pillar-title">Zero AI-Generated B-Roll</h3>
+                    </div>
+                    <p class="pillar-desc">
+                        Anyone can generate synthetic AI stock clips, clone generic voiceovers, and produce slide decks. Real engineers smell AI slop instantly. Erdem <strong>cannot</strong> and will not rely on AI B-roll. Viewers need to see real hands typing, real terminals spitting errors, and the authentic human brain reasoning live on camera.
+                    </p>
+                </div>
+
+                <!-- Pillar 2: Going to Bed Early -->
+                <div class="leader-pillar-card">
+                    <div class="pillar-icon-row">
+                        <span class="pillar-icon">🛌</span>
+                        <h3 class="pillar-title">Early to Bed, Energy to Shoot</h3>
+                    </div>
+                    <p class="pillar-desc">
+                        True hands-on problem solving cannot be phoned in or outsourced. It demands peak cognitive alertness, verbal flow, and radiant presence in front of the Sony ZV-1. Going to bed early is the non-negotiable biological discipline that recharges the battery to execute 3 scheduled shoots every single week.
+                    </p>
+                </div>
+
+                <!-- Pillar 3: Reaching the Outer Circle -->
+                <div class="leader-pillar-card">
+                    <div class="pillar-icon-row">
+                        <span class="pillar-icon">🌐</span>
+                        <h3 class="pillar-title">Reaching the Outer Circle</h3>
+                    </div>
+                    <p class="pillar-desc">
+                        Close peers and the inner circle already understand the vision. But the <em>outer circle</em>—thousands of developers and professionals feeling intimidated, overwhelmed, and isolated by the AI revolution—need a beacon. By dancing publicly when no one is dancing, Erdem creates an inviting gravitational pull.
+                    </p>
+                </div>
+
+                <!-- Pillar 4: Filling the Skills Gap -->
+                <div class="leader-pillar-card">
+                    <div class="pillar-icon-row">
+                        <span class="pillar-icon">⚡</span>
+                        <h3 class="pillar-title">Filling Skills Gaps with AI</h3>
+                    </div>
+                    <p class="pillar-desc">
+                        People don't lack interest; they lack practical execution patterns. By demystifying task decomposition, semantic tool routing, and subagent orchestration hands-on from open repositories (<a href="https://github.com/rifaterdemsahin" target="_blank" style="color: #a5b4fc; text-decoration: underline;">github.com/rifaterdemsahin</a>), Erdem bridges their skills gap so they can build with confidence.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <!-- Section 1: The Reality of Workshop Attendance -->

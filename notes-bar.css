@@ -1,0 +1,405 @@
+/* Notes Bottom Bar & Step Navigation Styles */
+
+/* Bottom Bar Dock */
+#notes-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background: rgba(15, 23, 42, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 2px solid #334155;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+    color: #f8fafc;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#notes-bottom-bar.minimized {
+    transform: translateY(calc(100% - 44px));
+}
+
+.notes-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.6rem 1.25rem 0.8rem;
+}
+
+/* Header strip */
+.notes-bar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.notes-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.notes-badge-icon {
+    font-size: 1.1rem;
+    background: #4F46E5;
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notes-bar-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.notes-step-badge {
+    background: #1e293b;
+    border: 1px solid #475569;
+    color: #fbbf24;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    letter-spacing: 0.03em;
+}
+
+.notes-save-status {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-left: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.notes-save-status.saved {
+    color: #34d399;
+}
+
+.notes-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.notes-btn {
+    border: none;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.notes-btn-copy {
+    background: #4F46E5;
+    color: white;
+}
+
+.notes-btn-copy:hover {
+    background: #4338CA;
+}
+
+.notes-btn-copy-all {
+    background: #0284c7;
+    color: white;
+}
+
+.notes-btn-copy-all:hover {
+    background: #0369a1;
+}
+
+.notes-btn-toggle {
+    background: #334155;
+    color: #cbd5e1;
+    padding: 0.35rem 0.6rem;
+}
+
+.notes-btn-toggle:hover {
+    background: #475569;
+    color: white;
+}
+
+/* Body & Textarea */
+.notes-bar-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 0.3rem;
+}
+
+.notes-textarea {
+    width: 100%;
+    min-height: 70px;
+    max-height: 140px;
+    background: #0b1120;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #f1f5f9;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0.6rem 0.85rem;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.notes-textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+}
+
+.notes-bar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.notes-storage-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cookie-pill {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #a5b4fc;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.72rem;
+}
+
+/* Toast notification */
+.notes-toast {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    background: #10b981;
+    color: white;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    z-index: 100000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.notes-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stepper Navigation Styles */
+.reading-stepper-wrap {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.75rem 0 2.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stepper-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #1e293b;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.stepper-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.stepper-current-badge {
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fef3c7;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+}
+
+.stepper-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+}
+
+.step-card {
+    flex: 1;
+    min-width: 140px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 0.7rem 0.85rem;
+    text-decoration: none;
+    color: #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.step-card:hover {
+    background: #273549;
+    border-color: #6366f1;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.step-card.active {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.4) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border-color: #818cf8;
+    color: white;
+    box-shadow: 0 0 14px rgba(99, 102, 241, 0.35);
+}
+
+.step-card-num {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.step-card.active .step-card-num {
+    color: #fbbf24;
+}
+
+.step-card-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.step-arrow-divider {
+    color: #475569;
+    font-size: 0.85rem;
+    user-select: none;
+    padding: 0 0.1rem;
+}
+
+/* Sequential Step Jump Controls */
+.step-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0 1rem;
+    flex-wrap: wrap;
+}
+
+.step-nav-btn {
+    flex: 1;
+    min-width: 240px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+}
+
+.step-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    border-color: #6366f1;
+}
+
+.step-nav-btn.next-step {
+    text-align: right;
+    border-right: 4px solid #4F46E5;
+}
+
+.step-nav-btn.prev-step {
+    text-align: left;
+    border-left: 4px solid #0284c7;
+}
+
+.step-nav-hint {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+}
+
+.step-nav-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Ensure content is not hidden behind bottom bar */
+body {
+    padding-bottom: 120px !important;
+}
+
+@media (max-width: 768px) {
+    .notes-bar-header {
+        flex-wrap: wrap;
+    }
+    .notes-header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .stepper-timeline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .step-arrow-divider {
+        display: none;
+    }
+    .step-nav-bar {
+        flex-direction: column;
+    }
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-On DO Sessions | Building in the Age of AI</title>
+    <link rel="stylesheet" href="notes-bar.css">
     <style>
         :root {
             --primary: #4F46E5;
@@ -910,7 +911,7 @@
     </nav>
 
     <header>
-        <div class="header-badge">🤖 Building In The Age Of AI • Home Studio</div>
+        <div class="header-badge">Step 01 of 05 • Studio &amp; Pre-Shoot Rig</div>
         <h1>Hands-On DO Sessions</h1>
         <p>Deconstructing real-world projects from <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: #93c5fd; text-decoration: underline;">github.com/rifaterdemsahin</a>. Sharing the architecture, mental models, and thought process of building software in the age of AI.</p>
         
@@ -935,6 +936,42 @@
     </header>
 
     <div class="container">
+
+        <!-- Sequential Reading Stepper Banner -->
+        <div class="reading-stepper-wrap">
+            <div class="stepper-header">
+                <div class="stepper-heading">
+                    <span>📖 Sequential Reading Roadmap</span>
+                </div>
+                <span class="stepper-current-badge">Step 01 of 05 • Studio &amp; Rig</span>
+            </div>
+            <div class="stepper-timeline">
+                <a href="index.html" class="step-card active">
+                    <span class="step-card-num">Step 01 (Active)</span>
+                    <span class="step-card-title">🏠 Studio &amp; Rig</span>
+                </a>
+                <span class="step-arrow-divider">➔</span>
+                <a href="lighting.html" class="step-card">
+                    <span class="step-card-num">Step 02</span>
+                    <span class="step-card-title">💡 Lighting &amp; Dark</span>
+                </a>
+                <span class="step-arrow-divider">➔</span>
+                <a href="hard-part.html" class="step-card">
+                    <span class="step-card-num">Step 03</span>
+                    <span class="step-card-title">🎭 The Hard Part</span>
+                </a>
+                <span class="step-arrow-divider">➔</span>
+                <a href="courage.html" class="step-card">
+                    <span class="step-card-num">Step 04</span>
+                    <span class="step-card-title">🔥 Courage to DO</span>
+                </a>
+                <span class="step-arrow-divider">➔</span>
+                <a href="rationale.html" class="step-card">
+                    <span class="step-card-num">Step 05</span>
+                    <span class="step-card-title">💃 The Rationale</span>
+                </a>
+            </div>
+        </div>
 
         <!-- Rationale Callout Banner -->
         <div style="background: linear-gradient(135deg, #1e293b 0%, #1e1b4b 100%); border: 1px solid rgba(165, 180, 252, 0.2); border-radius: 14px; padding: 1.75rem 2rem; margin-bottom: 3.5rem; color: white; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
@@ -1543,6 +1580,18 @@
             </div>
         </div>
 
+        <!-- Sequential Step Jump Controls -->
+        <div class="step-nav-bar">
+            <a href="rationale.html" class="step-nav-btn prev-step">
+                <span class="step-nav-hint">← Step 05 (Previous / Loop)</span>
+                <span class="step-nav-label">💃 Why We DO: The Rationale</span>
+            </a>
+            <a href="lighting.html" class="step-nav-btn next-step">
+                <span class="step-nav-hint">Step 02 (Next Step) →</span>
+                <span class="step-nav-label">💡 A-Roll Lighting &amp; Darkness</span>
+            </a>
+        </div>
+
     </div>
 
     <footer>
@@ -1635,5 +1684,6 @@
 
         document.addEventListener('DOMContentLoaded', loadChecklistState);
     </script>
+    <script src="notes-bar.js" defer></script>
 </body>
 </html>

@@ -33,10 +33,23 @@ These sessions deconstruct real-world open-source repositories from [github.com/
 
 ---
 
+## 💡 The Founder's "Keep Dancing" Rationale
+
+Why run hands-on workshops on Skool when attendance can be sparse?
+
+- **The Founder Keeps Dancing**: When the music plays at the scheduled hour (Monday, Tuesday, Friday), the founder dances. Rain or shine, empty room or packed crowd, the session happens.
+- **Helping Those Left Behind in Fear**: The rapid pace of AI leaves many developers and creators frozen in anxiety. Traditional workshops demand participation, which increases friction. Here, members can quietly drop in, lurk, observe real engineering with all its bugs and triumphs, and ask questions while the founder builds.
+- **The DO Sessions Pile Up**: Every session is recorded, remuxed, and cataloged. Over time, the DO sessions compound into a massive vault of practical builds, allowing members to learn asynchronously at their own pace.
+
+Read the full philosophical breakdown at [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html).
+
+---
+
 ## 🚀 Live Studio Dashboard & Web Links
 
 - 🌐 **Live GitHub Pages Website**: [https://rifaterdemsahin.github.io/handson-do-sessions/](https://rifaterdemsahin.github.io/handson-do-sessions/)
+- 💡 **Live Rationale Page**: [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html)
 - 💻 **Local Development**: [http://localhost:30085/index.html](http://localhost:30085/index.html)
-- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html)
+- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html)
 - 🐙 **GitHub Repository**: [https://github.com/rifaterdemsahin/handson-do-sessions](https://github.com/rifaterdemsahin/handson-do-sessions)
 

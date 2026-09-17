@@ -45,6 +45,18 @@ Read the full philosophical breakdown at [rationale.html](file:///Users/rifaterd
 
 ---
 
+## 📋 5-Stage Studio Production Checklist
+
+1. **Stage 1: Putting Items in Storage (Room Decluttering)**: Clearing laundry, drying racks, desk mugs, loose paperwork, and floor cables out of the camera's sightline.
+2. **Stage 2: Getting Production Materials (Retrieving Gear)**: Unpacking Sony ZV-1 camera, Scarlett 2i2 audio interface, Elgato mic, XLR cables, continuous AC dummy battery, and Cam Link 4K.
+3. **Stage 3: Setting the Background & Visual Environment**: Background depth staging, window blinds closed for daylight control, warm background accent lighting, and 45° soft directional key light.
+4. **Stage 4: Setting Up the Rig (Hardware & Cabling)**: Eye-level camera mounting with AF-C, Clean HDMI out verification, mic positioned 4–6 inches from mouth with 48V phantom power, and Mac M1 connected to wall power.
+5. **Stage 5: Testing & OBS Signal Verification**: Calibrating Scarlett gain halos (green/yellow peaks), OBS audio meter (-12dB to -6dB), 15s clapper test for sync offset (50ms–200ms), and MKV recording validation.
+
+Interactive version with progress tracking available at [index.html#checklist](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html#checklist).
+
+---
+
 ## 🚀 Live Studio Dashboard & Web Links
 
 - 🌐 **Live GitHub Pages Website**: [https://rifaterdemsahin.github.io/handson-do-sessions/](https://rifaterdemsahin.github.io/handson-do-sessions/)

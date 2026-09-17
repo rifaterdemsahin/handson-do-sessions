@@ -1172,65 +1172,119 @@
         <div class="checklist-container" id="checklist">
             <div class="section-header" style="margin-bottom: 0.5rem;">
                 <h2>📋 Pre-Shoot &amp; Production Checklist</h2>
-                <p>Run through this mandatory sequence before hitting "Start Recording" on every single shoot.</p>
+                <p>A rigorous 5-stage operational workflow: from room decluttering and materials retrieval to background staging, rig setup, and signal testing.</p>
             </div>
 
             <div class="progress-label">
-                <span id="progress-text">0 of 9 Completed</span>
+                <span id="progress-text">0 of 20 Completed</span>
                 <span id="progress-pct">0%</span>
             </div>
             <div class="progress-wrapper">
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
 
-            <!-- Category 1 -->
+            <!-- Stage 1 -->
             <div class="checklist-group">
-                <h4>🏠 The Flat / Room Environment</h4>
+                <h4>📦 Stage 1: Putting Items in Storage (Room Decluttering)</h4>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c1">
-                    <span class="check-item-text"><strong>Tidy the Background:</strong> Clear laundry, clothes racks, coffee cups, and visible room clutter from the Sony ZV-1 frame.</span>
+                    <span class="check-item-text"><strong>Clear &amp; Store Laundry:</strong> Put away drying racks, clothes piles, personal garments, and storage boxes out of the camera's line of sight.</span>
                 </label>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c2">
-                    <span class="check-item-text"><strong>Control Lighting:</strong> Close window blinds to block shifting daylight; turn on primary key/fill lights so your face is brighter than the back wall.</span>
+                    <span class="check-item-text"><strong>Clean Desk Surface:</strong> Stow away mugs, water bottles, paperwork, mail, rogue adapters, and unnecessary clutter into drawers or bins.</span>
                 </label>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c3">
-                    <span class="check-item-text"><strong>Kill Acoustic Noise:</strong> Shut off AC, room fans, and robot vacuum; set phone to Silent / Do Not Disturb.</span>
+                    <span class="check-item-text"><strong>Floor Clearance:</strong> Ensure floor area behind the desk and chair is completely clear and cables are tucked neatly away.</span>
                 </label>
             </div>
 
-            <!-- Category 2 -->
+            <!-- Stage 2 -->
             <div class="checklist-group">
-                <h4>📷 Hardware &amp; Rigging</h4>
+                <h4>🎬 Stage 2: Getting Production Materials (Retrieving Gear)</h4>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c4">
-                    <span class="check-item-text"><strong>Sony ZV-1 Camera Check:</strong> Wipe lens clean with microfiber cloth, enable continuous AF (AF-C), verify clean HDMI output, connect continuous power.</span>
+                    <span class="check-item-text"><strong>Retrieve Camera Kit:</strong> Unpack Sony ZV-1 camera body, lens, lens cap, and clean microfiber cloth from storage.</span>
                 </label>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c5">
-                    <span class="check-item-text"><strong>Focusrite Scarlett 2i2 &amp; Mic:</strong> Verify 48V phantom power is ON (if condenser mic), position Elgato mic 4-6 inches away, verify gain halo flashes healthy green (never clipping red).</span>
+                    <span class="check-item-text"><strong>Retrieve Audio Gear:</strong> Take out Focusrite Scarlett 2i2 audio interface, shielded XLR cable, and Elgato microphone (Wave DX or Wave:3).</span>
                 </label>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c6">
-                    <span class="check-item-text"><strong>Mac M1 Prep:</strong> Connect to wall power (avoid battery throttling), close heavy apps (Slack, email, extra browser tabs), turn off OS notification popups.</span>
+                    <span class="check-item-text"><strong>Retrieve Power Supplies:</strong> Get Sony ZV-1 dummy battery / continuous AC adapter, Mac M1 MagSafe/USB-C charger, and power strip.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c7">
+                    <span class="check-item-text"><strong>Retrieve Video Capture:</strong> Get Micro-HDMI cable and Elgato Cam Link 4K (or HDMI-to-USB capture card).</span>
                 </label>
             </div>
 
-            <!-- Category 3 -->
+            <!-- Stage 3 -->
             <div class="checklist-group">
-                <h4>🔴 OBS Studio &amp; Recording Validation</h4>
-                <label class="check-item">
-                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c7">
-                    <span class="check-item-text"><strong>Audio Levels Verification:</strong> Speak naturally into mic; confirm OBS Audio Mixer levels bounce cleanly in the high yellow zone (-12dB to -6dB).</span>
-                </label>
+                <h4>🎨 Stage 3: Setting the Background &amp; Visual Environment</h4>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c8">
-                    <span class="check-item-text"><strong>Scene Switching &amp; Test Clap:</strong> Record a 15-second test clip switching between Talking Head, PIP, and Screen Share. Clap on camera to confirm AV sync offset (50ms - 200ms).</span>
+                    <span class="check-item-text"><strong>Background Staging:</strong> Position minimalist shelf items, small plant, or neutral backdrop to create depth and visual authority.</span>
                 </label>
                 <label class="check-item">
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c9">
-                    <span class="check-item-text"><strong>MKV Recording Active:</strong> Verify recording format is set to MKV under Settings &gt; Output &gt; Recording, then hit "Start Recording"!</span>
+                    <span class="check-item-text"><strong>Daylight Control:</strong> Close window blinds or curtains to block shifting outdoor daylight that alters color balance between takes.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c10">
+                    <span class="check-item-text"><strong>Background Accent Light:</strong> Turn on warm background practical lamp or LED strip to create depth and visual separation from the back wall.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c11">
+                    <span class="check-item-text"><strong>Face Lighting Setup:</strong> Turn off harsh ceiling light; power on key light at 45° angle to illuminate face softly and evenly.</span>
+                </label>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="checklist-group">
+                <h4>⚙️ Stage 4: Setting Up the Rig (Hardware &amp; Connections)</h4>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c12">
+                    <span class="check-item-text"><strong>Mount Sony ZV-1:</strong> Mount securely at eye level, wipe lens surface with microfiber, set to Continuous Autofocus (AF-C) and Manual exposure.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c13">
+                    <span class="check-item-text"><strong>Clean HDMI Out:</strong> Connect Micro-HDMI &rarr; Cam Link 4K &rarr; Mac M1; verify Clean HDMI display output is enabled (no camera OSD icons).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c14">
+                    <span class="check-item-text"><strong>Rig Mic &amp; Audio:</strong> Position Elgato mic 4-6 inches from mouth on boom arm; connect XLR &rarr; Scarlett 2i2 Input 1; activate 48V phantom power (if condenser).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c15">
+                    <span class="check-item-text"><strong>Mac M1 Host Prep:</strong> Plug into wall AC power (prevent battery throttling); close heavy apps (Slack, email, extra browser tabs); disable notification popups.</span>
+                </label>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="checklist-group">
+                <h4>🔴 Stage 5: Testing &amp; OBS Signal Verification</h4>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c16">
+                    <span class="check-item-text"><strong>Scarlett Gain Staging:</strong> Speak at performance volume; calibrate gain dial until halo stays solid green and flashes yellow on peaks (never red).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c17">
+                    <span class="check-item-text"><strong>OBS Audio Levels:</strong> Check OBS Audio Mixer meter; confirm microphone bounces consistently in the yellow zone (-12dB to -6dB).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c18">
+                    <span class="check-item-text"><strong>Clap Sync Offset Test:</strong> Record a 15-second test clip while clapping on camera; play back to verify audio-video sync offset (50ms–200ms).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c19">
+                    <span class="check-item-text"><strong>Scene Switching &amp; Legibility:</strong> Test switching between Scene 1 (Talking Head), Scene 2 (Screen + PIP), and Scene 3 (Full Screen); check code font size is readable.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c20">
+                    <span class="check-item-text"><strong>MKV Recording Active:</strong> Verify recording format is set to MKV in OBS Settings &gt; Output &gt; Recording, then hit "Start Recording"!</span>
                 </label>
             </div>
 

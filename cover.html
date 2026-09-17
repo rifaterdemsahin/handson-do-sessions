@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Cover Image (1460 x 752 px) • Hands-On DO Sessions</title>
+    <link rel="stylesheet" href="notes-bar.css">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #3730A3;
+            --accent: #F59E0B;
+            --success: #10B981;
+            --danger: #EF4444;
+            --dark: #0F172A;
+            --dark-surface: #1E293B;
+            --gray-light: #F8FAFC;
+            --gray-border: #E2E8F0;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        /* Shared Sticky Top Menu */
+        .shared-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-icon {
+            font-size: 1.25rem;
+        }
+
+        .nav-groups {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-drop-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: #cbd5e1;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.45rem 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-drop-btn:hover, .nav-dropdown:focus-within .nav-drop-btn {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            min-width: 250px;
+            padding: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            display: none;
+            flex-direction: column;
+            gap: 0.2rem;
+            z-index: 1001;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+            display: flex;
+        }
+
+        .dropdown-item {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.55rem 0.85rem;
+            font-size: 0.86rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-pill-btn {
+            font-size: 0.84rem;
+            font-weight: 600;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .gh-btn {
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .gh-btn:hover {
+            background: rgba(255, 255, 255, 0.14);
+            color: white;
+        }
+
+        /* Container & Header */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 780px;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Showcase Card */
+        .cover-showcase {
+            background: #131b2e;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            margin-bottom: 3rem;
+        }
+
+        .cover-preview-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #334155;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+            background: #000;
+            line-height: 0;
+        }
+
+        .cover-preview-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .dimension-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(15, 23, 42, 0.88);
+            border: 1px solid #4f46e5;
+            color: #fbbf24;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Action Toolbar */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .toolbar-info {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .info-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 0.92rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+            color: white;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        /* Specs Breakdown Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .spec-card {
+            background: #131b2e;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.75rem;
+        }
+
+        .spec-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .spec-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .spec-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .spec-card li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spec-card li strong {
+            color: #ffffff;
+        }
+
+        /* Skool Placement Blueprint */
+        .placement-box {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            border: 2px solid #6366f1;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .placement-box h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .placement-box p {
+            color: #cbd5e1;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .steps-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .step-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(165, 180, 252, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+        }
+
+        .step-item h4 {
+            color: #a5b4fc;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-item p {
+            color: #94a3b8;
+            font-size: 0.88rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #818cf8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logically Grouped Shared Sticky Top Menu -->
+    <nav class="shared-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-icon">🎬</span>
+                <span class="nav-title">Hands-On DO</span>
+            </a>
+            <div class="nav-groups">
+                <!-- Group 1: Studio & Production -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>🎬 Studio &amp; Production</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">🏠 Studio Dashboard</a>
+                        <a href="lighting.html" class="dropdown-item">💡 A-Roll Lighting &amp; Darkness</a>
+                        <a href="cover.html" class="dropdown-item nav-item-active">🖼️ Official Cover (1460x752)</a>
+                        <a href="index.html#footage-setup" class="dropdown-item">🎥 Background &amp; Footage Setup</a>
+                        <a href="index.html#checklist" class="dropdown-item">📋 5-Stage Pre-Shoot Checklist</a>
+                        <a href="index.html#assistant" class="dropdown-item">🤖 Production Assistant Guide</a>
+                    </div>
+                </div>
+
+                <!-- Group 2: Curriculum & Repos -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>📚 Curriculum &amp; Repos</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="index.html#thought-process" class="dropdown-item">🧠 The Age of AI Thought Process</a>
+                        <a href="index.html#repos" class="dropdown-item">📦 Featured GitHub Repos</a>
+                        <a href="index.html#schedule" class="dropdown-item">📅 3-Day Shoot Cadence</a>
+                        <a href="index.html#pipeline" class="dropdown-item">🚀 Skool + YouTube Pipeline</a>
+                    </div>
+                </div>
+
+                <!-- Group 3: Mindset & Strategy -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>💡 Mindset &amp; Strategy</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="rationale.html" class="dropdown-item">💃 The "Keep Dancing" Rationale</a>
+                        <a href="hard-part.html" class="dropdown-item">🎭 The Hard Part: Be Yourself</a>
+                        <a href="courage.html" class="dropdown-item">🔥 Courage: The Key to the Game</a>
+                        <a href="pivot.html" class="dropdown-item">🔄 The 1-on-1 Pivot</a>
+                    </div>
+                </div>
+
+                <!-- Standalone Action Buttons (All 6 Steps + GitHub) -->
+                <a href="index.html" class="nav-pill-btn gh-btn">🏠 Studio</a>
+                <a href="lighting.html" class="nav-pill-btn gh-btn">💡 Lighting</a>
+                <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
+                <a href="courage.html" class="nav-pill-btn gh-btn">🔥 Courage</a>
+                <a href="rationale.html" class="nav-pill-btn gh-btn">💃 Rationale</a>
+                <a href="pivot.html" class="nav-pill-btn gh-btn">🔄 The Pivot</a>
+                <a href="https://github.com/rifaterdemsahin" target="_blank" class="nav-pill-btn gh-btn">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <header>
+            <div class="header-badge">Official Skool &amp; Video Vault Artwork</div>
+            <h1>Cover Image (1460 x 752 px)</h1>
+            <p>The official high-definition cover graphic for recorded Hands-On DO sessions, formatted exactly to Skool's 1460 x 752 px course specifications.</p>
+        </header>
+
+        <!-- Showcase Banner -->
+        <div class="cover-showcase">
+            <div class="cover-preview-wrapper">
+                <img src="cover.png" alt="Hands-On DO Sessions Official Cover Banner" class="cover-preview-img" width="1460" height="752">
+                <div class="dimension-tag">📐 1460 &times; 752 px</div>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <div class="toolbar-info">
+                    <span class="info-pill"><strong>Format:</strong> PNG (Lossless) + JPG</span>
+                    <span class="info-pill"><strong>Aspect Ratio:</strong> 1.94:1 (~16:9 Skool Course Spec)</span>
+                    <span class="info-pill"><strong>Purpose:</strong> Recorded Masterclass Vault</span>
+                </div>
+                <div class="btn-group">
+                    <a href="cover.png" download="handson-do-cover-1460x752.png" class="action-btn btn-primary">
+                        ⬇️ Download PNG (1460x752)
+                    </a>
+                    <a href="cover.jpg" download="handson-do-cover-1460x752.jpg" class="action-btn btn-secondary">
+                        ⬇️ Download JPG
+                    </a>
+                    <a href="index.html" class="action-btn btn-secondary">
+                        🏠 Studio Dashboard &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specifications Grid -->
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3>🎯 Skool Course Dimensions</h3>
+                <p>Designed strictly to Skool's native course and community cover guidelines to prevent awkward mobile cropping or resolution distortion.</p>
+                <ul>
+                    <li>Width: <strong>1460 px</strong></li>
+                    <li>Height: <strong>752 px</strong></li>
+                    <li>Safe Area: <strong>Text contained within central 85%</strong></li>
+                    <li>Recommended Weight: <strong>Under 2 MB (Optimized)</strong></li>
+                </ul>
+            </div>
+
+            <div class="spec-card">
+                <h3>🎬 Visual Rig Elements</h3>
+                <p>Features authentic equipment from Erdem's studio setup, reinforcing the founder's pledge to never use synthetic AI B-roll.</p>
+                <ul>
+                    <li>Workstation: <strong>Apple Mac Pro (Silver Tower)</strong></li>
+                    <li>Camera Feed: <strong>Sony ZV-1 on Desk Tripod</strong></li>
+                    <li>Audio Staging: <strong>Focusrite Scarlett 2i2 (Green Halos)</strong></li>
+                    <li>Microphone: <strong>Elgato Wave Mic on Boom Arm</strong></li>
+                </ul>
+            </div>
+
+            <div class="spec-card">
+                <h3>📚 The 3-Tier Vault Badges</h3>
+                <p>Explicitly indicates that every recorded session is categorized for progressive learner mastery.</p>
+                <ul>
+                    <li>🟢 Level 1: <strong>Beginner (Prompt-to-Spec &amp; Repos)</strong></li>
+                    <li>🟡 Level 2: <strong>Intermediate (Tool Routing &amp; Boundaries)</strong></li>
+                    <li>🔴 Level 3: <strong>Advanced (Multi-Agent Swarms)</strong></li>
+                    <li>⚡ Platform: <strong>Skool Asynchronous Vault</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Blueprint for Uploading into Skool -->
+        <div class="placement-box">
+            <h3>🚀 How to Apply This Cover to Your Skool Classroom</h3>
+            <p>Follow these 3 quick steps to set this graphic as your community course banner:</p>
+            <div class="steps-list">
+                <div class="step-item">
+                    <h4>1. Download Image</h4>
+                    <p>Click the <strong>Download PNG</strong> button above to save <code>handson-do-cover-1460x752.png</code> to your Mac.</p>
+                </div>
+                <div class="step-item">
+                    <h4>2. Open Skool Classroom</h4>
+                    <p>Navigate to your Skool Community &rarr; <strong>Classroom</strong> tab &rarr; Select or create <em>"Hands-On DO Sessions"</em>.</p>
+                </div>
+                <div class="step-item">
+                    <h4>3. Upload Course Cover</h4>
+                    <p>Click <strong>Edit Course</strong> &rarr; <strong>Change Cover</strong> &rarr; Upload the 1460 &times; 752 px image and hit Save.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hands-On DO Sessions &bull; Official Graphics &bull; Built by <a href="https://github.com/rifaterdemsahin" target="_blank">Rifat Erdem Sahin</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <a href="index.html">Studio Dashboard</a> &bull;
+            <a href="cover.html">Cover Image (1460x752)</a> &bull;
+            <a href="lighting.html">Lighting &amp; Darkness</a> &bull;
+            <a href="hard-part.html">The Hard Part</a> &bull;
+            <a href="courage.html">Courage</a> &bull;
+            <a href="rationale.html">Rationale</a> &bull;
+            <a href="pivot.html">The Pivot</a>
+        </p>
+    </footer>
+
+    <script src="notes-bar.js" defer></script>
+</body>
+</html>

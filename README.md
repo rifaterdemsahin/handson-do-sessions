@@ -147,9 +147,21 @@ All pages feature a docked, expandable notes bottom bar (`notes-bar.js` + `notes
 
 ---
 
+## 🖼️ Official Cover Image (1460 x 752 px)
+
+Official course graphic tailored specifically for Skool Community Classrooms and recorded technical video vault cards:
+- **Dimensions**: Exactly `1460 x 752 px` (~1.94:1 aspect ratio matching native Skool course specs).
+- **Artwork**: Features authentic Apple Mac Pro workstation, Sony ZV-1 camera, Scarlett 2i2 audio interface, and Wave microphone with Rembrandt low-key studio lighting.
+- **Branding**: Displays the 3 progressive mastery tiers (Level 1: Beginner, Level 2: Intermediate, Level 3: Advanced) and GitHub repository link.
+- **Files**: Lossless PNG at [`cover.png`](file:///Users/rifaterdemsahin/projects/handson-do-sessions/cover.png) and [`assets/cover-1460x752.png`](file:///Users/rifaterdemsahin/projects/handson-do-sessions/assets/cover-1460x752.png).
+- **Interactive Showcase**: View and download directly from [cover.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/cover.html) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/cover.html](https://rifaterdemsahin.github.io/handson-do-sessions/cover.html).
+
+---
+
 ## 🚀 Live Studio Dashboard & Web Links
 
 - 🌐 **Live GitHub Pages Website**: [https://rifaterdemsahin.github.io/handson-do-sessions/](https://rifaterdemsahin.github.io/handson-do-sessions/)
+- 🖼️ **Official Cover Image Showcase (1460x752)**: [https://rifaterdemsahin.github.io/handson-do-sessions/cover.html](https://rifaterdemsahin.github.io/handson-do-sessions/cover.html)
 - 🏠 **Step 01 — Studio Dashboard & Rig**: [https://rifaterdemsahin.github.io/handson-do-sessions/index.html](https://rifaterdemsahin.github.io/handson-do-sessions/index.html)
 - 💡 **Step 02 — Lighting & Darkness**: [https://rifaterdemsahin.github.io/handson-do-sessions/lighting.html](https://rifaterdemsahin.github.io/handson-do-sessions/lighting.html)
 - 🎭 **Step 03 — The Hard Part (Be Yourself)**: [https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html](https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html)
@@ -157,7 +169,7 @@ All pages feature a docked, expandable notes bottom bar (`notes-bar.js` + `notes
 - 💃 **Step 05 — Keep Dancing Rationale**: [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html)
 - 🔄 **Step 06 — The Strategic Pivot**: [https://rifaterdemsahin.github.io/handson-do-sessions/pivot.html](https://rifaterdemsahin.github.io/handson-do-sessions/pivot.html)
 - 💻 **Local Development**: [http://localhost:30085/index.html](http://localhost:30085/index.html)
-- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [lighting.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/lighting.html) | [hard-part.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/hard-part.html) | [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html) | [pivot.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/pivot.html)
+- 📄 **Source HTML**: [cover.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/cover.html) | [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [lighting.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/lighting.html) | [hard-part.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/hard-part.html) | [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html) | [pivot.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/pivot.html)
 - 🐙 **GitHub Repository**: [https://github.com/rifaterdemsahin/handson-do-sessions](https://github.com/rifaterdemsahin/handson-do-sessions)
 
 

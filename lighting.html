@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Roll Lighting & Darkness | Hands-On DO Sessions</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --primary-light: #EEF2FF;
+            --secondary: #0284c7;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --gold: #fbbf24;
+            --success: #10B981;
+            --dark: #0f172a;
+            --dark-surface: #1e293b;
+            --dark-card: #182234;
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* Logically Grouped Shared Sticky Top Menu */
+        .shared-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-brand:hover {
+            color: #c7d2fe;
+        }
+
+        .nav-icon {
+            font-size: 1.25rem;
+        }
+
+        .nav-groups {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-drop-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: #cbd5e1;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.45rem 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-drop-btn:hover, .nav-dropdown:focus-within .nav-drop-btn {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .drop-arrow {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown:hover .drop-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 0.5rem;
+            min-width: 250px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            display: none;
+            flex-direction: column;
+            gap: 0.25rem;
+            z-index: 1001;
+            margin-top: 0.35rem;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+            display: flex;
+        }
+
+        .dropdown-item {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.55rem 0.85rem;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff;
+            background: rgba(79, 70, 229, 0.3);
+        }
+
+        .nav-pill-btn {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .highlight-btn {
+            background: #e11d48;
+            color: white;
+        }
+
+        .highlight-btn:hover {
+            background: #be123c;
+        }
+
+        .highlight-gold {
+            background: #f59e0b;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .highlight-gold:hover {
+            background: #d97706;
+            color: white;
+        }
+
+        .gh-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #f1f5f9;
+        }
+
+        .gh-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* Hero */
+        header {
+            background: linear-gradient(135deg, #090d16 0%, #172554 50%, #0f172a 100%);
+            color: white;
+            padding: 4.5rem 2rem 3.5rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            color: #fef3c7;
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        header h1 {
+            font-size: 2.9rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 760px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem;
+        }
+
+        /* Hero Quote */
+        .hero-quote {
+            background: #ffffff;
+            border-left: 6px solid var(--accent);
+            padding: 2.25rem 2.5rem;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-quote blockquote {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .hero-quote cite {
+            display: block;
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Core Philosophy Banner */
+        .canvas-banner {
+            background: #0f172a;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 3.5rem;
+            border: 1px solid #334155;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .canvas-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #f8fafc;
+        }
+
+        .canvas-text p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .canvas-metric-box {
+            background: #1e293b;
+            border: 1px solid #475569;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .canvas-metric {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .canvas-metric:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .canvas-metric span {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .canvas-metric strong {
+            color: #fbbf24;
+            font-size: 1rem;
+        }
+
+        /* Lighting Setup Cards */
+        .light-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease;
+        }
+
+        .light-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .icon-darkness { background: #0f172a; color: #fbbf24; border: 1px solid #334155; }
+        .icon-key { background: #eff6ff; color: #2563eb; }
+        .icon-shadow { background: #f1f5f9; color: #475569; }
+        .icon-bg { background: #fef3c7; color: #b45309; }
+        .icon-sony { background: #fdf2f8; color: #db2777; }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .card-header .badge {
+            margin-left: auto;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-dark { background: #0f172a; color: #f8fafc; }
+        .badge-amber { background: #fef3c7; color: #92400e; }
+        .badge-blue { background: #e0f2fe; color: #0369a1; }
+        .badge-pink { background: #fce7f3; color: #9d174d; }
+
+        .light-card p {
+            font-size: 1.05rem;
+            color: #334155;
+            margin-bottom: 1.2rem;
+        }
+
+        /* 3-Point Studio Schematic */
+        .diagram-container {
+            background: #0b1120;
+            border: 1px solid #1e293b;
+            border-radius: 14px;
+            padding: 2rem;
+            color: white;
+            margin: 1.75rem 0;
+            font-family: monospace;
+        }
+
+        .diagram-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .schematic-box {
+            background: #020617;
+            border: 1px dashed #334155;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            line-height: 1.8;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            overflow-x: auto;
+        }
+
+        .schematic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .schematic-item {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .schematic-item strong {
+            display: block;
+            color: #fbbf24;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .schematic-item p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Action Checklist */
+        .action-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .action-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            background: #f8fafc;
+            padding: 0.85rem 1.1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            font-size: 0.98rem;
+            color: #1e293b;
+        }
+
+        .action-list li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: 800;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+
+        /* Camera Spec Table */
+        .spec-table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .spec-table th {
+            background: #0f172a;
+            color: #f8fafc;
+            text-align: left;
+            padding: 0.85rem 1.25rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+        }
+
+        .spec-table td {
+            padding: 0.85rem 1.25rem;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .spec-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .spec-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .spec-tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Before vs After comparison */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .comp-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid;
+        }
+
+        .comp-bad {
+            background: #fff1f2;
+            border-color: #fecdd3;
+        }
+
+        .comp-bad h3 {
+            color: #be123c;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comp-good {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+
+        .comp-good h3 {
+            color: #15803d;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comp-list {
+            list-style: none;
+            font-size: 0.92rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .comp-bad .comp-list li::before {
+            content: "✕ ";
+            color: #e11d48;
+            font-weight: bold;
+        }
+
+        .comp-good .comp-list li::before {
+            content: "✓ ";
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            margin-top: 3.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.1rem; }
+            .canvas-banner { grid-template-columns: 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .nav-groups { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logically Grouped Shared Sticky Top Menu -->
+    <nav class="shared-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-icon">🎬</span>
+                <span class="nav-title">Hands-On DO</span>
+            </a>
+            <div class="nav-groups">
+                <!-- Group 1: Studio & Production -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>🎬 Studio &amp; Production</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">🏠 Studio Dashboard</a>
+                        <a href="lighting.html" class="dropdown-item" style="color: #fbbf24; font-weight: 700;">💡 A-Roll Lighting &amp; Darkness</a>
+                        <a href="index.html#footage-setup" class="dropdown-item">🎥 Background &amp; Footage Setup</a>
+                        <a href="index.html#checklist" class="dropdown-item">📋 5-Stage Pre-Shoot Checklist</a>
+                        <a href="index.html#assistant" class="dropdown-item">🤖 Production Assistant Guide</a>
+                    </div>
+                </div>
+
+                <!-- Group 2: Curriculum & Repos -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>📚 Curriculum &amp; Repos</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="index.html#thought-process" class="dropdown-item">🧠 The Age of AI Thought Process</a>
+                        <a href="index.html#repos" class="dropdown-item">📦 Featured GitHub Repos</a>
+                        <a href="index.html#schedule" class="dropdown-item">📅 3-Day Shoot Cadence</a>
+                        <a href="index.html#pipeline" class="dropdown-item">🚀 Skool + YouTube Pipeline</a>
+                    </div>
+                </div>
+
+                <!-- Group 3: Mindset & Philosophy -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>💡 Mindset &amp; Philosophy</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="rationale.html" class="dropdown-item">💃 The "Keep Dancing" Rationale</a>
+                        <a href="hard-part.html" class="dropdown-item">🎭 The Hard Part: Be Yourself</a>
+                        <a href="courage.html" class="dropdown-item">🔥 Courage: The Key to the Game</a>
+                    </div>
+                </div>
+
+                <!-- Standalone Action Buttons -->
+                <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
+                <a href="lighting.html" class="nav-pill-btn highlight-gold">💡 Lighting</a>
+                <a href="courage.html" class="nav-pill-btn highlight-btn">🔥 Courage</a>
+                <a href="https://github.com/rifaterdemsahin" target="_blank" class="nav-pill-btn gh-btn">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-badge">💡 Flat Room Studio Mastery</div>
+        <h1>A-Roll Lighting &amp; Darkness</h1>
+        <p>Using darkness as your canvas and directional light as your brush to create cinematic depth inside an everyday flat room.</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero Quote -->
+        <div class="hero-quote">
+            <blockquote>
+                "Amateurs turn on all the lights in the room and wonder why the shot looks cheap, noisy, and flat. Professionals turn off every single light first, embrace the darkness as their blank canvas, and paint only what matters onto the sensor."
+            </blockquote>
+            <cite>— Studio Principle &bull; Hands-On DO Production Framework</cite>
+        </div>
+
+        <!-- The Canvas Philosophy Banner -->
+        <div class="canvas-banner">
+            <div class="canvas-text">
+                <h2>Darkness is Not the Absence of Light. It is Negative Space.</h2>
+                <p>In a small London flat or home office, you do not have 20 feet of separation between your desk and the back wall. If you flood the room with light, you illuminate clutter, flatten depth, and reveal every domestic distraction.</p>
+                <p>When you start from pitch blackness, you only expose what you intentionally sculpt: your face, your hands on the keyboard, and a subtle warm rim that separates you from the deep void.</p>
+            </div>
+            <div class="canvas-metric-box">
+                <div class="canvas-metric">
+                    <span>Ceiling Ambient Lights:</span>
+                    <strong style="color: #ef4444;">100% OFF (Blackout)</strong>
+                </div>
+                <div class="canvas-metric">
+                    <span>Key Light Spill on Wall:</span>
+                    <strong style="color: #fbbf24;">0% (Honeycomb Grid)</strong>
+                </div>
+                <div class="canvas-metric">
+                    <span>Contrast Ratio (Key:Shadow):</span>
+                    <strong>4:1 (Rembrandt Depth)</strong>
+                </div>
+                <div class="canvas-metric">
+                    <span>Sony ZV-1 Aperture:</span>
+                    <strong style="color: #38bdf8;">f/1.8 – f/2.0 (Shallow DoF)</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Before & After Comparison -->
+        <div class="comparison-grid">
+            <div class="comp-card comp-bad">
+                <h3>⚠️ The "Overlit Flat Room" Trap</h3>
+                <ul class="comp-list">
+                    <li>Ceiling light turned on: casts harsh unflattering downward shadows under nose &amp; eyes.</li>
+                    <li>Light bounces indiscriminately off white walls, destroying all cinematic contrast.</li>
+                    <li>Background clutter (doors, laundry, wires, cabinets) is brightly lit and distracting.</li>
+                    <li>Webcam or auto-ISO blows out face highlights while making dark areas noisy.</li>
+                    <li>Viewer feels like they are watching an uninspired corporate Zoom call.</li>
+                </ul>
+            </div>
+            <div class="comp-card comp-good">
+                <h3>✨ The "Cinematic Darkness" Formula</h3>
+                <ul class="comp-list">
+                    <li>Room in total darkness: blinds drawn, ceiling fixtures completely off.</li>
+                    <li>Single soft Key Light (5600K) placed 45° to the side, feathered with a grid.</li>
+                    <li>Shadow side creates dimensional facial contour (Rembrandt light triangle).</li>
+                    <li>Background falls into clean, quiet, atmospheric darkness (#0f172a).</li>
+                    <li>Warm 2700K practical lamp creates edge separation and cozy depth.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 1: The 4-Zone Lighting Blueprint -->
+        <div class="light-card">
+            <div class="card-header">
+                <div class="icon-box icon-darkness">🌑</div>
+                <h2>The 4-Zone Low-Key Studio Blueprint</h2>
+                <span class="badge badge-dark">Step-By-Step</span>
+            </div>
+            <p>To turn your flat into an intimate, high-production coding studio, arrange your lighting into four strictly controlled zones:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title">
+                    <span>Top-Down Studio Layout ASCII Blueprint</span>
+                    <span>Sony ZV-1 + Mac M1 Setup</span>
+                </div>
+                <div class="schematic-box">
+[ BACK WALL: Darkened / Shadow Zone ]
+               ▲
+               │  Warm Accent Lamp (2700K practical / rim)
+               │
+      [ YOU / CREATOR ] ◄─── (Negative Fill / Black side)
+          /         \
+         /           \  45° Angle Softbox + Grid
+        /             \ (Key Light: 5600K daylight)
+       ▼               ▼
+ [Scarlett 2i2]   [Elgato Mic]
+       │               │
+       └───────┬───────┘
+               ▼
+      [ SONY ZV-1 CAMERA ] (Eye Level, f/1.8, 1/120s)
+               │
+         Clean HDMI
+               │
+        [ MAC M1 / OBS ] (Recording A-Roll &amp; Screen)
+                </div>
+
+                <div class="schematic-grid">
+                    <div class="schematic-item">
+                        <strong>Zone 1: The Key Light</strong>
+                        <p>Large diffused softbox at 45° angle, slightly above eye level. Honeycomb grid keeps beam focused on face, 0% spill on back wall.</p>
+                    </div>
+                    <div class="schematic-item">
+                        <strong>Zone 2: Negative Fill</strong>
+                        <p>Absorb bounce on the off-camera side using dark clothing, black foam core, or curtains. Don't let white walls fill the shadow.</p>
+                    </div>
+                    <div class="schematic-item">
+                        <strong>Zone 3: Accent / Edge Light</strong>
+                        <p>Warm 2700K practical desk lamp behind your shoulder. Paints a delicate golden rim on hair and shoulder, separating you from the void.</p>
+                    </div>
+                    <div class="schematic-item">
+                        <strong>Zone 4: Controlled Falloff</strong>
+                        <p>Distance is your friend. Place desk 1.5m to 2m away from the back wall so inverse-square law causes light to fall into deep slate shadow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Sony ZV-1 Camera Exposure Settings -->
+        <div class="light-card">
+            <div class="card-header">
+                <div class="icon-box icon-sony">📷</div>
+                <h2>Sony ZV-1 Exposure &amp; Sensor Calibration</h2>
+                <span class="badge badge-pink">Hardware Settings</span>
+            </div>
+            <p>The Sony ZV-1 features a 1-inch sensor and a fast Zeiss 24-70mm equivalent lens (f/1.8 – f/2.8). When shooting in low-key lighting, never use Auto Mode. Lock manual exposure so your video stays completely stable:</p>
+
+            <div class="spec-table-wrap">
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Recommended Value</th>
+                            <th>Why It Matters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Shooting Mode</strong></td>
+                            <td><span class="spec-tag">Manual (M) Video</span></td>
+                            <td>Prevents auto-exposure breathing as you move hands or glance at code.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aperture</strong></td>
+                            <td><span class="spec-tag">f/1.8 – f/2.2</span></td>
+                            <td>Maximizes light gathering and yields soft, natural optical background blur.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shutter Speed</strong></td>
+                            <td><span class="spec-tag">1/120s (at 60fps)</span> or <span class="spec-tag">1/50s (at 24fps)</span></td>
+                            <td>The 180° shutter rule gives cinematic, natural motion blur to hand typing.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ISO</strong></td>
+                            <td><span class="spec-tag">ISO 125 – 400</span></td>
+                            <td>Keep ISO low to eliminate digital sensor noise in the dark shadow areas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>White Balance</strong></td>
+                            <td><span class="spec-tag">Custom: 5600K (Kelvin)</span></td>
+                            <td>Lock white balance to match your key light daylight temperature exactly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Focus Mode</strong></td>
+                            <td><span class="spec-tag">Continuous AF + Real-time Eye AF</span></td>
+                            <td>Sony's legendary eye-tracking locks onto your face even when typing or gesturing.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HDMI Clean Out</strong></td>
+                            <td><span class="spec-tag">Clean HDMI Output: ON</span></td>
+                            <td>Removes icons, battery bars, and focus squares from Mac M1 capture stream.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 3: The Pre-Shoot Lighting Checklist -->
+        <div class="light-card">
+            <div class="card-header">
+                <div class="icon-box icon-key">💡</div>
+                <h2>5-Minute Pre-Shoot Lighting Routine</h2>
+                <span class="badge badge-amber">Pre-Flight</span>
+            </div>
+            <p>Follow this exact ritual every Monday, Tuesday, and Friday before pressing Record in OBS:</p>
+
+            <ul class="action-list">
+                <li><strong>Kill the Room:</strong> Close window curtains/blinds completely. Turn off all ceiling bulbs, fluorescent overheads, and hall lights.</li>
+                <li><strong>Power Key Light:</strong> Switch on the 5600K softbox. Verify the honeycomb grid is attached and angled 45° across your face.</li>
+                <li><strong>Check Shadow Falloff:</strong> Look at your monitor in OBS. Verify you have a natural Rembrandt shadow triangle on your off-key cheek.</li>
+                <li><strong>Power the Background Practical:</strong> Turn on your warm accent lamp or subtle blue/amber background rim. Confirm it adds depth without bouncing forward.</li>
+                <li><strong>Wave-Test the Waveform / Zebra:</strong> Check that your forehead skin highlights do not exceed 70% IRE (no blown highlights on face).</li>
+                <li><strong>Microphone Positioning:</strong> Check that your Elgato mic is angled 4-6 inches from mouth into Scarlett 2i2, outside of camera eye-line.</li>
+            </ul>
+        </div>
+
+        <!-- Section 4: Why Darkness Powers The Age of AI Content -->
+        <div class="light-card">
+            <div class="card-header">
+                <div class="icon-box icon-bg">🎨</div>
+                <h2>Why Low-Key Lighting Fits "Hands-On DO"</h2>
+                <span class="badge badge-blue">Aesthetic Strategy</span>
+            </div>
+            <p>Our curriculum is not about generic corporate lectures. It is about an engineer sitting in his flat, building deep codebases (<a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">github.com/rifaterdemsahin</a>), and reasoning aloud in the age of AI.</p>
+            <p>Darkness creates an atmosphere of focus and intensity. When the viewer watches your video on Skool or YouTube, the outside world fades away. All that exists is your face, your hands, your terminal, and the code coming alive on screen.</p>
+            <p>You don't need a million-dollar studio. You just need to respect the darkness and direct the light with intention.</p>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>Ready to Step in Front of the Camera?</h2>
+            <p>Now that your lighting and camera are calibrated, face the real challenge: being yourself and having the courage to build live.</p>
+            <div class="cta-buttons">
+                <a href="hard-part.html" class="btn btn-primary">🎭 The Hard Part: Be Yourself</a>
+                <a href="courage.html" class="btn btn-secondary">🔥 The Courage to DO</a>
+                <a href="index.html#checklist" class="btn btn-secondary">📋 Return to Checklist</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hands-On DO Sessions &bull; Built by <a href="https://github.com/rifaterdemsahin" target="_blank">Rifat Erdem Sahin</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #94a3b8;">
+            <a href="index.html">Studio Dashboard</a> &bull;
+            <a href="lighting.html">Lighting &amp; Darkness</a> &bull;
+            <a href="hard-part.html">The Hard Part</a> &bull;
+            <a href="courage.html">Courage</a> &bull;
+            <a href="rationale.html">Rationale</a> &bull;
+            <a href="https://github.com/rifaterdemsahin" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>

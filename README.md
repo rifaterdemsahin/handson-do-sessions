@@ -79,13 +79,41 @@ Read the full deep-dive at [courage.html](file:///Users/rifaterdemsahin/projects
 
 ---
 
+## 🎭 The Hard Part: Being Yourself on Camera
+
+Technical hurdles and gear setups are solvable problems. The truly hard part of creating hands-on technical content is dropping the performance mask and daring to be completely yourself on camera:
+
+- **The Myth of the YouTube Persona**: You don't need a high-energy broadcast announcer voice. Real developers connect with calm, thoughtful, authentic builders.
+- **Vulnerability as an Uncopyable Moat**: In an era where AI can synthesize tutorials, generate slides, and clone code, your genuine, unscripted reasoning and human voice are your only irreplaceable assets.
+- **Silence the Inner Director**: Don't pause to judge your accent, your facial expressions, or a minor stumble. Keep typing, keep speaking, keep building.
+
+Read the full deep-dive at [hard-part.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/hard-part.html) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html](https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html).
+
+---
+
+## 💡 A-Roll Cinematic Lighting: Using Darkness & Light to Shape the Frame
+
+How to achieve cinematic, high-end YouTube/Skool footage in a standard flat room without thousands in studio gear:
+
+- **Darkness is Your Canvas**: Turn off all overhead ceiling lights and blackout window blinds. Don't fight ambient clutter—cast it into shadow.
+- **Directional Key Light + Honeycomb Grid**: Position a 5600K softbox at a 45° angle. The grid restricts beam spill, keeping the background in deep moody slate (#0f172a).
+- **Negative Fill & Rembrandt Lighting**: Allow one side of your face to fall into natural contour shadow to create dimensional cinematic depth.
+- **Warm 2700K Accent Lamp**: Place a warm practical lamp behind your shoulder to sculpt a subtle golden rim, separating you from the dark background.
+- **Sony ZV-1 Manual Exposure Settings**: Manual video mode, aperture `f/1.8`–`f/2.2`, shutter speed `1/120s` (at 60fps), `ISO 125`–`400`, custom white balance locked at 5600K, Real-time Eye AF enabled, Clean HDMI Out enabled.
+
+Read the full guide at [lighting.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/lighting.html) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/lighting.html](https://rifaterdemsahin.github.io/handson-do-sessions/lighting.html).
+
+---
+
 ## 🚀 Live Studio Dashboard & Web Links
 
 - 🌐 **Live GitHub Pages Website**: [https://rifaterdemsahin.github.io/handson-do-sessions/](https://rifaterdemsahin.github.io/handson-do-sessions/)
-- 💡 **Live Keep Dancing Rationale**: [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html)
+- 💡 **Live A-Roll Lighting & Darkness**: [https://rifaterdemsahin.github.io/handson-do-sessions/lighting.html](https://rifaterdemsahin.github.io/handson-do-sessions/lighting.html)
+- 🎭 **Live The Hard Part (Be Yourself)**: [https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html](https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html)
 - 🔥 **Live Courage to DO Page**: [https://rifaterdemsahin.github.io/handson-do-sessions/courage.html](https://rifaterdemsahin.github.io/handson-do-sessions/courage.html)
+- 💃 **Live Keep Dancing Rationale**: [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html)
 - 💻 **Local Development**: [http://localhost:30085/index.html](http://localhost:30085/index.html)
-- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html) | [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html)
+- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [lighting.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/lighting.html) | [hard-part.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/hard-part.html) | [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html)
 - 🐙 **GitHub Repository**: [https://github.com/rifaterdemsahin/handson-do-sessions](https://github.com/rifaterdemsahin/handson-do-sessions)
 
 

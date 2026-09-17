@@ -57,11 +57,35 @@ Interactive version with progress tracking available at [index.html#checklist](f
 
 ---
 
+## 🔥 The Courage to DO: Key to the Game
+
+Technical brilliance without courage is just unpublished code on a local machine. Why courage is the foundational driver of the whole production system:
+
+- **The Courage to Be Imperfect**: Showing real runtime errors, failed prompts, and syntax bugs on camera normalizes the struggle and builds authentic trust.
+- **The Courage to Shoot for an Empty Room**: Performing for the immortal archive on Skool rather than waiting for immediate live applause.
+- **The 5-Second Courage Countdown**: (5) Clear only what's in the lens frame &rarr; (4) Flip the 3 power switches &rarr; (3) Sit in the chair with mic to mouth &rarr; (2) Hit Start Recording &rarr; (1) *"Welcome back to Hands-On DO."*
+
+Read the full deep-dive at [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/courage.html](https://rifaterdemsahin.github.io/handson-do-sessions/courage.html).
+
+---
+
+## 🤖 Production Assistant Protocol & Visual Setup
+
+- **7-Minute Launch Protocol**: "Lens-only" decluttering (never tidy the whole room before shooting), 3-switch hardware boot, 5-second sit-down rule, and the never-stop stumble recovery.
+- **Visuals on the Footage**:
+  - *Optical Bokeh*: Sony ZV-1 aperture set to `f/1.8`–`f/2.8` creating creamy depth of field from flat walls.
+  - *Color Temperature Separation*: 5600K crisp daylight key light on face vs 2700K warm background lamp.
+  - *The 3 Scenes*: Scene 1 (Talking Head / Hook) &bull; Scene 2 (Screen Share + 20% PIP Facecam at 135% editor zoom) &bull; Scene 3 (Clean Full Screen Monitor for architecture diagrams and logs).
+
+---
+
 ## 🚀 Live Studio Dashboard & Web Links
 
 - 🌐 **Live GitHub Pages Website**: [https://rifaterdemsahin.github.io/handson-do-sessions/](https://rifaterdemsahin.github.io/handson-do-sessions/)
-- 💡 **Live Rationale Page**: [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html)
+- 💡 **Live Keep Dancing Rationale**: [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html)
+- 🔥 **Live Courage to DO Page**: [https://rifaterdemsahin.github.io/handson-do-sessions/courage.html](https://rifaterdemsahin.github.io/handson-do-sessions/courage.html)
 - 💻 **Local Development**: [http://localhost:30085/index.html](http://localhost:30085/index.html)
-- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html)
+- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html) | [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html)
 - 🐙 **GitHub Repository**: [https://github.com/rifaterdemsahin/handson-do-sessions](https://github.com/rifaterdemsahin/handson-do-sessions)
+
 

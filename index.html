@@ -664,12 +664,12 @@
             font-size: 0.9rem;
         }
 
-        /* Shared Sticky Top Menu */
+        /* Logically Grouped Shared Sticky Top Menu */
         .shared-nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.94);
+            background: rgba(15, 23, 42, 0.96);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -679,11 +679,11 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0.8rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .nav-brand {
@@ -692,7 +692,7 @@
             gap: 0.6rem;
             color: white;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.05rem;
             letter-spacing: -0.01em;
             white-space: nowrap;
@@ -706,52 +706,121 @@
             font-size: 1.25rem;
         }
 
-        .nav-links {
+        .nav-groups {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            overflow-x: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
-        .nav-links::-webkit-scrollbar {
-            display: none;
+        .nav-dropdown {
+            position: relative;
         }
 
-        .nav-link {
-            color: #94a3b8;
-            text-decoration: none;
+        .nav-drop-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: #cbd5e1;
             font-size: 0.88rem;
             font-weight: 600;
             padding: 0.45rem 0.8rem;
-            border-radius: 6px;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-
-        .nav-link:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .nav-link.active {
-            color: #ffffff;
-            background: var(--primary);
-        }
-
-        .nav-link-gh {
+            border-radius: 8px;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #e2e8f0;
+            transition: all 0.2s ease;
         }
 
-        .nav-link-gh:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .nav-drop-btn:hover, .nav-dropdown:focus-within .nav-drop-btn {
             color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .drop-arrow {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-dropdown:hover .drop-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 0.5rem;
+            min-width: 240px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            display: none;
+            flex-direction: column;
+            gap: 0.25rem;
+            z-index: 1001;
+            margin-top: 0.35rem;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu {
+            display: flex;
+        }
+
+        .dropdown-item {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.55rem 0.85rem;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .dropdown-item:hover {
+            color: #ffffff;
+            background: rgba(79, 70, 229, 0.3);
+        }
+
+        .nav-pill-btn {
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .highlight-btn {
+            background: #f43f5e;
+            color: white;
+        }
+
+        .highlight-btn:hover {
+            background: #e11d48;
+            transform: translateY(-1px);
+        }
+
+        .gh-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #f1f5f9;
+        }
+
+        .gh-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         @media (max-width: 960px) {
@@ -761,9 +830,8 @@
                 padding: 0.6rem 1rem;
                 gap: 0.6rem;
             }
-            .nav-links {
+            .nav-groups {
                 justify-content: flex-start;
-                padding-bottom: 0.2rem;
             }
         }
 
@@ -779,21 +847,57 @@
 </head>
 <body>
 
-    <!-- Shared Sticky Top Menu -->
+    <!-- Logically Grouped Shared Sticky Top Menu -->
     <nav class="shared-nav">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">
                 <span class="nav-icon">🎬</span>
-                <span class="nav-title">Hands-On DO Sessions</span>
+                <span class="nav-title">Hands-On DO</span>
             </a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link active">🏠 Dashboard</a>
-                <a href="rationale.html" class="nav-link">💡 Keep Dancing Rationale</a>
-                <a href="#thought-process" class="nav-link">🧠 AI Thought Process</a>
-                <a href="#repos" class="nav-link">📦 Repositories</a>
-                <a href="#schedule" class="nav-link">📅 3-Day Schedule</a>
-                <a href="#checklist" class="nav-link">📋 Pre-Shoot Checklist</a>
-                <a href="https://github.com/rifaterdemsahin" target="_blank" class="nav-link nav-link-gh">
+            <div class="nav-groups">
+                <!-- Group 1: Studio & Production -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>🎬 Studio &amp; Production</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">🏠 Studio Dashboard</a>
+                        <a href="#footage-setup" class="dropdown-item">🎥 Background &amp; Footage Setup</a>
+                        <a href="#checklist" class="dropdown-item">📋 5-Stage Pre-Shoot Checklist</a>
+                        <a href="#assistant" class="dropdown-item">🤖 Production Assistant Guide</a>
+                    </div>
+                </div>
+
+                <!-- Group 2: Curriculum & Repos -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>📚 Curriculum &amp; Repos</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#thought-process" class="dropdown-item">🧠 The Age of AI Thought Process</a>
+                        <a href="#repos" class="dropdown-item">📦 Featured GitHub Repos</a>
+                        <a href="#schedule" class="dropdown-item">📅 3-Day Shoot Cadence</a>
+                        <a href="#pipeline" class="dropdown-item">🚀 Skool + YouTube Pipeline</a>
+                    </div>
+                </div>
+
+                <!-- Group 3: Mindset & Philosophy -->
+                <div class="nav-dropdown">
+                    <button class="nav-drop-btn">
+                        <span>💡 Mindset &amp; Philosophy</span>
+                        <span class="drop-arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="rationale.html" class="dropdown-item">💃 The "Keep Dancing" Rationale</a>
+                        <a href="courage.html" class="dropdown-item">🔥 Courage: The Key to the Game</a>
+                    </div>
+                </div>
+
+                <!-- Standalone Action Buttons -->
+                <a href="courage.html" class="nav-pill-btn highlight-btn">🔥 Courage</a>
+                <a href="https://github.com/rifaterdemsahin" target="_blank" class="nav-pill-btn gh-btn">
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
                     GitHub
                 </a>
@@ -813,6 +917,9 @@
             </a>
             <a href="rationale.html" class="header-btn header-btn-primary">
                 💡 The "Keep Dancing" Rationale
+            </a>
+            <a href="courage.html" class="header-btn" style="background: #f43f5e; color: white;">
+                🔥 The Courage to DO
             </a>
             <a href="#schedule" class="header-btn header-btn-gh">
                 📅 3-Day Shoot Schedule
@@ -1164,6 +1271,124 @@
                         <strong>3. Full Screen Share (Deep Architecture)</strong>
                         <p>100% monitor capture for terminal logs, complex multi-agent event timelines, or deep code teardowns where PIP would block text.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Visuals Setup & What's On The Footage -->
+        <div class="specs-section" id="footage-setup">
+            <div class="section-header" style="margin-bottom: 1rem;">
+                <h2>🎥 Background Visuals &amp; What's On The Footage</h2>
+                <p>Creating a cinematic, professional broadcast frame in a flat room, and calibrating exactly what your viewers see on every take.</p>
+            </div>
+
+            <!-- Background Visuals Grid -->
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <h4>✨ Optical Bokeh &amp; Camera Separation</h4>
+                    <p>How to make a flat bedroom look like a million-dollar studio:</p>
+                    <ul>
+                        <li><strong>Aperture (f/1.8 – f/2.8):</strong> Open the Sony ZV-1 lens wide to create genuine optical depth of field. This blurs flat walls and shelf clutter into creamy, buttery bokeh.</li>
+                        <li><strong>Subject Distance:</strong> Sit 2.5 to 3 feet from the lens, while leaving 4 to 6 feet between your chair and the back wall. Distance creates separation.</li>
+                        <li><strong>Framing &amp; Eye Line:</strong> Align your eyes along the upper horizontal third of the frame. Keep head room minimal (about 2-3 inches above your hair).</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>🎨 Lighting Contrast (5600K vs 2700K)</h4>
+                    <p>Color temperature separation turns flat rooms into dynamic sets:</p>
+                    <ul>
+                        <li><strong>Key Light (Face):</strong> Crisp 5600K (Daylight White) softbox/panel positioned at 45° angle, slightly above eye level. Your face should always be the brightest point in the room.</li>
+                        <li><strong>Background Accent (Room):</strong> Warm 2700K–3000K ambient lamp or warm LED strip behind your chair illuminating a corner or bookshelf.</li>
+                        <li><strong>Zero Spill:</strong> Angle the key light downward so it illuminates your face without washing out the dark, moody background wall.</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>🪟 Ambient &amp; Acoustic Lock</h4>
+                    <p>Total environmental control before hitting Record:</p>
+                    <ul>
+                        <li><strong>Blackout / Blinds Closed:</strong> Block shifting UK/London outdoor daylight completely. Daylight changes exposure between takes, causing ugly visual jumps in edited cuts.</li>
+                        <li><strong>Zero Desk Reflections:</strong> Remove white printer paper, glass cups, or shiny watch surfaces that bounce glare into the camera sensor.</li>
+                        <li><strong>Cardioid Mic Positioning:</strong> Position the Elgato mic 4-6 inches from your mouth at 45° angle. High signal-to-noise ratio completely drowns out room reflections.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- What's On The Footage: 3 Scenes Preview -->
+            <div style="margin-top: 2.5rem;">
+                <h3 style="font-size: 1.4rem; color: var(--dark); margin-bottom: 0.5rem;">📺 What's On The Footage: Scene-by-Scene Breakdown</h3>
+                <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem;">Every minute of your session is recorded in OBS switching between these three distinct visual modes.</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;">
+                    <!-- Scene 1 Card -->
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); color: white; padding: 1.25rem; text-align: center; border-bottom: 3px solid var(--primary);">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #a5b4fc; font-weight: 700;">Scene 1 • Fullscreen Cam</span>
+                            <h4 style="font-size: 1.2rem; margin-top: 0.25rem;">Talking Head (The Hook)</h4>
+                        </div>
+                        <div style="padding: 1.25rem; font-size: 0.9rem; color: #334155;">
+                            <p><strong>Footage Frame:</strong> 1080p60 fullscreen Sony ZV-1 feed, chest-up crop, soft background bokeh.</p>
+                            <p style="margin-top: 0.6rem;"><strong>Purpose:</strong> First 45–60 seconds of the video. Looking directly into the lens, delivering the core hook, framing why the repository matters, and setting the energy.</p>
+                            <p style="margin-top: 0.6rem; color: var(--primary); font-weight: 600;">⚡ Tip: Used again at the end for lesson wrap-up &amp; Skool homework callouts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Scene 2 Card -->
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%); color: white; padding: 1.25rem; text-align: center; border-bottom: 3px solid var(--secondary);">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #bae6fd; font-weight: 700;">Scene 2 • Main Canvas + PIP</span>
+                            <h4 style="font-size: 1.2rem; margin-top: 0.25rem;">Screen Share + Picture-in-Picture</h4>
+                        </div>
+                        <div style="padding: 1.25rem; font-size: 0.9rem; color: #334155;">
+                            <p><strong>Footage Frame:</strong> 1080p display capture of VS Code / Browser + Sony ZV-1 facecam pinned in bottom-right (20% width, rounded corners).</p>
+                            <p style="margin-top: 0.6rem;"><strong>Purpose:</strong> 80% of your hands-on coding time. Viewers follow your cursor while retaining the human eye-contact connection as you explain AI prompts and code.</p>
+                            <p style="margin-top: 0.6rem; color: var(--secondary); font-weight: 600;">⚡ Tip: Terminal &amp; editor font size set to 135% zoom for crystal-clear smartphone viewing.</p>
+                        </div>
+                    </div>
+
+                    <!-- Scene 3 Card -->
+                    <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #0f172a 0%, #4c0519 100%); color: white; padding: 1.25rem; text-align: center; border-bottom: 3px solid var(--accent);">
+                            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #fecdd3; font-weight: 700;">Scene 3 • Clean Monitor Only</span>
+                            <h4 style="font-size: 1.2rem; margin-top: 0.25rem;">Full Screen Deep Dive</h4>
+                        </div>
+                        <div style="padding: 1.25rem; font-size: 0.9rem; color: #334155;">
+                            <p><strong>Footage Frame:</strong> 100% monitor capture. Zero camera PIP overlay.</p>
+                            <p style="margin-top: 0.6rem;"><strong>Purpose:</strong> Dense architecture diagrams, complex multi-agent execution graphs, large terminal traces, and network payload inspections where a facecam would cover crucial text.</p>
+                            <p style="margin-top: 0.6rem; color: var(--accent); font-weight: 600;">⚡ Tip: Hotkey assigned on Stream Deck or Mac keyboard for instant toggle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Production Assistant Protocol -->
+        <div class="specs-section" id="assistant" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border-left: 5px solid #10b981;">
+            <div class="section-header" style="margin-bottom: 1.25rem;">
+                <h2>🤖 Production Assistant Protocol: Getting In Front of the Camera</h2>
+                <p>Your step-by-step assistant guide to eliminating procrastination, cutting setup friction, and hitting Record in under 7 minutes.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.03);">
+                    <div style="color: #10b981; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.4rem;">Step 1: The "Lens-Only" Declutter Rule</div>
+                    <p style="font-size: 0.92rem; color: #475569; line-height: 1.55;"><strong>Do not tidy the entire flat before filming.</strong> That is procrastination disguised as productivity. Turn on Sony ZV-1 monitor. If laundry or a cup is NOT in the frame, ignore it. If it IS in the frame, shove it behind the camera tripod. Done in 3 minutes.</p>
+                </div>
+
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.03);">
+                    <div style="color: #10b981; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.4rem;">Step 2: The 3 Power Switches</div>
+                    <p style="font-size: 0.92rem; color: #475569; line-height: 1.55;">Flip three switches in order: <strong>(1) Main power strip</strong> (powers Mac M1, Scarlett 2i2, ZV-1 dummy battery). <strong>(2) Key light + ambient lamp</strong>. <strong>(3) Launch OBS</strong>. In under 90 seconds, your entire hardware pipeline is hot and active.</p>
+                </div>
+
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.03);">
+                    <div style="color: #10b981; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.4rem;">Step 3: The 5-Second Seat-Down Rule</div>
+                    <p style="font-size: 0.92rem; color: #475569; line-height: 1.55;">Do not wait to "feel in the mood". Count down <strong>5-4-3-2-1</strong>, slide into the chair, pull the Elgato mic 4 inches away, verify the Scarlett halo flashes green, and immediately hit <strong>Start Recording</strong>. Action produces adrenaline; waiting produces anxiety.</p>
+                </div>
+
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.03);">
+                    <div style="color: #10b981; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.4rem;">Step 4: The Never-Stop Stumble Rule</div>
+                    <p style="font-size: 0.92rem; color: #475569; line-height: 1.55;">If you stumble over a sentence, make a coding typo, or the AI hallucinates: <strong>DO NOT STOP RECORDING</strong>. Pause for 2 seconds, take a breath, repeat the phrase or solve the bug live. Real engineering builds deep trust with your community.</p>
                 </div>
             </div>
         </div>

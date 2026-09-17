@@ -44,6 +44,13 @@
             short: 'The Rationale',
             title: 'Why We DO: The Rationale',
             url: 'rationale.html'
+        },
+        {
+            id: 'pivot.html',
+            num: '06',
+            short: 'The Pivot',
+            title: 'The Pivot: 1-on-1s to Asynchronous Vault',
+            url: 'pivot.html'
         }
     ];
 

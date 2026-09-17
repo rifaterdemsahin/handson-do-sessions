@@ -116,6 +116,22 @@ Every page is logically numbered and interconnected with top stepper banners and
 3. **Step 03 — The Hard Part: Being Yourself ([`hard-part.html`](file:///Users/rifaterdemsahin/projects/handson-do-sessions/hard-part.html))**: Dropping the mask, vulnerability as an uncopyable moat, and authentic communication on camera.
 4. **Step 04 — The Courage to DO ([`courage.html`](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html))**: The foundational driver, the myth of readiness, dancing for an empty room, and the 5-second countdown.
 5. **Step 05 — Why We DO: The Rationale ([`rationale.html`](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html))**: The founder keeps dancing, compounding the DO vault, and helping members frozen in fear.
+6. **Step 06 — The Strategic Pivot: 1-on-1s to Vault ([`pivot.html`](file:///Users/rifaterdemsahin/projects/handson-do-sessions/pivot.html))**: Shifting from unrecorded, unscalable 1-on-1 meetings to an evergreen, 3-tier categorized vault on Skool (Beginner, Intermediate, Advanced).
+
+---
+
+## 🔄 The Strategic Pivot: Unrecorded 1-on-1s to Asynchronous Vault
+
+Why retire the old unrecorded 1-on-1 workshops (`Monday Sept 14th @ 7pm-9pm London time`, unrecorded) in favor of the Hands-On DO Vault:
+- **Zero Leverage of Unrecorded 1-on-1s**: 120 minutes of high-intensity teaching vanished into the ether the moment the call ended.
+- **The Scheduling Barrier**: Busy engineers couldn't make rigid London time slots or commit 12 hours ahead.
+- **The 3-Tier Categorized Curriculum**:
+  - 🟢 **Level 1: Beginner Vault**: Mental models, environment setup, decomposition, and first agent loops.
+  - 🟡 **Level 2: Intermediate Vault**: Semantic routing, tool safety boundaries, multi-modal hooks, and MCP tools.
+  - 🔴 **Level 3: Advanced Vault**: Distributed multi-agent swarms, heartbeat recovery, and autonomous production pipelines.
+- **Asynchronous Freedom**: Every session is recorded in 4K/1080p, remuxed, tagged, and permanently accessible on Skool for self-paced review.
+
+Read the full pivot rationale and copyable Skool post template at [pivot.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/pivot.html) or online at [https://rifaterdemsahin.github.io/handson-do-sessions/pivot.html](https://rifaterdemsahin.github.io/handson-do-sessions/pivot.html).
 
 ---
 
@@ -124,7 +140,7 @@ Every page is logically numbered and interconnected with top stepper banners and
 All pages feature a docked, expandable notes bottom bar (`notes-bar.js` + `notes-bar.css`):
 - **Cookie Storage**: Auto-saves comments and production ideas to `document.cookie` (`handson_notes` with 365-day expiry) and syncs to `localStorage`.
 - **📋 Copy This Note**: One-click copy for the current page's note with markdown formatting.
-- **📑 Copy All Notes**: Aggregates notes from all 5 steps into a clean markdown document ready for pasting into Obsidian, Notion, or Slack.
+- **📑 Copy All Notes**: Aggregates notes from all 6 steps into a clean markdown document ready for pasting into Obsidian, Notion, or Slack.
 - **Collapsible Dock**: Minimizes to a clean header strip (`▲ Expand / ▼ Minimize`) so reading is never obstructed.
 
 ---
@@ -137,8 +153,9 @@ All pages feature a docked, expandable notes bottom bar (`notes-bar.js` + `notes
 - 🎭 **Step 03 — The Hard Part (Be Yourself)**: [https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html](https://rifaterdemsahin.github.io/handson-do-sessions/hard-part.html)
 - 🔥 **Step 04 — Courage to DO Page**: [https://rifaterdemsahin.github.io/handson-do-sessions/courage.html](https://rifaterdemsahin.github.io/handson-do-sessions/courage.html)
 - 💃 **Step 05 — Keep Dancing Rationale**: [https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html](https://rifaterdemsahin.github.io/handson-do-sessions/rationale.html)
+- 🔄 **Step 06 — The Strategic Pivot**: [https://rifaterdemsahin.github.io/handson-do-sessions/pivot.html](https://rifaterdemsahin.github.io/handson-do-sessions/pivot.html)
 - 💻 **Local Development**: [http://localhost:30085/index.html](http://localhost:30085/index.html)
-- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [lighting.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/lighting.html) | [hard-part.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/hard-part.html) | [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html)
+- 📄 **Source HTML**: [index.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/index.html) | [lighting.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/lighting.html) | [hard-part.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/hard-part.html) | [courage.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/courage.html) | [rationale.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/rationale.html) | [pivot.html](file:///Users/rifaterdemsahin/projects/handson-do-sessions/pivot.html)
 - 🐙 **GitHub Repository**: [https://github.com/rifaterdemsahin/handson-do-sessions](https://github.com/rifaterdemsahin/handson-do-sessions)
 
 

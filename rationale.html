@@ -271,6 +271,109 @@
             background: #ffffff;
         }
 
+        /* Shared Sticky Top Menu */
+        .shared-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-brand:hover {
+            color: #c7d2fe;
+        }
+
+        .nav-icon {
+            font-size: 1.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.45rem 0.8rem;
+            border-radius: 6px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+            background: var(--primary);
+        }
+
+        .nav-link-gh {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+        }
+
+        .nav-link-gh:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        @media (max-width: 960px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0.6rem 1rem;
+                gap: 0.6rem;
+            }
+            .nav-links {
+                justify-content: flex-start;
+                padding-bottom: 0.2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.1rem;
@@ -285,6 +388,28 @@
     </style>
 </head>
 <body>
+
+    <!-- Shared Sticky Top Menu -->
+    <nav class="shared-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-icon">🎬</span>
+                <span class="nav-title">Hands-On DO Sessions</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 Dashboard</a>
+                <a href="rationale.html" class="nav-link active">💡 Keep Dancing Rationale</a>
+                <a href="index.html#thought-process" class="nav-link">🧠 AI Thought Process</a>
+                <a href="index.html#repos" class="nav-link">📦 Repositories</a>
+                <a href="index.html#schedule" class="nav-link">📅 3-Day Schedule</a>
+                <a href="index.html#checklist" class="nav-link">📋 Pre-Shoot Checklist</a>
+                <a href="https://github.com/rifaterdemsahin" target="_blank" class="nav-link nav-link-gh">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <header>
         <div class="header-badge">💡 The Founder's Philosophy &amp; Strategy</div>

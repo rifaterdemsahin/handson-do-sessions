@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-On DO Sessions | Building in the Age of AI</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --primary-light: #EEF2FF;
+            --secondary: #0284c7;
+            --accent: #7c3aed;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --dark: #0f172a;
+            --dark-surface: #1e293b;
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --github-dark: #24292f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);
+            color: white;
+            padding: 4.5rem 2rem 3.5rem;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(79, 70, 229, 0.25);
+            border: 1px solid rgba(165, 180, 252, 0.3);
+            color: #c7d2fe;
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        header h1 {
+            font-size: 2.9rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 1.25rem;
+            max-width: 780px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .header-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .header-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .header-btn-gh {
+            background: #24292f;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .header-btn-gh:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+
+        .header-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .header-btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            margin-top: 0.35rem;
+        }
+
+        /* AI Thought Process 4 Pillars */
+        .thought-process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .thought-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .thought-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+            border-color: #cbd5e1;
+        }
+
+        .thought-step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .thought-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.65rem;
+            color: var(--dark);
+        }
+
+        .thought-card p {
+            font-size: 0.92rem;
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        /* Repositories Spotlight Grid */
+        .repo-section {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .repo-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+
+        .repo-card:hover {
+            background: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+
+        .repo-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .repo-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .repo-title:hover {
+            color: var(--primary);
+        }
+
+        .repo-level-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .repo-level-beginner { background: #dcfce7; color: #166534; }
+        .repo-level-intermediate { background: #e0f2fe; color: #0369a1; }
+        .repo-level-advanced { background: #f3e8ff; color: #6b21a8; }
+
+        .repo-desc {
+            font-size: 0.92rem;
+            color: #475569;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .repo-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 0.78rem;
+            color: var(--gray);
+            border-top: 1px solid #e2e8f0;
+            padding-top: 0.85rem;
+        }
+
+        .repo-pill {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Schedule Grid */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .schedule-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary);
+        }
+
+        .schedule-card.sched-tue::before { background: var(--secondary); }
+        .schedule-card.sched-fri::before { background: var(--accent); }
+
+        .day-tag {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .sched-tue .day-tag { color: var(--secondary); }
+        .sched-fri .day-tag { color: var(--accent); }
+
+        .schedule-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+            color: var(--dark);
+        }
+
+        .schedule-card p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .target-pill {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            background: var(--primary-light);
+            color: var(--primary);
+            margin-right: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Curriculum Section */
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border-top: 5px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card.card-int {
+            border-top-color: var(--secondary);
+        }
+
+        .card.card-adv {
+            border-top-color: var(--accent);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        .badge-int { background: var(--secondary); }
+        .badge-adv { background: var(--accent); }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1.25rem;
+            border-top: 1px dashed var(--border);
+            padding-top: 1rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.65rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Hardware & Production Deep Dive */
+        .specs-section {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .spec-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .spec-box h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .spec-box p, .spec-box ul {
+            font-size: 0.92rem;
+            color: #475569;
+        }
+
+        .spec-box ul {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+        }
+
+        .spec-box li {
+            margin-bottom: 0.35rem;
+        }
+
+        /* Interactive Checklist */
+        .checklist-container {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-wrapper {
+            margin: 1.5rem 0 2rem;
+            background: #e2e8f0;
+            border-radius: 9999px;
+            height: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary), var(--success));
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist-group {
+            margin-bottom: 2rem;
+        }
+
+        .checklist-group h4 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+            border: 1px solid #f1f5f9;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .check-item:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .check-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 1.15rem;
+            height: 1.15rem;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .check-item-text {
+            font-size: 0.95rem;
+            color: #334155;
+            flex: 1;
+        }
+
+        .check-item-text strong {
+            color: var(--dark);
+        }
+
+        .check-item.completed {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+
+        .check-item.completed .check-item-text {
+            color: #166534;
+            text-decoration: line-through;
+            opacity: 0.85;
+        }
+
+        .checklist-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gray);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: #f1f5f9;
+            color: var(--dark);
+        }
+
+        /* Repurposing pipeline */
+        .pipeline-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 4rem;
+        }
+
+        .pipeline-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pipeline-col {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pipeline-col h4 {
+            color: #a5b4fc;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .pipeline-col p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--gray);
+            border-top: 1px solid var(--border);
+            background: #ffffff;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.1rem;
+            }
+            .specs-section, .checklist-container, .pipeline-card, .repo-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-badge">🤖 Building In The Age Of AI • Home Studio</div>
+        <h1>Hands-On DO Sessions</h1>
+        <p>Deconstructing real-world projects from <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: #93c5fd; text-decoration: underline;">github.com/rifaterdemsahin</a>. Sharing the architecture, mental models, and thought process of building software in the age of AI.</p>
+        
+        <div class="header-links">
+            <a href="https://github.com/rifaterdemsahin" target="_blank" class="header-btn header-btn-gh">
+                <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                Explore GitHub Repos
+            </a>
+            <a href="#schedule" class="header-btn header-btn-primary">
+                📅 3-Day Shoot Schedule
+            </a>
+            <a href="#checklist" class="header-btn header-btn-gh">
+                📋 Pre-Shoot Checklist
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Thought Process in the Age of AI -->
+        <div class="section-header">
+            <h2>🧠 The "Age of AI" Thought Process</h2>
+            <p>Coding in the age of AI isn't about blind generation—it is about rigorous architectural specification, tool routing, and agentic orchestration.</p>
+        </div>
+
+        <div class="thought-process-grid">
+            <div class="thought-card">
+                <div class="thought-step-num">01</div>
+                <h3>Decomposition &amp; Spec Architecture</h3>
+                <p>Moving from vague vibes to deterministic task decomposition. Structuring requirements into verifiable atomic increments that AI models can execute without context drift.</p>
+            </div>
+
+            <div class="thought-card">
+                <div class="thought-step-num">02</div>
+                <h3>Tool Crafting &amp; Clear Boundaries</h3>
+                <p>Equipping models with resilient, schema-validated tools. Eliminating tool sprawl and hallucination through semantic routing, strict JSON validation, and bounded interfaces.</p>
+            </div>
+
+            <div class="thought-card">
+                <div class="thought-step-num">03</div>
+                <h3>Deterministic Verification &amp; Evals</h3>
+                <p>Pair programming with AI where human engineering intuition governs correctness. Running live test suites, visual checks, and behavioral evals at every turn.</p>
+            </div>
+
+            <div class="thought-card">
+                <div class="thought-step-num">04</div>
+                <h3>Resilient Multi-Agent Orchestration</h3>
+                <p>Coordinating autonomous subagent pools, stateful handoffs, error escalation policies, and self-healing pipelines that gracefully absorb API hiccups.</p>
+            </div>
+        </div>
+
+        <!-- Featured GitHub Repositories Spotlight -->
+        <div class="repo-section">
+            <div class="section-header" style="margin-bottom: 1rem;">
+                <h2>📦 Featured Repositories Walkthroughs</h2>
+                <p>Each Hands-On DO session unpacks a real repository from <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">github.com/rifaterdemsahin</a>, breaking down its codebase and engineering decisions.</p>
+            </div>
+
+            <div class="repo-grid">
+                <!-- Repo 1 -->
+                <div class="repo-card">
+                    <div>
+                        <div class="repo-top">
+                            <a href="https://github.com/rifaterdemsahin/task-decomposition" target="_blank" class="repo-title">
+                                <span>task-decomposition</span>
+                            </a>
+                            <span class="repo-level-tag repo-level-beginner">Level 1 • Beginner</span>
+                        </div>
+                        <p class="repo-desc">How to break complex software goals into structured, parallelizable sub-tasks. The foundational mental model for agentic execution.</p>
+                    </div>
+                    <div class="repo-meta">
+                        <span class="repo-pill">Architecture</span>
+                        <span class="repo-pill">Prompt-to-Spec</span>
+                        <span class="repo-pill">Monday Shoot</span>
+                    </div>
+                </div>
+
+                <!-- Repo 2 -->
+                <div class="repo-card">
+                    <div>
+                        <div class="repo-top">
+                            <a href="https://github.com/rifaterdemsahin/semantic-tool-routing-demo" target="_blank" class="repo-title">
+                                <span>semantic-tool-routing-demo</span>
+                            </a>
+                            <span class="repo-level-tag repo-level-intermediate">Level 2 • Intermediate</span>
+                        </div>
+                        <p class="repo-desc">Routing tool requests through semantic embeddings to eliminate context bloat and prevent LLM tool selection paralysis.</p>
+                    </div>
+                    <div class="repo-meta">
+                        <span class="repo-pill">Tool Routing</span>
+                        <span class="repo-pill">Vector Embeddings</span>
+                        <span class="repo-pill">Tuesday Shoot</span>
+                    </div>
+                </div>
+
+                <!-- Repo 3 -->
+                <div class="repo-card">
+                    <div>
+                        <div class="repo-top">
+                            <a href="https://github.com/rifaterdemsahin/tool-selection-boundary-demo" target="_blank" class="repo-title">
+                                <span>tool-selection-boundary-demo</span>
+                            </a>
+                            <span class="repo-level-tag repo-level-intermediate">Level 2 • Intermediate</span>
+                        </div>
+                        <p class="repo-desc">Establishing strict boundary tests and validation guards to ensure autonomous agents never execute invalid or dangerous mutations.</p>
+                    </div>
+                    <div class="repo-meta">
+                        <span class="repo-pill">Safety Boundaries</span>
+                        <span class="repo-pill">Validation</span>
+                        <span class="repo-pill">Tuesday Shoot</span>
+                    </div>
+                </div>
+
+                <!-- Repo 4 -->
+                <div class="repo-card">
+                    <div>
+                        <div class="repo-top">
+                            <a href="https://github.com/rifaterdemsahin/resilient-subagent-pool-orchestrator" target="_blank" class="repo-title">
+                                <span>resilient-subagent-pool</span>
+                            </a>
+                            <span class="repo-level-tag repo-level-advanced">Level 3 • Advanced</span>
+                        </div>
+                        <p class="repo-desc">Production-grade multi-agent orchestration. Managing worker pools, task queues, heartbeat monitoring, and automatic error recovery.</p>
+                    </div>
+                    <div class="repo-meta">
+                        <span class="repo-pill">Multi-Agent</span>
+                        <span class="repo-pill">Fault Tolerance</span>
+                        <span class="repo-pill">Friday Shoot / YT</span>
+                    </div>
+                </div>
+
+                <!-- Repo 5 -->
+                <div class="repo-card">
+                    <div>
+                        <div class="repo-top">
+                            <a href="https://github.com/rifaterdemsahin/remotion-with-a-prompt" target="_blank" class="repo-title">
+                                <span>remotion-with-a-prompt</span>
+                            </a>
+                            <span class="repo-level-tag repo-level-advanced">Level 3 • Advanced</span>
+                        </div>
+                        <p class="repo-desc">Generating programmatic React video templates via AI prompts. Bridging generative text with high-resolution visual code output.</p>
+                    </div>
+                    <div class="repo-meta">
+                        <span class="repo-pill">React Video</span>
+                        <span class="repo-pill">Remotion</span>
+                        <span class="repo-pill">YouTube Deep-Dive</span>
+                    </div>
+                </div>
+
+                <!-- Repo 6 -->
+                <div class="repo-card">
+                    <div>
+                        <div class="repo-top">
+                            <a href="https://github.com/rifaterdemsahin/sep-3-agentic-coding" target="_blank" class="repo-title">
+                                <span>sep-3-agentic-coding</span>
+                            </a>
+                            <span class="repo-level-tag repo-level-intermediate">Level 2 • Intermediate</span>
+                        </div>
+                        <p class="repo-desc">The pair-programming operating system: integrating CLI tools, LSP language servers, git hooks, and agent skills into daily engineering flow.</p>
+                    </div>
+                    <div class="repo-meta">
+                        <span class="repo-pill">Agentic IDE</span>
+                        <span class="repo-pill">Skills &amp; MCP</span>
+                        <span class="repo-pill">Tuesday Shoot</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly Shooting Schedule -->
+        <div class="section-header" id="schedule">
+            <h2>📅 3-Day Weekly Production Cadence</h2>
+            <p>Shooting days locked into Monday, Tuesday, and Friday to batch record, edit, and cross-publish with momentum.</p>
+        </div>
+
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <span class="day-tag">Monday • Shoot Day 1</span>
+                <h3>Level 1: Beginner Sessions</h3>
+                <p><strong>Focus:</strong> AI Foundations &amp; Repo Setup. Zero-assumption walkthroughs on environment bootstrapping, cloning <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary);">rifaterdemsahin</a> repos, configuring API keys, and task decomposition.</p>
+                <div>
+                    <span class="target-pill">Target: Skool Foundations</span>
+                    <span class="target-pill">YT Shorts / Quick Tips</span>
+                </div>
+            </div>
+
+            <div class="schedule-card sched-tue">
+                <span class="day-tag">Tuesday • Shoot Day 2</span>
+                <h3>Level 2: Intermediate Sessions</h3>
+                <p><strong>Focus:</strong> Tooling &amp; Live Implementation. Building tool routers, boundary checks, and pair-programming real features with AI models. Demonstrating debugging and prompt refactoring.</p>
+                <div>
+                    <span class="target-pill">Target: Skool Core Modules</span>
+                    <span class="target-pill">YT Case Studies</span>
+                </div>
+            </div>
+
+            <div class="schedule-card sched-fri">
+                <span class="day-tag">Friday • Shoot Day 3</span>
+                <h3>Level 3: Advanced &amp; Repurposing</h3>
+                <p><strong>Focus:</strong> Complex Architectures &amp; Multi-Agent Systems. Deep dives into agent pools, failure recoveries, and benchmarks. Slices form standalone 10-minute YouTube pillar tutorials.</p>
+                <div>
+                    <span class="target-pill">Target: Skool Masterclass</span>
+                    <span class="target-pill">YouTube Pillars</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Curriculum -->
+        <div class="section-header">
+            <h2>📚 Modular Curriculum Blueprint</h2>
+            <p>Progressive hands-on tracks engineered for high retention and seamless dual-platform delivery.</p>
+        </div>
+
+        <div class="curriculum-grid">
+            <div class="card">
+                <span class="badge">Level 1</span>
+                <h3>Beginner Sessions</h3>
+                <p>Establishing the foundation. We cover essential principles, interface basics, and mental models of AI coding without overwhelm.</p>
+                <ul>
+                    <li>Mental models of AI-assisted engineering</li>
+                    <li>First-time workspace, terminal &amp; environment setup</li>
+                    <li>Cloning &amp; running starter repositories safely</li>
+                    <li>Spec drafting: Communicating exact intent to AI</li>
+                    <li>Avoiding hallucination traps and runaway loops</li>
+                </ul>
+            </div>
+
+            <div class="card card-int">
+                <span class="badge badge-int">Level 2</span>
+                <h3>Intermediate Sessions</h3>
+                <p>Bridging the gap between theory and execution. Deep focus on hands-on workflow execution, tool routing, and production-like code.</p>
+                <ul>
+                    <li>Hands-on walkthroughs of tool boundary systems</li>
+                    <li>Semantic routing vs. monolithic system prompts</li>
+                    <li>Live troubleshooting of standard runtime agent issues</li>
+                    <li>Automating testing &amp; validation loops with CLI agents</li>
+                    <li>Connecting modular components into complete stacks</li>
+                </ul>
+            </div>
+
+            <div class="card card-adv">
+                <span class="badge badge-adv">Level 3</span>
+                <h3>Advanced Sessions</h3>
+                <p>Deep-dive architectures, edge cases, and high performance. Segments are extracted and repurposed as YouTube deep dives.</p>
+                <ul>
+                    <li>Resilient subagent pool orchestrator mechanics</li>
+                    <li>Fault tolerance, retry budgets &amp; rate limit fallbacks</li>
+                    <li>Benchmarking agent accuracy and latency</li>
+                    <li>Prompt-to-video &amp; dynamic visual asset pipelines</li>
+                    <li>Carving standalone YouTube segments with high retention hooks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Flat Room Studio & Cleaning Setup -->
+        <div class="specs-section">
+            <div class="section-header" style="margin-bottom: 1rem;">
+                <h2>🏠 Studio Setup &amp; Room Environment Protocol</h2>
+                <p>Filming in a flat requires proactive environment management to ensure a pristine, professional visual frame and clean audio floor.</p>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <h4>🧹 Flat &amp; Room Tidy-Up Protocol</h4>
+                    <p>Clean backdrop creates immediate visual authority:</p>
+                    <ul>
+                        <li><strong>Clear Visual Clutter:</strong> Put away laundry, clothes racks, mugs, cables, and loose paperwork behind the chair.</li>
+                        <li><strong>Camera Framing Check:</strong> Check what the Sony ZV-1 lens actually sees; keep the background aesthetic minimal and intentional.</li>
+                        <li><strong>Desk Surface:</strong> Remove rogue cups, loose adapters, and anything reflective that catches glare.</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>💡 Lighting &amp; Visual Calibration</h4>
+                    <p>Flat room lighting control without unpredictable sunlight:</p>
+                    <ul>
+                        <li><strong>Close Blinds/Curtains:</strong> Eliminate shifting daylight that ruins color consistency between takes.</li>
+                        <li><strong>Face Lighting:</strong> Key light positioned 45° to illuminate face brighter than the background wall.</li>
+                        <li><strong>Camera Settings:</strong> Sony ZV-1 on Manual exposure, Auto Focus Continuous (AF-C), shutter speed 1/60s (or 1/120s for 60fps), clean aperture.</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>🔇 Room Acoustics &amp; Noise Isolation</h4>
+                    <p>Elgato Mic &amp; Scarlett 2i2 noise floor management:</p>
+                    <ul>
+                        <li><strong>Kill Appliance Hum:</strong> Temporarily pause robot vacuums, noisy fans, heaters, or AC units before filming.</li>
+                        <li><strong>Phone &amp; Notifications:</strong> Put phone on Do Not Disturb / Silent; mute desktop notifications on the Mac M1.</li>
+                        <li><strong>Mic Proximity:</strong> Keep the Elgato mic 4-6 inches from your mouth so your voice drowns out any subtle flat room echo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hardware & OBS Routing Blueprint -->
+        <div class="specs-section">
+            <div class="section-header" style="margin-bottom: 1rem;">
+                <h2>⚙️ Hardware Routing &amp; OBS Studio Configuration</h2>
+                <p>Optimized for Apple Silicon hardware acceleration, zero frame drops, and crash-proof recording.</p>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <h4>📹 Video Routing (Sony ZV-1)</h4>
+                    <ul>
+                        <li><strong>Zero-Latency Route:</strong> Micro-HDMI from Sony ZV-1 &rarr; Elgato Cam Link 4K (or HDMI-to-USB capture card) &rarr; Mac M1 hub/port.</li>
+                        <li><strong>Continuous Power:</strong> Dummy battery (AC adapter) or USB continuous power plugged into wall to eliminate mid-take shutdowns.</li>
+                        <li><strong>Clean HDMI Out:</strong> Enable Clean HDMI display on ZV-1 so camera UI icons don't leak into OBS.</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>🎙️ Audio Routing (Elgato + Scarlett 2i2)</h4>
+                    <ul>
+                        <li><strong>XLR Setup (Wave DX):</strong> Mic &rarr; XLR cable &rarr; Scarlett 2i2 Input 1 &rarr; USB-C &rarr; Mac M1. Turn on 48V phantom power if condenser.</li>
+                        <li><strong>Gain Staging:</strong> Dial Scarlett halo gain until it stays solid green and flashes yellow on peaks (never red).</li>
+                        <li><strong>Alternative USB (Wave:3):</strong> Direct USB-C into Mac M1 with Elgato Wave Link digital routing.</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box">
+                    <h4>💻 Mac M1 Hub &amp; OBS Encoding</h4>
+                    <ul>
+                        <li><strong>Encoder:</strong> Apple VT H264 Hardware Encoder (harnesses M1 media engine, sub-5% CPU usage).</li>
+                        <li><strong>Format &amp; Bitrate:</strong> Record in <strong>MKV</strong> (crash-resilient). Remux to MP4 later in OBS. Bitrate 15,000–25,000 Kbps at 60 FPS.</li>
+                        <li><strong>Resolution:</strong> Canvas 1080p (1920x1080) or 4K (3840x2160) matching your monitor aspect ratio.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- OBS Scene Architecture -->
+            <div style="margin-top: 2rem; background: #f1f5f9; padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--primary);">
+                <h4 style="color: var(--dark); margin-bottom: 0.75rem; font-size: 1.1rem;">🎬 3 Primary OBS Studio Scenes</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; font-size: 0.92rem; color: #334155;">
+                    <div>
+                        <strong>1. Talking Head (The Thought Process)</strong>
+                        <p>Full-screen feed of the Sony ZV-1. Used for architectural diagrams, explaining the mental model, framing why we make specific decisions, and conclusions.</p>
+                    </div>
+                    <div>
+                        <strong>2. Screen Share + PIP (Hands-On Coding)</strong>
+                        <p>Mac display capture as main canvas + cropped Sony ZV-1 feed in bottom-right corner for personal connection during live AI pair programming.</p>
+                    </div>
+                    <div>
+                        <strong>3. Full Screen Share (Deep Architecture)</strong>
+                        <p>100% monitor capture for terminal logs, complex multi-agent event timelines, or deep code teardowns where PIP would block text.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Pre-Shoot Checklist -->
+        <div class="checklist-container" id="checklist">
+            <div class="section-header" style="margin-bottom: 0.5rem;">
+                <h2>📋 Pre-Shoot &amp; Production Checklist</h2>
+                <p>Run through this mandatory sequence before hitting "Start Recording" on every single shoot.</p>
+            </div>
+
+            <div class="progress-label">
+                <span id="progress-text">0 of 9 Completed</span>
+                <span id="progress-pct">0%</span>
+            </div>
+            <div class="progress-wrapper">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <!-- Category 1 -->
+            <div class="checklist-group">
+                <h4>🏠 The Flat / Room Environment</h4>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c1">
+                    <span class="check-item-text"><strong>Tidy the Background:</strong> Clear laundry, clothes racks, coffee cups, and visible room clutter from the Sony ZV-1 frame.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c2">
+                    <span class="check-item-text"><strong>Control Lighting:</strong> Close window blinds to block shifting daylight; turn on primary key/fill lights so your face is brighter than the back wall.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c3">
+                    <span class="check-item-text"><strong>Kill Acoustic Noise:</strong> Shut off AC, room fans, and robot vacuum; set phone to Silent / Do Not Disturb.</span>
+                </label>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="checklist-group">
+                <h4>📷 Hardware &amp; Rigging</h4>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c4">
+                    <span class="check-item-text"><strong>Sony ZV-1 Camera Check:</strong> Wipe lens clean with microfiber cloth, enable continuous AF (AF-C), verify clean HDMI output, connect continuous power.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c5">
+                    <span class="check-item-text"><strong>Focusrite Scarlett 2i2 &amp; Mic:</strong> Verify 48V phantom power is ON (if condenser mic), position Elgato mic 4-6 inches away, verify gain halo flashes healthy green (never clipping red).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c6">
+                    <span class="check-item-text"><strong>Mac M1 Prep:</strong> Connect to wall power (avoid battery throttling), close heavy apps (Slack, email, extra browser tabs), turn off OS notification popups.</span>
+                </label>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="checklist-group">
+                <h4>🔴 OBS Studio &amp; Recording Validation</h4>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c7">
+                    <span class="check-item-text"><strong>Audio Levels Verification:</strong> Speak naturally into mic; confirm OBS Audio Mixer levels bounce cleanly in the high yellow zone (-12dB to -6dB).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c8">
+                    <span class="check-item-text"><strong>Scene Switching &amp; Test Clap:</strong> Record a 15-second test clip switching between Talking Head, PIP, and Screen Share. Clap on camera to confirm AV sync offset (50ms - 200ms).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c9">
+                    <span class="check-item-text"><strong>MKV Recording Active:</strong> Verify recording format is set to MKV under Settings &gt; Output &gt; Recording, then hit "Start Recording"!</span>
+                </label>
+            </div>
+
+            <div class="checklist-actions">
+                <button class="btn btn-outline" onclick="resetChecklist()">Reset Checklist</button>
+                <button class="btn" onclick="checkAll()">Mark All Done</button>
+            </div>
+        </div>
+
+        <!-- Distribution & Repurposing Pipeline -->
+        <div class="pipeline-card">
+            <h3>🚀 Dual-Distribution Engine: Skool + YouTube</h3>
+            <p>Shoot once, publish twice. How every hands-on session is packaged and distributed for maximum community value and organic discovery.</p>
+            <div class="pipeline-grid">
+                <div class="pipeline-col">
+                    <h4>🎓 Skool Platform Community</h4>
+                    <p>Complete, unhurried, sequential modules (Beginner &rarr; Intermediate &rarr; Advanced) with companion GitHub repositories from <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: #93c5fd;">rifaterdemsahin</a>, step-by-step action sheets, and community Q&amp;A.</p>
+                </div>
+                <div class="pipeline-col">
+                    <h4>📺 YouTube Standalone Segments</h4>
+                    <p>Carving out high-hook segments (such as 8-12 minute deep-dive builds from Friday's Advanced session on multi-agent pools, or quick setup fixes from Monday) with chapter markers and links into Skool.</p>
+                </div>
+                <div class="pipeline-col">
+                    <h4>⚡ Post-Shoot Remux &amp; Ingestion</h4>
+                    <p>OBS creates indestructible MKV files. Run OBS File &rarr; Remux Recordings to generate ready-to-edit MP4 files in seconds, tagged by repository name, level, and shoot date.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hands-On DO Sessions • Produced by <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--gray-light);">Shot on Sony ZV-1 &bull; Focusrite Scarlett 2i2 &bull; Elgato Mic &bull; Apple Mac M1 Silicon &bull; OBS Studio</p>
+    </footer>
+
+    <script>
+        const STORAGE_KEY = 'handson_shoot_checklist_state';
+
+        function loadChecklistState() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+                const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    const id = cb.getAttribute('data-id');
+                    if (saved[id]) {
+                        cb.checked = true;
+                        cb.closest('.check-item').classList.add('completed');
+                    }
+                });
+            } catch (e) {
+                console.error("Could not load checklist state", e);
+            }
+            recalcProgress();
+        }
+
+        function updateChecklist(input) {
+            const parent = input.closest('.check-item');
+            if (input.checked) {
+                parent.classList.add('completed');
+            } else {
+                parent.classList.remove('completed');
+            }
+            saveChecklistState();
+            recalcProgress();
+        }
+
+        function saveChecklistState() {
+            const state = {};
+            document.querySelectorAll('.check-item input[type="checkbox"]').forEach(cb => {
+                const id = cb.getAttribute('data-id');
+                state[id] = cb.checked;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function recalcProgress() {
+            const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+            const total = checkboxes.length;
+            let checked = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checked++;
+            });
+
+            const pct = Math.round((checked / total) * 100);
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const progressPct = document.getElementById('progress-pct');
+
+            if (progressBar) progressBar.style.width = pct + '%';
+            if (progressText) progressText.innerText = `${checked} of ${total} Completed`;
+            if (progressPct) progressPct.innerText = `${pct}%`;
+        }
+
+        function resetChecklist() {
+            document.querySelectorAll('.check-item input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+                cb.closest('.check-item').classList.remove('completed');
+            });
+            localStorage.removeItem(STORAGE_KEY);
+            recalcProgress();
+        }
+
+        function checkAll() {
+            document.querySelectorAll('.check-item input[type="checkbox"]').forEach(cb => {
+                cb.checked = true;
+                cb.closest('.check-item').classList.add('completed');
+            });
+            saveChecklistState();
+            recalcProgress();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadChecklistState);
+    </script>
+</body>
+</html>

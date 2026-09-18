@@ -1,0 +1,10 @@
+  ### ⌨️ Complete Shortcut Suite                                                                                                                                                                                                                 
+                                                                                                                                                                                                                                                 
+   Shortcut                                                                      │ Action                                                                        │ Confirmation
+  ───────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────
+   ⌥ Option + 1                                                                  │ Start / Stop Recording                                                        │ 🔴 Recording Started / ⏹️ Recording Stopped
+   ⌥ Option + 2                                                                  │ Screen Scene                                                                  │ 🖥️ Screen Scene
+   ⌥ Option + 3                                                                  │ Camera Scene                                                                  │ 📷 Camera Scene
+   ⌥ Option + 4                                                                  │ Open Movies Folder                                                            │ 📁 Movies Folder (Opened in Finder)
+   ⌥ Option + 5                                                                  │ Copy Last Recording                                                           │ ✅ Copied to Clipboard + File Name
+   ⌥ Option + 6                                                                  │ Show / Close Preview                                                          │ 👁️ Preview Shown / 🙈 Preview Closed

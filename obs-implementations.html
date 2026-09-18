@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Courage to DO: Why Courage Is Key | Hands-On DO Sessions</title>
+    <title>OBS Implementations &amp; Scenes | Hands-On DO Sessions</title>
     <link rel="stylesheet" href="notes-bar.css">
     <link rel="stylesheet" href="site-search.css">
     <style>
@@ -12,10 +12,9 @@
             --primary-hover: #4338CA;
             --primary-light: #EEF2FF;
             --secondary: #0284c7;
-            --accent: #f43f5e;
-            --accent-hover: #e11d48;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
             --success: #10B981;
-            --warning: #F59E0B;
             --dark: #0f172a;
             --dark-surface: #1e293b;
             --light: #f8fafc;
@@ -38,7 +37,7 @@
             line-height: 1.7;
         }
 
-        /* Shared Sticky Top Menu */
+        /* Logically Grouped Shared Sticky Top Menu */
         .shared-nav {
             position: sticky;
             top: 0;
@@ -130,7 +129,7 @@
             border: 1px solid #334155;
             border-radius: 10px;
             padding: 0.5rem;
-            min-width: 240px;
+            min-width: 250px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.3);
             display: none;
             flex-direction: column;
@@ -176,16 +175,6 @@
             white-space: nowrap;
         }
 
-        .highlight-btn {
-            background: var(--accent);
-            color: white;
-        }
-
-        .highlight-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
         .gh-btn {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.18);
@@ -199,20 +188,20 @@
 
         /* Hero */
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #31102f 60%, #4c0519 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #134e4a 55%, #0369a1 100%);
             color: white;
             padding: 4.5rem 2rem 3.5rem;
             text-align: center;
-            border-bottom: 4px solid var(--accent);
+            border-bottom: 4px solid var(--success);
         }
 
         .header-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(244, 63, 94, 0.25);
-            border: 1px solid rgba(253, 164, 175, 0.3);
-            color: #fecdd3;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(52, 211, 153, 0.35);
+            color: #d1fae5;
             padding: 0.35rem 1rem;
             border-radius: 9999px;
             font-size: 0.85rem;
@@ -232,7 +221,7 @@
         header p {
             color: #cbd5e1;
             font-size: 1.25rem;
-            max-width: 820px;
+            max-width: 800px;
             margin: 0 auto 1.5rem;
         }
 
@@ -244,7 +233,7 @@
 
         .hero-quote {
             background: #ffffff;
-            border-left: 6px solid var(--accent);
+            border-left: 6px solid var(--success);
             padding: 2.25rem 2.5rem;
             border-radius: 0 16px 16px 0;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
@@ -268,7 +257,7 @@
             font-weight: 600;
         }
 
-        .courage-card {
+        .hard-card {
             background: #ffffff;
             border: 1px solid var(--border);
             border-radius: 16px;
@@ -278,7 +267,7 @@
             transition: transform 0.2s ease;
         }
 
-        .courage-card:hover {
+        .hard-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
         }
@@ -298,12 +287,18 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
-        .icon-flame { background: #fff1f2; color: #f43f5e; }
-        .icon-camera { background: #eff6ff; color: #3b82f6; }
-        .icon-shield { background: #f0fdf4; color: #16a34a; }
-        .icon-vault { background: #faf5ff; color: #9333ea; }
+        .icon-install { background: #e0f2fe; color: #0369a1; }
+        .icon-hotkey { background: #ede9fe; color: #6d28d9; }
+        .icon-hud { background: #fef3c7; color: #b45309; }
+        .icon-brain { background: #dcfce7; color: #15803d; }
+        .icon-folder { background: #ffedd5; color: #c2410c; }
+        .icon-clip { background: #fce7f3; color: #be185d; }
+        .icon-split { background: #e2e8f0; color: #334155; }
+        .icon-preview { background: #cffafe; color: #0e7490; }
+        .icon-tv { background: #fee2e2; color: #b91c1c; }
 
         .card-header h2 {
             font-size: 1.5rem;
@@ -311,13 +306,13 @@
             color: var(--dark);
         }
 
-        .courage-card p {
+        .hard-card p {
             font-size: 1.05rem;
             color: #334155;
             margin-bottom: 1.2rem;
         }
 
-        .courage-card p:last-child {
+        .hard-card p:last-child {
             margin-bottom: 0;
         }
 
@@ -338,54 +333,143 @@
             margin-bottom: 0.5rem;
         }
 
-        /* 5-Second Courage Rule */
-        .rule-box {
-            background: linear-gradient(135deg, #1e1b4b 0%, #31102f 100%);
+        kbd {
+            display: inline-block;
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+            border: 1px solid #cbd5e1;
+            border-bottom-width: 3px;
+            border-radius: 7px;
+            padding: 0.15rem 0.5rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.83rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        code {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 6px;
+            padding: 0.12rem 0.45rem;
+            font-size: 0.86em;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid #e2e8f0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 1.5rem 1.25rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: attr(data-step);
+            position: absolute;
+            left: -2.4rem;
+            top: 0;
+            width: 1.9rem;
+            height: 1.9rem;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px #e2e8f0;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item p {
+            font-size: 0.94rem;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        .confirmation-pill {
+            display: inline-block;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 9999px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            white-space: nowrap;
+            margin: 0.15rem 0.15rem 0.15rem 0;
+        }
+
+        .mantra-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #134e4a 100%);
             color: white;
             padding: 3rem 2.5rem;
             border-radius: 16px;
             margin: 3.5rem 0;
-            border: 1px solid rgba(244, 63, 94, 0.3);
+            border: 1px solid rgba(52, 211, 153, 0.3);
         }
 
-        .rule-box h2 {
+        .mantra-banner h2 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: #d1fae5;
         }
 
-        .rule-box p {
-            color: #cbd5e1;
+        .mantra-banner p {
+            color: #e2e8f0;
             font-size: 1.05rem;
             margin-bottom: 1.5rem;
         }
 
-        .steps-row {
+        .tips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.25rem;
             margin-top: 1.5rem;
         }
 
-        .step-pill {
+        .tip-card {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 1.25rem;
             border-radius: 10px;
-            text-align: center;
         }
 
-        .step-num {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #fda4af;
+        .tip-card h4 {
+            color: #a7f3d0;
+            font-size: 1.05rem;
             margin-bottom: 0.4rem;
         }
 
-        .step-text {
+        .tip-card p {
             font-size: 0.9rem;
-            color: #e2e8f0;
-            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 0;
+        }
+
+        .source-note {
+            margin-top: 2.5rem;
+            padding: 1rem 1.25rem;
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            color: #475569;
         }
 
         footer {
@@ -430,7 +514,7 @@
                     <div class="dropdown-menu">
                         <a href="index.html" class="dropdown-item">🏠 Studio Dashboard</a>
                         <a href="shortcuts.html" class="dropdown-item">⌨️ Complete Shortcut Suite</a>
-                        <a href="obs-implementations.html" class="dropdown-item">🛠️ OBS Implementations &amp; Scenes</a>
+                        <a href="obs-implementations.html" class="dropdown-item nav-item-active">🛠️ OBS Implementations &amp; Scenes</a>
                         <a href="lighting.html" class="dropdown-item">💡 A-Roll Lighting &amp; Darkness</a>
                         <a href="cover.html" class="dropdown-item">🖼️ Official Cover (1460x752)</a>
                         <a href="index.html#confidence-monitor" class="dropdown-item">🖥️ TV Confidence Monitor</a>
@@ -464,7 +548,7 @@
                     <div class="dropdown-menu">
                         <a href="rationale.html" class="dropdown-item">💃 The "Keep Dancing" Rationale</a>
                         <a href="hard-part.html" class="dropdown-item">🎭 The Hard Part: Be Yourself</a>
-                        <a href="courage.html" class="dropdown-item nav-item-active">🔥 Courage: The Key to the Game</a>
+                        <a href="courage.html" class="dropdown-item">🔥 Courage: The Key to the Game</a>
                         <a href="pivot.html" class="dropdown-item">🔄 The 1-on-1 Pivot</a>
                     </div>
                 </div>
@@ -472,10 +556,10 @@
                 <!-- Standalone Action Buttons (All 9 Steps + Search + GitHub) -->
                 <a href="index.html" class="nav-pill-btn gh-btn">🏠 Studio</a>
                 <a href="shortcuts.html" class="nav-pill-btn gh-btn">⌨️ Shortcuts</a>
-                <a href="obs-implementations.html" class="nav-pill-btn gh-btn">🛠️ OBS</a>
+                <a href="obs-implementations.html" class="nav-pill-btn gh-btn nav-item-active">🛠️ OBS</a>
                 <a href="lighting.html" class="nav-pill-btn gh-btn">💡 Lighting</a>
                 <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
-                <a href="courage.html" class="nav-pill-btn gh-btn nav-item-active">🔥 Courage</a>
+                <a href="courage.html" class="nav-pill-btn gh-btn">🔥 Courage</a>
                 <a href="rationale.html" class="nav-pill-btn gh-btn">💃 Rationale</a>
                 <a href="pivot.html" class="nav-pill-btn gh-btn">🔄 The Pivot</a>
                 <a href="cover.html" class="nav-pill-btn gh-btn">🖼️ Cover</a>
@@ -489,9 +573,9 @@
     </nav>
 
     <header>
-        <div class="header-badge">Step 06 of 09 • Psychological Driver &amp; Resistance</div>
-        <h1>The Courage to DO</h1>
-        <p>Why courage is the linchpin of the entire game: overcoming the resistance, turning on the Sony ZV-1, and dancing at the timeline when no one is watching.</p>
+        <div class="header-badge">Step 03 of 09 • OBS Automation &amp; Scenes</div>
+        <h1>🛠️ OBS Implementations &amp; Scenes</h1>
+        <p>The complete chronological breakdown of the OBS Studio environment built for the MacBook Pro studio — scenes, hotkeys, HUD indicator, recording splits, clipboard export and the TV confidence monitor.</p>
     </header>
 
     <div class="container">
@@ -502,7 +586,7 @@
                 <div class="stepper-heading">
                     <span>📖 Sequential Reading Roadmap</span>
                 </div>
-                <span class="stepper-current-badge">Step 06 of 09 • Courage to DO</span>
+                <span class="stepper-current-badge">Step 03 of 09 • OBS & Scenes</span>
             </div>
             <div class="stepper-timeline">
                 <a href="index.html" class="step-card">
@@ -515,8 +599,8 @@
                     <span class="step-card-title">⌨️ Shortcut Suite</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
-                <a href="obs-implementations.html" class="step-card">
-                    <span class="step-card-num">Step 03</span>
+                <a href="obs-implementations.html" class="step-card active">
+                    <span class="step-card-num">Step 03 (Active)</span>
                     <span class="step-card-title">🛠️ OBS & Scenes</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
@@ -530,8 +614,8 @@
                     <span class="step-card-title">🎭 The Hard Part</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
-                <a href="courage.html" class="step-card active">
-                    <span class="step-card-num">Step 06 (Active)</span>
+                <a href="courage.html" class="step-card">
+                    <span class="step-card-num">Step 06</span>
                     <span class="step-card-title">🔥 Courage to DO</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
@@ -555,150 +639,142 @@
         <!-- Core Quote -->
         <div class="hero-quote">
             <blockquote>
-                "Technical brilliance without courage is just unpublished code on a local hard drive. The only difference between an idea and an institution is the courage to sit in front of the lens and hit record."
+                "Every manual click in OBS is a chance to break the flow of a take. The implementation below turns the whole studio into six keystrokes and one glance at the TV."
             </blockquote>
             <cite>— Rifat Erdem Sahin &bull; Hands-On DO Sessions</cite>
         </div>
 
-        <!-- Section 1: The Myth of Readiness -->
-        <div class="courage-card" id="myth-of-readiness">
+        <!-- Section 1: Chronological Implementation Log -->
+        <div class="hard-card" id="implementation-log">
             <div class="card-header">
-                <div class="icon-box icon-flame">🔥</div>
-                <h2>1. The Myth of "Feeling Ready"</h2>
+                <div class="icon-box icon-hotkey">🧭</div>
+                <h2>1. Session Implementation Log</h2>
             </div>
             <p>
-                The biggest trap creators and engineers fall into is waiting to feel ready. They want the room to be immaculate, the code to be pre-memorized, and the audience to be pre-assembled.
+                The full chronological breakdown of the workflow automation and OBS Studio environment built during the MacBook Pro studio session:
             </p>
-            <p>
-                <strong>The truth is: readiness never arrives before action.</strong> Readiness is an aftereffect of doing.
-            </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Courage over Comfort:</strong> You don't need to feel confident to turn on the Scarlett 2i2 and mount the Sony ZV-1. You only need 10 seconds of courage to start.</li>
-                    <li><strong>Action Creates Momentum:</strong> Once the red recording light blinks on OBS, the hesitation evaporates and your engineering brain takes over.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 2: Courage to Show the Real Struggle -->
-        <div class="courage-card" id="real-bugs">
-            <div class="card-header">
-                <div class="icon-box icon-camera">🎥</div>
-                <h2>2. The Courage to Show Real Bugs on Camera</h2>
-            </div>
-            <p>
-                In the age of AI, YouTube is saturated with slick 5-minute tutorials where everything works on the first try. This creates unrealistic expectations and terrifies beginners.
-            </p>
-            <p>
-                <strong>The real courage of Hands-On DO sessions is showing the raw truth:</strong>
-            </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Embracing Errors:</strong> LLM hallucinations, Docker port collisions, rate limits, and missing dependencies happen to everyone.</li>
-                    <li><strong>Teaching the Debugging Loop:</strong> When you hit a compiler error live on camera and troubleshoot it methodically, you give the audience the greatest gift: the permission to struggle and solve.</li>
-                    <li><strong>Authentic Authority:</strong> Viewers don't trust perfection; they trust resilience. Seeing a real human solve real problems builds unbreakable trust.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 3: Dancing in an Empty Room -->
-        <div class="courage-card" id="empty-room">
-            <div class="card-header">
-                <div class="icon-box icon-shield">🛡️</div>
-                <h2>3. The Courage to Dance for an Empty Room</h2>
-            </div>
-            <p>
-                When you launch a live session on Skool on Monday morning and zero people show up in the call, your ego wants to shut the laptop down and make an excuse.
-            </p>
-            <p>
-                <strong>That moment is the crucible of the whole game.</strong>
-            </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Perform for the Archive:</strong> You aren't just performing for who is in the room today; you are building an immortal asset for the learner who will discover your work six months from now.</li>
-                    <li><strong>Removing Audience Dependency:</strong> When your commitment doesn't depend on external applause, you become unstoppable. You control the shoot, the cadence, and the output.</li>
-                </ul>
-            </div>
-
-            <div style="background: rgba(244, 63, 94, 0.08); border-left: 4px solid #f43f5e; padding: 1.1rem 1.4rem; border-radius: 0 10px 10px 0; margin-top: 1.5rem;">
-                <p style="margin-bottom: 0.4rem; font-weight: 700; color: #e11d48; font-size: 0.95rem;">🎬 Derek Sivers Leadership Metaphor: The Lone Nut Dancing</p>
-                <p style="font-size: 0.92rem; color: #475569; margin-bottom: 0.6rem; line-height: 1.5;">
-                    Leadership starts with a person willing to look ridiculous, dancing alone on a hill with no music that others can hear yet. The first follower validates the leader, but the movement only begins because the leader had the courage to dance alone.
-                </p>
-                <a href="rationale.html#dancing-leader" style="font-size: 0.88rem; font-weight: 700; color: var(--primary); text-decoration: underline;">
-                    Watch the Derek Sivers Video &amp; Hands-On Mandate in The Rationale &rarr;
-                </a>
-            </div>
-        </div>
-
-        <!-- The 5-Second Rule Box -->
-        <div class="rule-box" id="courage-sequence">
-            <h2>⚡ The 5-Second Pre-Shoot Courage Sequence</h2>
-            <p>When you feel resistance pulling you away from the camera, execute this non-negotiable sequence:</p>
-            <div class="steps-row">
-                <div class="step-pill">
-                    <div class="step-num">5</div>
-                    <div class="step-text">Clear Only What's in the Lens Frame</div>
+            <div class="timeline">
+                <div class="timeline-item" data-step="1">
+                    <h4 id="insta360">Insta360 Software Installation</h4>
+                    <p>Downloaded the Insta360 Link Controller package via Homebrew, launched the macOS graphical installer for authentication, and opened the official documentation alongside it.</p>
                 </div>
-                <div class="step-pill">
-                    <div class="step-num">4</div>
-                    <div class="step-text">Flip the 3 Power Switches</div>
+                <div class="timeline-item" data-step="2">
+                    <h4 id="hotkeys">OBS Scene &amp; Recording Hotkeys</h4>
+                    <p>Modified the OBS Studio <code>basic.ini</code> and <code>cleanslate.json</code> profiles to assign system-level keyboard shortcuts: <kbd>⌥</kbd>+<kbd>1</kbd> toggles Start/Stop Recording, <kbd>⌥</kbd>+<kbd>2</kbd> switches to the Screen scene, and <kbd>⌥</kbd>+<kbd>3</kbd> switches to the Camera scene.</p>
                 </div>
-                <div class="step-pill">
-                    <div class="step-num">3</div>
-                    <div class="step-text">Sit in the Chair &amp; Put Mic to Mouth</div>
+                <div class="timeline-item" data-step="3">
+                    <h4 id="hud">Custom On-Screen HUD Indicator</h4>
+                    <p>Created a background Python script (<code>obs_indicator.py</code>) using macOS native frameworks (AppKit/Foundation) and OBS WebSockets. Registered it as a persistent LaunchAgent (<code>com.rifaterdemsahin.obs-indicator.plist</code>) so it runs automatically. Floating visual pills (<span class="confirmation-pill">🔴</span><span class="confirmation-pill">⏹️</span><span class="confirmation-pill">🖥️</span><span class="confirmation-pill">📷</span>) and system audio cues (Ping, Pop, Tink) trigger instantly when scenes or recording states change.</p>
                 </div>
-                <div class="step-pill">
-                    <div class="step-num">2</div>
-                    <div class="step-text">Hit "Start Recording" in OBS</div>
+                <div class="timeline-item" data-step="4">
+                    <h4 id="secondbrain">Second Brain Reporting</h4>
+                    <p>Documented the initial configuration and saved it directly to the Azure files vault at <code>/Users/rifaterdemsahin/secondbrain-azurefiles/secondbrain/Untitled.md</code>.</p>
                 </div>
-                <div class="step-pill">
-                    <div class="step-num">1</div>
-                    <div class="step-text">"Welcome back to Hands-On DO."</div>
+                <div class="timeline-item" data-step="5">
+                    <h4 id="movies">Workspace Quick Access (<kbd>⌥</kbd>+<kbd>4</kbd>)</h4>
+                    <p>Implemented a Carbon global hotkey to instantly open the <code>~/Movies</code> folder (the OBS default save location) in Finder, triggering the dedicated 📁 Movies Folder HUD.</p>
+                </div>
+                <div class="timeline-item" data-step="6">
+                    <h4 id="clipboard">Instant Clipboard Export (<kbd>⌥</kbd>+<kbd>5</kbd>)</h4>
+                    <p>Built a script that finds the newest <code>.mp4</code> or <code>.mkv</code> file in the Movies folder and loads it into the macOS clipboard. It uses a dual-pasteboard approach: pasting into Finder/Slack drops the actual video file, while pasting into a text editor drops the file path string.</p>
+                </div>
+                <div class="timeline-item" data-step="7">
+                    <h4 id="splits">Time-Based Recording Splits</h4>
+                    <p>Reconfigured the OBS output settings (changing <code>RecSplitFileType</code> and <code>RecSplitFileTime</code>) to automatically finalize and cut footage exactly at the 5-minute mark, abandoning the previous 90MB size threshold.</p>
+                </div>
+                <div class="timeline-item" data-step="8">
+                    <h4 id="preview">Program Preview Toggle (<kbd>⌥</kbd>+<kbd>6</kbd>)</h4>
+                    <p>Added hotkey logic that acts as a workspace toggle: pressing it checks whether OBS is hidden or in the background and brings it to the front so you can verify camera/screen framing, then pressing it again hides OBS to clear the screen.</p>
+                </div>
+                <div class="timeline-item" data-step="9">
+                    <h4 id="tv-confidence">TV Confidence Monitor (New)</h4>
+                    <p>Ran an HDMI cable from the MacBook Pro to the TV and set it up as a dedicated confidence monitor, so framing, lighting, scene switching and recording state can be verified on a large screen instead of craning at the laptop display. Full routing steps live in <a href="index.html#confidence-monitor" style="color: var(--primary); font-weight: 700;">Studio Dashboard &rarr; TV Confidence Monitor</a>.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Section 4: Courage Compounds -->
-        <div class="courage-card" id="compounding">
+        <!-- Section 2: The Two Core Scenes -->
+        <div class="hard-card" id="scenes">
             <div class="card-header">
-                <div class="icon-box icon-vault">🏛️</div>
-                <h2>4. How Courage Compounds into Undeniability</h2>
+                <div class="icon-box icon-hud">🎬</div>
+                <h2>2. The Two Core Scenes on the MacBook Pro</h2>
             </div>
             <p>
-                Every time you sit in front of the lens despite the mess, despite the fear, and despite the empty chat, you deposit proof into your personal vault.
-            </p>
-            <p>
-                After 3 months:
+                Two scenes cover virtually every minute of a Hands-On DO session. Both are bound to system-level hotkeys so they fire instantly, even while you are typing in another application.
             </p>
             <div class="highlight-box">
                 <ul>
-                    <li>You have <strong>36 recorded hands-on masterclasses</strong> on Skool.</li>
-                    <li>You have dozens of high-retention <strong>YouTube code teardowns</strong>.</li>
-                    <li>You have an active library built on top of your real repositories from <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">github.com/rifaterdemsahin</a>.</li>
+                    <li><strong>📷 Camera Scene (<kbd>⌥</kbd>+<kbd>3</kbd>):</strong> the full-screen talking-head feed — hooks, mental models, transitions and wrap-ups.</li>
+                    <li><strong>🖥️ Screen Scene (<kbd>⌥</kbd>+<kbd>2</kbd>):</strong> the full-screen macOS display capture — live coding, terminal traces and repository walkthroughs.</li>
+                    <li><strong>🔴 Recording Toggle (<kbd>⌥</kbd>+<kbd>1</kbd>):</strong> start and stop takes without ever touching the OBS window.</li>
+                    <li><strong>👁️ Preview Toggle (<kbd>⌥</kbd>+<kbd>6</kbd>):</strong> summon or dismiss the OBS program preview for a fast framing check.</li>
                 </ul>
             </div>
             <p>
-                Courage is the single spark that turns potential into tangible reality. Keep dancing.
+                The related OBS scene architecture (<strong>Scene 1: Talking Head</strong>, <strong>Scene 2: Screen Share + PIP</strong>, <strong>Scene 3: Full Screen</strong>) and their footage purposes are documented in the <a href="index.html#footage-setup" style="color: var(--primary); font-weight: 700;">Studio Dashboard Background &amp; Footage Setup</a>.
             </p>
+        </div>
+
+        <!-- Section 3: Recording Output & Reliability -->
+        <div class="hard-card">
+            <div class="card-header">
+                <div class="icon-box icon-split">⏱️</div>
+                <h2>3. Recording Output &amp; Reliability</h2>
+            </div>
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>5-Minute Splits:</strong> Files finalize automatically every 5 minutes, so a crash can never cost more than one segment of footage.</li>
+                    <li><strong>MKV First:</strong> Crash-resilient MKV recording, remuxed to MP4 after the session via OBS File &rarr; Remux Recordings.</li>
+                    <li><strong>Instant Export:</strong> <kbd>⌥</kbd>+<kbd>5</kbd> copies the newest recording to the clipboard for immediate review or posting.</li>
+                    <li><strong>Folder Shortcut:</strong> <kbd>⌥</kbd>+<kbd>4</kbd> opens <code>~/Movies</code> in Finder for quick verification of the finished files.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Studio Mantra -->
+        <div class="mantra-banner">
+            <h2>💡 The Automated Studio Rules</h2>
+            <p>Automation exists to protect the take. Never let tooling friction leak into the recording:</p>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>1. Verify on the TV</h4>
+                    <p>Camera framing and lighting are judged on the confidence monitor, not the laptop screen.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>2. Trust the HUD</h4>
+                    <p>The floating pill confirms recording and scene state without breaking eye contact.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>3. Never Mouse-Hunt</h4>
+                    <p>If a control is not one keystroke away, automate it before the next session.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>4. Split and Sleep Easy</h4>
+                    <p>Five-minute segments plus MKV mean every session survives any interruption.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="source-note">
+            <strong>Source documentation:</strong> This page is the rendered companion to <a href="obs-implementations.md" style="color: var(--primary); font-weight: 700;">obs-implementations.md</a> and <a href="shortcuts.md" style="color: var(--primary); font-weight: 700;">shortcuts.md</a> in the repository root.
         </div>
 
         <!-- Sequential Step Jump Controls -->
         <div class="step-nav-bar">
-            <a href="hard-part.html" class="step-nav-btn prev-step">
-                <span class="step-nav-hint">← Step 05 (Previous Step)</span>
-                <span class="step-nav-label">🎭 The Hard Part</span>
+            <a href="shortcuts.html" class="step-nav-btn prev-step">
+                <span class="step-nav-hint">← Step 02 (Previous Step)</span>
+                <span class="step-nav-label">⌨️ Shortcut Suite</span>
             </a>
-            <a href="rationale.html" class="step-nav-btn next-step">
-                <span class="step-nav-hint">Step 07 (Next Step) →</span>
-                <span class="step-nav-label">💃 The Rationale</span>
+            <a href="lighting.html" class="step-nav-btn next-step">
+                <span class="step-nav-hint">Step 04 (Next Step) →</span>
+                <span class="step-nav-label">💡 Lighting & Dark</span>
             </a>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Hands-On DO Sessions &bull; Mindset &amp; Courage &bull; <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
+        <p>&copy; 2026 Hands-On DO Sessions &bull; OBS Automation &amp; Scenes &bull; <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">
             <a href="index.html" style="color: var(--primary); font-weight: 600;">Studio Dashboard</a> &bull;
             <a href="shortcuts.html" style="color: var(--primary); font-weight: 600;">⌨️ Shortcut Suite</a> &bull;

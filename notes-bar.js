@@ -18,39 +18,60 @@
             url: 'index.html'
         },
         {
-            id: 'lighting.html',
+            id: 'shortcuts.html',
             num: '02',
+            short: 'Shortcut Suite',
+            title: 'Complete Shortcut Suite (⌥ 1–6)',
+            url: 'shortcuts.html'
+        },
+        {
+            id: 'obs-implementations.html',
+            num: '03',
+            short: 'OBS & Scenes',
+            title: 'OBS Implementations, Scenes & Automation',
+            url: 'obs-implementations.html'
+        },
+        {
+            id: 'lighting.html',
+            num: '04',
             short: 'Lighting & Dark',
             title: 'A-Roll Lighting & Darkness',
             url: 'lighting.html'
         },
         {
             id: 'hard-part.html',
-            num: '03',
+            num: '05',
             short: 'The Hard Part',
             title: 'The Hard Part: Being Yourself',
             url: 'hard-part.html'
         },
         {
             id: 'courage.html',
-            num: '04',
+            num: '06',
             short: 'Courage to DO',
             title: 'Courage: The Key to the Game',
             url: 'courage.html'
         },
         {
             id: 'rationale.html',
-            num: '05',
+            num: '07',
             short: 'The Rationale',
             title: 'Why We DO: The Rationale',
             url: 'rationale.html'
         },
         {
             id: 'pivot.html',
-            num: '06',
+            num: '08',
             short: 'The Pivot',
             title: 'The Pivot: 1-on-1s to Asynchronous Vault',
             url: 'pivot.html'
+        },
+        {
+            id: 'cover.html',
+            num: '09',
+            short: 'Official Cover',
+            title: 'Official Cover Artwork (1460 x 752)',
+            url: 'cover.html'
         }
     ];
 

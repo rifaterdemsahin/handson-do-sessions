@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Courage to DO: Why Courage Is Key | Hands-On DO Sessions</title>
+    <title>Complete Shortcut Suite | Hands-On DO Sessions</title>
     <link rel="stylesheet" href="notes-bar.css">
     <link rel="stylesheet" href="site-search.css">
     <style>
@@ -12,10 +12,9 @@
             --primary-hover: #4338CA;
             --primary-light: #EEF2FF;
             --secondary: #0284c7;
-            --accent: #f43f5e;
-            --accent-hover: #e11d48;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
             --success: #10B981;
-            --warning: #F59E0B;
             --dark: #0f172a;
             --dark-surface: #1e293b;
             --light: #f8fafc;
@@ -38,7 +37,7 @@
             line-height: 1.7;
         }
 
-        /* Shared Sticky Top Menu */
+        /* Logically Grouped Shared Sticky Top Menu */
         .shared-nav {
             position: sticky;
             top: 0;
@@ -130,7 +129,7 @@
             border: 1px solid #334155;
             border-radius: 10px;
             padding: 0.5rem;
-            min-width: 240px;
+            min-width: 250px;
             box-shadow: 0 15px 30px rgba(0,0,0,0.3);
             display: none;
             flex-direction: column;
@@ -176,16 +175,6 @@
             white-space: nowrap;
         }
 
-        .highlight-btn {
-            background: var(--accent);
-            color: white;
-        }
-
-        .highlight-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
         .gh-btn {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.18);
@@ -199,20 +188,20 @@
 
         /* Hero */
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #31102f 60%, #4c0519 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #0369a1 100%);
             color: white;
             padding: 4.5rem 2rem 3.5rem;
             text-align: center;
-            border-bottom: 4px solid var(--accent);
+            border-bottom: 4px solid var(--secondary);
         }
 
         .header-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(244, 63, 94, 0.25);
-            border: 1px solid rgba(253, 164, 175, 0.3);
-            color: #fecdd3;
+            background: rgba(2, 132, 199, 0.2);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: #e0f2fe;
             padding: 0.35rem 1rem;
             border-radius: 9999px;
             font-size: 0.85rem;
@@ -232,7 +221,7 @@
         header p {
             color: #cbd5e1;
             font-size: 1.25rem;
-            max-width: 820px;
+            max-width: 800px;
             margin: 0 auto 1.5rem;
         }
 
@@ -244,7 +233,7 @@
 
         .hero-quote {
             background: #ffffff;
-            border-left: 6px solid var(--accent);
+            border-left: 6px solid var(--secondary);
             padding: 2.25rem 2.5rem;
             border-radius: 0 16px 16px 0;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
@@ -268,7 +257,7 @@
             font-weight: 600;
         }
 
-        .courage-card {
+        .hard-card {
             background: #ffffff;
             border: 1px solid var(--border);
             border-radius: 16px;
@@ -278,7 +267,7 @@
             transition: transform 0.2s ease;
         }
 
-        .courage-card:hover {
+        .hard-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
         }
@@ -298,12 +287,12 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
-        .icon-flame { background: #fff1f2; color: #f43f5e; }
-        .icon-camera { background: #eff6ff; color: #3b82f6; }
-        .icon-shield { background: #f0fdf4; color: #16a34a; }
-        .icon-vault { background: #faf5ff; color: #9333ea; }
+        .icon-keys { background: #e0f2fe; color: #0369a1; }
+        .icon-scene { background: #ede9fe; color: #6d28d9; }
+        .icon-hud { background: #fef3c7; color: #b45309; }
 
         .card-header h2 {
             font-size: 1.5rem;
@@ -311,13 +300,13 @@
             color: var(--dark);
         }
 
-        .courage-card p {
+        .hard-card p {
             font-size: 1.05rem;
             color: #334155;
             margin-bottom: 1.2rem;
         }
 
-        .courage-card p:last-child {
+        .hard-card p:last-child {
             margin-bottom: 0;
         }
 
@@ -338,54 +327,173 @@
             margin-bottom: 0.5rem;
         }
 
-        /* 5-Second Courage Rule */
-        .rule-box {
-            background: linear-gradient(135deg, #1e1b4b 0%, #31102f 100%);
-            color: white;
-            padding: 3rem 2.5rem;
-            border-radius: 16px;
-            margin: 3.5rem 0;
-            border: 1px solid rgba(244, 63, 94, 0.3);
+        /* Shortcut suite table */
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 0.5rem;
+            font-size: 0.95rem;
         }
 
-        .rule-box h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
+        .shortcut-table thead th {
+            background: #0f172a;
+            color: #e2e8f0;
+            text-align: left;
+            padding: 0.85rem 1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
-        .rule-box p {
-            color: #cbd5e1;
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
+        .shortcut-table thead th:first-child {
+            border-radius: 10px 0 0 0;
         }
 
-        .steps-row {
+        .shortcut-table thead th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        .shortcut-table tbody tr {
+            border-bottom: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        .shortcut-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .shortcut-table td {
+            padding: 0.85rem 1rem;
+            color: #334155;
+            vertical-align: middle;
+        }
+
+        .shortcut-table td:first-child {
+            white-space: nowrap;
+            width: 170px;
+        }
+
+        .shortcut-table td:last-child {
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        kbd {
+            display: inline-block;
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+            border: 1px solid #cbd5e1;
+            border-bottom-width: 3px;
+            border-radius: 7px;
+            padding: 0.25rem 0.6rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0f172a;
+            box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+        }
+
+        .scene-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.25rem;
             margin-top: 1.5rem;
         }
 
-        .step-pill {
+        .scene-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .scene-card.scene-camera {
+            border-top: 4px solid #f59e0b;
+        }
+
+        .scene-card.scene-screen {
+            border-top: 4px solid #0284c7;
+        }
+
+        .scene-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .scene-card p {
+            font-size: 0.92rem;
+            color: #475569;
+            margin-bottom: 0;
+        }
+
+        .confirmation-pill {
+            display: inline-block;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 9999px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .mantra-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%);
+            color: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            margin: 3.5rem 0;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .mantra-banner h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #e0f2fe;
+        }
+
+        .mantra-banner p {
+            color: #e2e8f0;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .tip-card {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 1.25rem;
             border-radius: 10px;
-            text-align: center;
         }
 
-        .step-num {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #fda4af;
+        .tip-card h4 {
+            color: #bae6fd;
+            font-size: 1.05rem;
             margin-bottom: 0.4rem;
         }
 
-        .step-text {
+        .tip-card p {
             font-size: 0.9rem;
-            color: #e2e8f0;
-            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 0;
+        }
+
+        .source-note {
+            margin-top: 2.5rem;
+            padding: 1rem 1.25rem;
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            color: #475569;
         }
 
         footer {
@@ -408,6 +516,9 @@
             header h1 {
                 font-size: 2.1rem;
             }
+            .shortcut-table td:first-child {
+                width: auto;
+            }
         }
     </style>
 </head>
@@ -429,7 +540,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a href="index.html" class="dropdown-item">🏠 Studio Dashboard</a>
-                        <a href="shortcuts.html" class="dropdown-item">⌨️ Complete Shortcut Suite</a>
+                        <a href="shortcuts.html" class="dropdown-item nav-item-active">⌨️ Complete Shortcut Suite</a>
                         <a href="obs-implementations.html" class="dropdown-item">🛠️ OBS Implementations &amp; Scenes</a>
                         <a href="lighting.html" class="dropdown-item">💡 A-Roll Lighting &amp; Darkness</a>
                         <a href="cover.html" class="dropdown-item">🖼️ Official Cover (1460x752)</a>
@@ -464,18 +575,18 @@
                     <div class="dropdown-menu">
                         <a href="rationale.html" class="dropdown-item">💃 The "Keep Dancing" Rationale</a>
                         <a href="hard-part.html" class="dropdown-item">🎭 The Hard Part: Be Yourself</a>
-                        <a href="courage.html" class="dropdown-item nav-item-active">🔥 Courage: The Key to the Game</a>
+                        <a href="courage.html" class="dropdown-item">🔥 Courage: The Key to the Game</a>
                         <a href="pivot.html" class="dropdown-item">🔄 The 1-on-1 Pivot</a>
                     </div>
                 </div>
 
                 <!-- Standalone Action Buttons (All 9 Steps + Search + GitHub) -->
                 <a href="index.html" class="nav-pill-btn gh-btn">🏠 Studio</a>
-                <a href="shortcuts.html" class="nav-pill-btn gh-btn">⌨️ Shortcuts</a>
+                <a href="shortcuts.html" class="nav-pill-btn gh-btn nav-item-active">⌨️ Shortcuts</a>
                 <a href="obs-implementations.html" class="nav-pill-btn gh-btn">🛠️ OBS</a>
                 <a href="lighting.html" class="nav-pill-btn gh-btn">💡 Lighting</a>
                 <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
-                <a href="courage.html" class="nav-pill-btn gh-btn nav-item-active">🔥 Courage</a>
+                <a href="courage.html" class="nav-pill-btn gh-btn">🔥 Courage</a>
                 <a href="rationale.html" class="nav-pill-btn gh-btn">💃 Rationale</a>
                 <a href="pivot.html" class="nav-pill-btn gh-btn">🔄 The Pivot</a>
                 <a href="cover.html" class="nav-pill-btn gh-btn">🖼️ Cover</a>
@@ -489,9 +600,9 @@
     </nav>
 
     <header>
-        <div class="header-badge">Step 06 of 09 • Psychological Driver &amp; Resistance</div>
-        <h1>The Courage to DO</h1>
-        <p>Why courage is the linchpin of the entire game: overcoming the resistance, turning on the Sony ZV-1, and dancing at the timeline when no one is watching.</p>
+        <div class="header-badge">Step 02 of 09 • Keyboard Control Surface</div>
+        <h1>⌨️ Complete Shortcut Suite</h1>
+        <p>Zero-mouse studio control. Six system-level shortcuts keep your hands on the keyboard and your eyes on the lens while recording the Hands-On DO vault.</p>
     </header>
 
     <div class="container">
@@ -502,7 +613,7 @@
                 <div class="stepper-heading">
                     <span>📖 Sequential Reading Roadmap</span>
                 </div>
-                <span class="stepper-current-badge">Step 06 of 09 • Courage to DO</span>
+                <span class="stepper-current-badge">Step 02 of 09 • Shortcut Suite</span>
             </div>
             <div class="stepper-timeline">
                 <a href="index.html" class="step-card">
@@ -510,8 +621,8 @@
                     <span class="step-card-title">🏠 Studio &amp; Rig</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
-                <a href="shortcuts.html" class="step-card">
-                    <span class="step-card-num">Step 02</span>
+                <a href="shortcuts.html" class="step-card active">
+                    <span class="step-card-num">Step 02 (Active)</span>
                     <span class="step-card-title">⌨️ Shortcut Suite</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
@@ -530,8 +641,8 @@
                     <span class="step-card-title">🎭 The Hard Part</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
-                <a href="courage.html" class="step-card active">
-                    <span class="step-card-num">Step 06 (Active)</span>
+                <a href="courage.html" class="step-card">
+                    <span class="step-card-num">Step 06</span>
                     <span class="step-card-title">🔥 Courage to DO</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
@@ -555,150 +666,160 @@
         <!-- Core Quote -->
         <div class="hero-quote">
             <blockquote>
-                "Technical brilliance without courage is just unpublished code on a local hard drive. The only difference between an idea and an institution is the courage to sit in front of the lens and hit record."
+                "The mouse is where momentum goes to die. When switching scenes or starting a take costs one keystroke, you stop negotiating with yourself and simply hit record."
             </blockquote>
             <cite>— Rifat Erdem Sahin &bull; Hands-On DO Sessions</cite>
         </div>
 
-        <!-- Section 1: The Myth of Readiness -->
-        <div class="courage-card" id="myth-of-readiness">
+        <!-- Section 1: The Complete Shortcut Suite -->
+        <div class="hard-card" id="suite">
             <div class="card-header">
-                <div class="icon-box icon-flame">🔥</div>
-                <h2>1. The Myth of "Feeling Ready"</h2>
+                <div class="icon-box icon-keys">⌨️</div>
+                <h2>1. The Complete Shortcut Suite</h2>
             </div>
             <p>
-                The biggest trap creators and engineers fall into is waiting to feel ready. They want the room to be immaculate, the code to be pre-memorized, and the audience to be pre-assembled.
+                Every shortcut below is registered at the <strong>system level</strong> in OBS Studio, so it fires even when OBS is hidden behind VS Code, a terminal, or your browser. The on-screen HUD confirms every action without you looking away from the lens.
             </p>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Action</th>
+                        <th>On-Screen Confirmation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><kbd>⌥ Option</kbd> + <kbd>1</kbd></td>
+                        <td><strong>Start / Stop Recording</strong></td>
+                        <td><span class="confirmation-pill">🔴 Recording Started</span> / <span class="confirmation-pill">⏹️ Recording Stopped</span></td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌥ Option</kbd> + <kbd>2</kbd></td>
+                        <td><strong>Screen Scene</strong></td>
+                        <td><span class="confirmation-pill">🖥️ Screen Scene</span></td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌥ Option</kbd> + <kbd>3</kbd></td>
+                        <td><strong>Camera Scene</strong></td>
+                        <td><span class="confirmation-pill">📷 Camera Scene</span></td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌥ Option</kbd> + <kbd>4</kbd></td>
+                        <td><strong>Open Movies Folder</strong></td>
+                        <td><span class="confirmation-pill">📁 Movies Folder (Finder)</span></td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌥ Option</kbd> + <kbd>5</kbd></td>
+                        <td><strong>Copy Last Recording</strong></td>
+                        <td><span class="confirmation-pill">✅ Copied to Clipboard + File Name</span></td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌥ Option</kbd> + <kbd>6</kbd></td>
+                        <td><strong>Show / Close Preview</strong></td>
+                        <td><span class="confirmation-pill">👁️ Preview Shown</span> / <span class="confirmation-pill">🙈 Preview Closed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 2: The Two Core Scenes on the MacBook Pro -->
+        <div class="hard-card" id="scenes">
+            <div class="card-header">
+                <div class="icon-box icon-scene">🎬</div>
+                <h2>2. The Camera Scene &amp; Screen Scene on the MacBook Pro</h2>
+            </div>
             <p>
-                <strong>The truth is: readiness never arrives before action.</strong> Readiness is an aftereffect of doing.
+                The MacBook Pro studio runs two primary scenes, each one keystroke away. They map directly to the <strong>Talking Head</strong> and <strong>Full Screen</strong> modes used in the OBS scene architecture.
+            </p>
+            <div class="scene-grid">
+                <div class="scene-card scene-camera">
+                    <h4>📷 Camera Scene — <kbd>⌥</kbd> + <kbd>3</kbd></h4>
+                    <p>
+                        Full-screen Sony ZV-1 / Insta360 feed on the MacBook Pro. Used for hooks, the thought-process narration, transitions, and lesson wrap-ups. Framing is verified on the TV confidence monitor before going live.
+                    </p>
+                </div>
+                <div class="scene-card scene-screen">
+                    <h4>🖥️ Screen Scene — <kbd>⌥</kbd> + <kbd>2</kbd></h4>
+                    <p>
+                        Full-screen macOS display capture for hands-on coding, terminal logs, and repository walkthroughs. Toggle back to the camera scene the instant you need eye contact again.
+                    </p>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>Why two scenes:</strong> One keystroke separates "teaching with your face" from "teaching with your code", so you never break flow to hunt through OBS panels on camera.</li>
+                    <li><strong>System-level hotkeys:</strong> Registered in the OBS profile files (<code>basic.ini</code> and <code>cleanslate.json</code>) so they work globally on the MacBook Pro.</li>
+                    <li><strong>HUD feedback:</strong> A floating pill and audio cue confirms the active scene instantly — no need to glance at the OBS window.</li>
+                </ul>
+            </div>
+            <p>
+                Full setup log — Insta360 install, HUD indicator, LaunchAgent, 5-minute recording splits and the TV confidence monitor — is documented in <a href="obs-implementations.html" style="color: var(--primary); font-weight: 700;">Step 03: OBS Implementations &amp; Scenes</a>.
+            </p>
+        </div>
+
+        <!-- Section 3: Muscle Memory -->
+        <div class="hard-card">
+            <div class="card-header">
+                <div class="icon-box icon-hud">🧠</div>
+                <h2>3. Building Muscle Memory Before You Record</h2>
+            </div>
+            <p>
+                Shortcuts only pay off if they are automatic. Rehearse the six keys for two minutes before every take until the sequence lives in your fingers:
             </p>
             <div class="highlight-box">
                 <ul>
-                    <li><strong>Courage over Comfort:</strong> You don't need to feel confident to turn on the Scarlett 2i2 and mount the Sony ZV-1. You only need 10 seconds of courage to start.</li>
-                    <li><strong>Action Creates Momentum:</strong> Once the red recording light blinks on OBS, the hesitation evaporates and your engineering brain takes over.</li>
+                    <li><strong>Scene rehearsals:</strong> <kbd>⌥</kbd>+<kbd>3</kbd> (camera) &rarr; <kbd>⌥</kbd>+<kbd>2</kbd> (screen) &rarr; <kbd>⌥</kbd>+<kbd>3</kbd> (camera). Repeat five times without looking down.</li>
+                    <li><strong>Recording drills:</strong> <kbd>⌥</kbd>+<kbd>1</kbd> to start, talk for ten seconds, <kbd>⌥</kbd>+<kbd>1</kbd> to stop. Verify the HUD confirms both transitions.</li>
+                    <li><strong>Export habit:</strong> Finish a take, hit <kbd>⌥</kbd>+<kbd>5</kbd>, paste the file straight into Slack, Skool, or your editor for review.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Section 2: Courage to Show the Real Struggle -->
-        <div class="courage-card" id="real-bugs">
-            <div class="card-header">
-                <div class="icon-box icon-camera">🎥</div>
-                <h2>2. The Courage to Show Real Bugs on Camera</h2>
-            </div>
-            <p>
-                In the age of AI, YouTube is saturated with slick 5-minute tutorials where everything works on the first try. This creates unrealistic expectations and terrifies beginners.
-            </p>
-            <p>
-                <strong>The real courage of Hands-On DO sessions is showing the raw truth:</strong>
-            </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Embracing Errors:</strong> LLM hallucinations, Docker port collisions, rate limits, and missing dependencies happen to everyone.</li>
-                    <li><strong>Teaching the Debugging Loop:</strong> When you hit a compiler error live on camera and troubleshoot it methodically, you give the audience the greatest gift: the permission to struggle and solve.</li>
-                    <li><strong>Authentic Authority:</strong> Viewers don't trust perfection; they trust resilience. Seeing a real human solve real problems builds unbreakable trust.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 3: Dancing in an Empty Room -->
-        <div class="courage-card" id="empty-room">
-            <div class="card-header">
-                <div class="icon-box icon-shield">🛡️</div>
-                <h2>3. The Courage to Dance for an Empty Room</h2>
-            </div>
-            <p>
-                When you launch a live session on Skool on Monday morning and zero people show up in the call, your ego wants to shut the laptop down and make an excuse.
-            </p>
-            <p>
-                <strong>That moment is the crucible of the whole game.</strong>
-            </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Perform for the Archive:</strong> You aren't just performing for who is in the room today; you are building an immortal asset for the learner who will discover your work six months from now.</li>
-                    <li><strong>Removing Audience Dependency:</strong> When your commitment doesn't depend on external applause, you become unstoppable. You control the shoot, the cadence, and the output.</li>
-                </ul>
-            </div>
-
-            <div style="background: rgba(244, 63, 94, 0.08); border-left: 4px solid #f43f5e; padding: 1.1rem 1.4rem; border-radius: 0 10px 10px 0; margin-top: 1.5rem;">
-                <p style="margin-bottom: 0.4rem; font-weight: 700; color: #e11d48; font-size: 0.95rem;">🎬 Derek Sivers Leadership Metaphor: The Lone Nut Dancing</p>
-                <p style="font-size: 0.92rem; color: #475569; margin-bottom: 0.6rem; line-height: 1.5;">
-                    Leadership starts with a person willing to look ridiculous, dancing alone on a hill with no music that others can hear yet. The first follower validates the leader, but the movement only begins because the leader had the courage to dance alone.
-                </p>
-                <a href="rationale.html#dancing-leader" style="font-size: 0.88rem; font-weight: 700; color: var(--primary); text-decoration: underline;">
-                    Watch the Derek Sivers Video &amp; Hands-On Mandate in The Rationale &rarr;
-                </a>
-            </div>
-        </div>
-
-        <!-- The 5-Second Rule Box -->
-        <div class="rule-box" id="courage-sequence">
-            <h2>⚡ The 5-Second Pre-Shoot Courage Sequence</h2>
-            <p>When you feel resistance pulling you away from the camera, execute this non-negotiable sequence:</p>
-            <div class="steps-row">
-                <div class="step-pill">
-                    <div class="step-num">5</div>
-                    <div class="step-text">Clear Only What's in the Lens Frame</div>
+        <!-- Control Surface Mantra -->
+        <div class="mantra-banner">
+            <h2>⚡ The Shortcut Rule of the Studio</h2>
+            <p>If an action takes longer than one keystroke, it will eventually stop happening mid-session. Keep the control surface friction-free:</p>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>1. Hands Stay on Keys</h4>
+                    <p>Never mouse-hunt in OBS while teaching. The camera sees everything.</p>
                 </div>
-                <div class="step-pill">
-                    <div class="step-num">4</div>
-                    <div class="step-text">Flip the 3 Power Switches</div>
+                <div class="tip-card">
+                    <h4>2. Confirm Without Looking</h4>
+                    <p>Trust the HUD pill and the audio cue to confirm scene and recording state.</p>
                 </div>
-                <div class="step-pill">
-                    <div class="step-num">3</div>
-                    <div class="step-text">Sit in the Chair &amp; Put Mic to Mouth</div>
+                <div class="tip-card">
+                    <h4>3. One Take, One Flow</h4>
+                    <p>Stop stumbling over controls; stay inside the explanation and the code.</p>
                 </div>
-                <div class="step-pill">
-                    <div class="step-num">2</div>
-                    <div class="step-text">Hit "Start Recording" in OBS</div>
-                </div>
-                <div class="step-pill">
-                    <div class="step-num">1</div>
-                    <div class="step-text">"Welcome back to Hands-On DO."</div>
+                <div class="tip-card">
+                    <h4>4. Rehearse Weekly</h4>
+                    <p>Two minutes of drift rehearsal before each shoot keeps the muscle memory sharp.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Section 4: Courage Compounds -->
-        <div class="courage-card" id="compounding">
-            <div class="card-header">
-                <div class="icon-box icon-vault">🏛️</div>
-                <h2>4. How Courage Compounds into Undeniability</h2>
-            </div>
-            <p>
-                Every time you sit in front of the lens despite the mess, despite the fear, and despite the empty chat, you deposit proof into your personal vault.
-            </p>
-            <p>
-                After 3 months:
-            </p>
-            <div class="highlight-box">
-                <ul>
-                    <li>You have <strong>36 recorded hands-on masterclasses</strong> on Skool.</li>
-                    <li>You have dozens of high-retention <strong>YouTube code teardowns</strong>.</li>
-                    <li>You have an active library built on top of your real repositories from <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">github.com/rifaterdemsahin</a>.</li>
-                </ul>
-            </div>
-            <p>
-                Courage is the single spark that turns potential into tangible reality. Keep dancing.
-            </p>
+        <div class="source-note">
+            <strong>Source documentation:</strong> This page is the rendered companion to <a href="shortcuts.md" style="color: var(--primary); font-weight: 700;">shortcuts.md</a> and the hotkey sections of <a href="obs-implementations.md" style="color: var(--primary); font-weight: 700;">obs-implementations.md</a> in the repository root.
         </div>
 
         <!-- Sequential Step Jump Controls -->
         <div class="step-nav-bar">
-            <a href="hard-part.html" class="step-nav-btn prev-step">
-                <span class="step-nav-hint">← Step 05 (Previous Step)</span>
-                <span class="step-nav-label">🎭 The Hard Part</span>
+            <a href="index.html" class="step-nav-btn prev-step">
+                <span class="step-nav-hint">← Step 01 (Previous Step)</span>
+                <span class="step-nav-label">🏠 Studio &amp; Rig</span>
             </a>
-            <a href="rationale.html" class="step-nav-btn next-step">
-                <span class="step-nav-hint">Step 07 (Next Step) →</span>
-                <span class="step-nav-label">💃 The Rationale</span>
+            <a href="obs-implementations.html" class="step-nav-btn next-step">
+                <span class="step-nav-hint">Step 03 (Next Step) →</span>
+                <span class="step-nav-label">🛠️ OBS & Scenes</span>
             </a>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Hands-On DO Sessions &bull; Mindset &amp; Courage &bull; <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
+        <p>&copy; 2026 Hands-On DO Sessions &bull; Control Surface &amp; Shortcuts &bull; <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">
             <a href="index.html" style="color: var(--primary); font-weight: 600;">Studio Dashboard</a> &bull;
             <a href="shortcuts.html" style="color: var(--primary); font-weight: 600;">⌨️ Shortcut Suite</a> &bull;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands-On DO Sessions | Building in the Age of AI</title>
     <link rel="stylesheet" href="notes-bar.css">
+    <link rel="stylesheet" href="site-search.css">
     <style>
         :root {
             --primary: #4F46E5;
@@ -864,11 +865,14 @@
                     </button>
                     <div class="dropdown-menu">
                         <a href="index.html" class="dropdown-item nav-item-active">🏠 Studio Dashboard</a>
-                        <a href="cover.html" class="dropdown-item">🖼️ Official Cover (1460x752)</a>
+                        <a href="shortcuts.html" class="dropdown-item">⌨️ Complete Shortcut Suite</a>
+                        <a href="obs-implementations.html" class="dropdown-item">🛠️ OBS Implementations &amp; Scenes</a>
                         <a href="lighting.html" class="dropdown-item">💡 A-Roll Lighting &amp; Darkness</a>
-                        <a href="#footage-setup" class="dropdown-item">🎥 Background &amp; Footage Setup</a>
-                        <a href="#checklist" class="dropdown-item">📋 5-Stage Pre-Shoot Checklist</a>
-                        <a href="#assistant" class="dropdown-item">🤖 Production Assistant Guide</a>
+                        <a href="cover.html" class="dropdown-item">🖼️ Official Cover (1460x752)</a>
+                        <a href="index.html#confidence-monitor" class="dropdown-item">🖥️ TV Confidence Monitor</a>
+                        <a href="index.html#footage-setup" class="dropdown-item">🎥 Background &amp; Footage Setup</a>
+                        <a href="index.html#checklist" class="dropdown-item">📋 5-Stage Pre-Shoot Checklist</a>
+                        <a href="index.html#assistant" class="dropdown-item">🤖 Production Assistant Guide</a>
                     </div>
                 </div>
 
@@ -879,10 +883,11 @@
                         <span class="drop-arrow">▾</span>
                     </button>
                     <div class="dropdown-menu">
-                        <a href="#thought-process" class="dropdown-item">🧠 The Age of AI Thought Process</a>
-                        <a href="#repos" class="dropdown-item">📦 Featured GitHub Repos</a>
-                        <a href="#schedule" class="dropdown-item">📅 3-Day Shoot Cadence</a>
-                        <a href="#pipeline" class="dropdown-item">🚀 Skool + YouTube Pipeline</a>
+                        <a href="index.html#thought-process" class="dropdown-item">🧠 The Age of AI Thought Process</a>
+                        <a href="index.html#repos" class="dropdown-item">📦 Featured GitHub Repos</a>
+                        <a href="index.html#schedule" class="dropdown-item">📅 3-Day Shoot Cadence</a>
+                        <a href="index.html#curriculum" class="dropdown-item">📚 Modular Curriculum Blueprint</a>
+                        <a href="index.html#pipeline" class="dropdown-item">🚀 Skool + YouTube Pipeline</a>
                     </div>
                 </div>
 
@@ -900,13 +905,17 @@
                     </div>
                 </div>
 
-                <!-- Standalone Action Buttons (All 6 Steps + GitHub) -->
+                <!-- Standalone Action Buttons (All 9 Steps + Search + GitHub) -->
                 <a href="index.html" class="nav-pill-btn gh-btn nav-item-active">🏠 Studio</a>
+                <a href="shortcuts.html" class="nav-pill-btn gh-btn">⌨️ Shortcuts</a>
+                <a href="obs-implementations.html" class="nav-pill-btn gh-btn">🛠️ OBS</a>
                 <a href="lighting.html" class="nav-pill-btn gh-btn">💡 Lighting</a>
                 <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
                 <a href="courage.html" class="nav-pill-btn gh-btn">🔥 Courage</a>
                 <a href="rationale.html" class="nav-pill-btn gh-btn">💃 Rationale</a>
                 <a href="pivot.html" class="nav-pill-btn gh-btn">🔄 The Pivot</a>
+                <a href="cover.html" class="nav-pill-btn gh-btn">🖼️ Cover</a>
+                <button type="button" id="site-search-trigger" class="nav-pill-btn gh-btn" aria-label="Search all site content">🔍 Search</button>
                 <a href="https://github.com/rifaterdemsahin" target="_blank" class="nav-pill-btn gh-btn">
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
                     GitHub
@@ -916,7 +925,7 @@
     </nav>
 
     <header>
-        <div class="header-badge">Step 01 of 06 • Studio &amp; Pre-Shoot Rig</div>
+        <div class="header-badge">Step 01 of 09 • Studio &amp; Pre-Shoot Rig</div>
         <h1>Hands-On DO Sessions</h1>
         <p>Deconstructing real-world projects from <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: #93c5fd; text-decoration: underline;">github.com/rifaterdemsahin</a>. Sharing the architecture, mental models, and thought process of building software in the age of AI.</p>
         
@@ -948,7 +957,7 @@
                 <div class="stepper-heading">
                     <span>📖 Sequential Reading Roadmap</span>
                 </div>
-                <span class="stepper-current-badge">Step 01 of 06 • Studio &amp; Rig</span>
+                <span class="stepper-current-badge">Step 01 of 09 • Studio & Rig</span>
             </div>
             <div class="stepper-timeline">
                 <a href="index.html" class="step-card active">
@@ -956,29 +965,44 @@
                     <span class="step-card-title">🏠 Studio &amp; Rig</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
-                <a href="lighting.html" class="step-card">
+                <a href="shortcuts.html" class="step-card">
                     <span class="step-card-num">Step 02</span>
+                    <span class="step-card-title">⌨️ Shortcut Suite</span>
+                </a>
+                <span class="step-arrow-divider">➔</span>
+                <a href="obs-implementations.html" class="step-card">
+                    <span class="step-card-num">Step 03</span>
+                    <span class="step-card-title">🛠️ OBS & Scenes</span>
+                </a>
+                <span class="step-arrow-divider">➔</span>
+                <a href="lighting.html" class="step-card">
+                    <span class="step-card-num">Step 04</span>
                     <span class="step-card-title">💡 Lighting &amp; Dark</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
                 <a href="hard-part.html" class="step-card">
-                    <span class="step-card-num">Step 03</span>
+                    <span class="step-card-num">Step 05</span>
                     <span class="step-card-title">🎭 The Hard Part</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
                 <a href="courage.html" class="step-card">
-                    <span class="step-card-num">Step 04</span>
+                    <span class="step-card-num">Step 06</span>
                     <span class="step-card-title">🔥 Courage to DO</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
                 <a href="rationale.html" class="step-card">
-                    <span class="step-card-num">Step 05</span>
+                    <span class="step-card-num">Step 07</span>
                     <span class="step-card-title">💃 The Rationale</span>
                 </a>
                 <span class="step-arrow-divider">➔</span>
                 <a href="pivot.html" class="step-card">
-                    <span class="step-card-num">Step 06</span>
+                    <span class="step-card-num">Step 08</span>
                     <span class="step-card-title">🔄 The Pivot</span>
+                </a>
+                <span class="step-arrow-divider">➔</span>
+                <a href="cover.html" class="step-card">
+                    <span class="step-card-num">Step 09</span>
+                    <span class="step-card-title">🖼️ Official Cover</span>
                 </a>
             </div>
         </div>
@@ -1003,7 +1027,7 @@
         </div>
 
         <!-- Official Skool Cover Banner (1460 x 752 px) -->
-        <div style="margin-bottom: 2.75rem; background: #0f172a; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);">
+        <div id="cover-banner" style="margin-bottom: 2.75rem; background: #0f172a; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
                 <div>
                     <span style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 6px; letter-spacing: 0.06em;">Official Course Banner</span>
@@ -1225,7 +1249,7 @@
         </div>
 
         <!-- The Curriculum -->
-        <div class="section-header">
+        <div class="section-header" id="curriculum">
             <h2>📚 Modular Curriculum Blueprint</h2>
             <p>Progressive hands-on tracks engineered for high retention and seamless dual-platform delivery.</p>
         </div>
@@ -1272,7 +1296,7 @@
         </div>
 
         <!-- Flat Room Studio & Cleaning Setup -->
-        <div class="specs-section">
+        <div class="specs-section" id="studio-setup">
             <div class="section-header" style="margin-bottom: 1rem;">
                 <h2>🏠 Studio Setup &amp; Room Environment Protocol</h2>
                 <p>Filming in a flat requires proactive environment management to ensure a pristine, professional visual frame and clean audio floor.</p>
@@ -1312,7 +1336,7 @@
         </div>
 
         <!-- Hardware & OBS Routing Blueprint -->
-        <div class="specs-section">
+        <div class="specs-section" id="hardware-routing">
             <div class="section-header" style="margin-bottom: 1rem;">
                 <h2>⚙️ Hardware Routing &amp; OBS Studio Configuration</h2>
                 <p>Optimized for Apple Silicon hardware acceleration, zero frame drops, and crash-proof recording.</p>
@@ -1344,6 +1368,17 @@
                         <li><strong>Encoder:</strong> Apple VT H264 Hardware Encoder (harnesses Apple Silicon media engine, sub-5% CPU usage).</li>
                         <li><strong>Format &amp; Bitrate:</strong> Record in <strong>MKV</strong> (crash-resilient). Remux to MP4 later in OBS. Bitrate 15,000–25,000 Kbps at 60 FPS.</li>
                         <li><strong>Resolution:</strong> Canvas 1080p (1920x1080) or 4K (3840x2160) matching your Mac Pro monitor aspect ratio.</li>
+                    </ul>
+                </div>
+
+                <div class="spec-box" id="confidence-monitor" style="border-top: 3px solid #ef4444;">
+                    <h4>🖥️ TV Confidence Monitor (HDMI Cable)</h4>
+                    <ul>
+                        <li><strong>The Route:</strong> HDMI cable from the Mac (MacBook Pro / Mac M1) straight into the TV; switch the TV input to the matching HDMI source.</li>
+                        <li><strong>Extended Display:</strong> In macOS System Settings &rarr; Displays, arrange the TV as an extended display beside or behind the camera — never inside the lens frame.</li>
+                        <li><strong>OBS Fullscreen Projector:</strong> Right-click the OBS Program preview &rarr; Fullscreen Projector &rarr; select the TV, so the live program feed fills the big screen.</li>
+                        <li><strong>Why It Matters:</strong> A large confidence monitor exposes framing, lighting falloff, focus drift, and scene state that a laptop screen hides at a glance.</li>
+                        <li><strong>Eye-Line Rule:</strong> Keep the TV next to or behind the lens so checking your framing never breaks on-camera eye contact.</li>
                     </ul>
                 </div>
             </div>
@@ -1499,7 +1534,7 @@
             </div>
 
             <div class="progress-label">
-                <span id="progress-text">0 of 21 Completed</span>
+                <span id="progress-text">0 of 23 Completed</span>
                 <span id="progress-pct">0%</span>
             </div>
             <div class="progress-wrapper">
@@ -1584,6 +1619,10 @@
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c15">
                     <span class="check-item-text"><strong>Mac M1 Host Prep:</strong> Plug into wall AC power (prevent battery throttling); close heavy apps (Slack, email, extra browser tabs); disable notification popups.</span>
                 </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c22">
+                    <span class="check-item-text"><strong>TV Confidence Monitor:</strong> Plug the HDMI cable from the Mac into the TV, select the correct HDMI input, and point the OBS Fullscreen Projector at the TV display.</span>
+                </label>
             </div>
 
             <!-- Stage 5 -->
@@ -1613,6 +1652,10 @@
                     <input type="checkbox" onchange="updateChecklist(this)" data-id="c21">
                     <span class="check-item-text"><strong>Mac Pro "Work = Shoot" Reminder:</strong> When sitting down to work, code, or debug on the Mac Pro, turn on video recording as well to capture raw engineering.</span>
                 </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="updateChecklist(this)" data-id="c23">
+                    <span class="check-item-text"><strong>Confidence Monitor Verified:</strong> Confirm the TV shows the live OBS program feed — camera framing, lighting falloff, and active scene — before starting the take.</span>
+                </label>
             </div>
 
             <div class="checklist-actions">
@@ -1622,7 +1665,7 @@
         </div>
 
         <!-- Distribution & Repurposing Pipeline -->
-        <div class="pipeline-card">
+        <div class="pipeline-card" id="pipeline">
             <h3>🚀 Dual-Distribution Engine: Skool + YouTube</h3>
             <p>Shoot once, publish twice. How every hands-on session is packaged and distributed for maximum community value and organic discovery.</p>
             <div class="pipeline-grid">
@@ -1643,29 +1686,31 @@
 
         <!-- Sequential Step Jump Controls -->
         <div class="step-nav-bar">
-            <a href="pivot.html" class="step-nav-btn prev-step">
-                <span class="step-nav-hint">← Step 06 (Previous / Loop)</span>
-                <span class="step-nav-label">🔄 The Pivot: 1-on-1s to Vault</span>
+            <a href="cover.html" class="step-nav-btn prev-step">
+                <span class="step-nav-hint">← Step 09 (Previous / Loop)</span>
+                <span class="step-nav-label">🖼️ Official Cover</span>
             </a>
-            <a href="lighting.html" class="step-nav-btn next-step">
+            <a href="shortcuts.html" class="step-nav-btn next-step">
                 <span class="step-nav-hint">Step 02 (Next Step) →</span>
-                <span class="step-nav-label">💡 A-Roll Lighting &amp; Darkness</span>
+                <span class="step-nav-label">⌨️ Shortcut Suite</span>
             </a>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Hands-On DO Sessions • Produced by <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
-        <p style="margin-top: 0.5rem; font-size: 0.88rem;">
+        <p>&copy; 2026 Hands-On DO Sessions &bull; Studio Dashboard &amp; Production Hub &bull; <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
             <a href="index.html" style="color: var(--primary); font-weight: 600;">Studio Dashboard</a> &bull;
+            <a href="shortcuts.html" style="color: var(--primary); font-weight: 600;">⌨️ Shortcut Suite</a> &bull;
+            <a href="obs-implementations.html" style="color: var(--primary); font-weight: 600;">🛠️ OBS Implementations</a> &bull;
             <a href="lighting.html" style="color: var(--primary); font-weight: 600;">💡 Lighting &amp; Darkness</a> &bull;
-            <a href="hard-part.html" style="color: var(--primary); font-weight: 600;">🎭 The Hard Part: Be Yourself</a> &bull;
+            <a href="hard-part.html" style="color: var(--primary); font-weight: 600;">🎭 The Hard Part</a> &bull;
             <a href="courage.html" style="color: var(--primary); font-weight: 600;">🔥 Courage</a> &bull;
             <a href="rationale.html" style="color: var(--primary); font-weight: 600;">💃 Rationale</a> &bull;
-            <a href="pivot.html" style="color: var(--primary); font-weight: 600;">🔄 The Pivot</a>
+            <a href="pivot.html" style="color: var(--primary); font-weight: 600;">🔄 The Pivot</a> &bull;
+            <a href="cover.html" style="color: var(--primary); font-weight: 600;">🖼️ Official Cover</a>
         </p>
-        <p style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--gray-light);">Shot on Sony ZV-1 &bull; Focusrite Scarlett 2i2 &bull; Elgato Mic &bull; Apple Mac M1 Silicon &bull; OBS Studio</p>
     </footer>
 
     <script>
@@ -1747,5 +1792,6 @@
         document.addEventListener('DOMContentLoaded', loadChecklistState);
     </script>
     <script src="notes-bar.js" defer></script>
+    <script src="site-search.js" defer></script>
 </body>
 </html>

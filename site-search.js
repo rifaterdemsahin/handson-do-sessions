@@ -13,6 +13,7 @@
         'obs-implementations.html': { step: 'Step 03', label: 'OBS & Scenes' },
         'obs-settings.html': { step: 'Reference', label: 'OBS Settings Snapshot' },
         'tv-projector.html': { step: 'Reference', label: 'TV Projector' },
+        'session-report.html': { step: 'Report', label: 'Session Report' },
         'lighting.html': { step: 'Step 04', label: 'Lighting & Dark' },
         'hard-part.html': { step: 'Step 05', label: 'The Hard Part' },
         'courage.html': { step: 'Step 06', label: 'Courage to DO' },
@@ -45,13 +46,14 @@
         { page: 'index.html', anchor: 'pipeline', icon: '🚀', title: 'Dual-Distribution Engine: Skool + YouTube', desc: 'Shoot once, publish twice: Skool modules, YouTube segments and MKV-to-MP4 remux ingestion.', keywords: 'pipeline distribution skool youtube remux mkv mp4 publishing repurposing' },
 
         // ---------- Step 02: Complete Shortcut Suite ----------
-        { page: 'shortcuts.html', anchor: '', icon: '⌨️', title: 'Complete Shortcut Suite', desc: 'Six system-level OBS shortcuts for recording, scenes, exports and preview control.', keywords: 'shortcuts hotkeys option key keyboard obs control suite' },
+        { page: 'shortcuts.html', anchor: '', icon: '⌨️', title: 'Complete Shortcut Suite', desc: 'Seven system-level OBS shortcuts for recording, scenes, exports, preview and the TV projector.', keywords: 'shortcuts hotkeys option key keyboard obs control suite' },
         { page: 'shortcuts.html', anchor: 'suite', icon: '🔴', title: 'Start / Stop Recording (⌥ Option + 1)', desc: 'Toggle recording instantly from any application; HUD confirms 🔴 started / ⏹️ stopped.', keywords: 'option 1 start stop recording toggle hotkey red' },
         { page: 'shortcuts.html', anchor: 'suite', icon: '🖥️', title: 'Screen Scene (⌥ Option + 2)', desc: 'Jump straight to the full-screen macOS display capture scene.', keywords: 'option 2 screen scene display capture coding scene' },
         { page: 'shortcuts.html', anchor: 'suite', icon: '📷', title: 'Camera Scene (⌥ Option + 3)', desc: 'Jump straight to the full-screen camera scene for hooks and eye contact.', keywords: 'option 3 camera scene talking head zv-1 insta360' },
         { page: 'shortcuts.html', anchor: 'suite', icon: '📁', title: 'Open Movies Folder (⌥ Option + 4)', desc: 'Opens ~/Movies in Finder, the OBS default save location.', keywords: 'option 4 movies folder finder recording save location' },
         { page: 'shortcuts.html', anchor: 'suite', icon: '✅', title: 'Copy Last Recording (⌥ Option + 5)', desc: 'Loads the newest MP4/MKV into the clipboard — file for Finder/Slack, path for text editors.', keywords: 'option 5 copy last recording clipboard pasteboard mp4 mkv export' },
         { page: 'shortcuts.html', anchor: 'suite', icon: '👁️', title: 'Show / Close Preview (⌥ Option + 6)', desc: 'Brings OBS to the front for a framing check, then hides it again to clear the screen.', keywords: 'option 6 preview show close toggle obs front hide framing' },
+        { page: 'shortcuts.html', anchor: 'suite', icon: '📺', title: 'Move TV Projector (⌥ Option + 7)', desc: 'Moves the OBS Program fullscreen projector onto the Samsung TV via the WebSocket API.', keywords: 'option 7 tv projector samsung move fullscreen web socket automation' },
         { page: 'shortcuts.html', anchor: 'scenes', icon: '🎬', title: 'Camera Scene & Screen Scene on the MacBook Pro', desc: 'The two core scenes one keystroke apart: 📷 camera (⌥3) and 🖥️ screen (⌥2).', keywords: 'camera scene screen scene macbook pro scenes two core system level' },
 
         // ---------- Step 03: OBS Implementations & Scenes ----------
@@ -88,6 +90,17 @@
         { page: 'tv-projector.html', anchor: 'move', icon: '🔁', title: 'Moving a Projector That Is Already Open', desc: 'Close via Escape through System Events and re-open on the TV; Accessibility permission note.', keywords: 'move existing projector close escape system events accessibility permission apple script' },
         { page: 'tv-projector.html', anchor: 'troubleshooting', icon: '🛠️', title: 'TV Projector Troubleshooting', desc: 'WebSocket unreachable, wrong display, stacked windows, blocked AppleScript and dead hotkey fixes.', keywords: 'troubleshooting websocket unreachable wrong display stacked windows assistive access hotkey dead' },
         { page: 'tv-projector.html', anchor: 'protocol', icon: '🔬', title: 'Under the Hood: Projector WebSocket Payload', desc: 'The exact OpenVideoMixProjector JSON request with videoMixType PROGRAM and monitorIndex 1.', keywords: 'under the hood payload json openvideomixprojector videomixtype program monitorindex rpc version 1' },
+
+        // ---------- Session Report ----------
+        { page: 'session-report.html', anchor: '', icon: '📋', title: 'Session Report: OBS Snapshot & TV Projector Build', desc: 'What was shipped this session, with verification evidence, machine changes, commits and outstanding items.', keywords: 'session report build log what was done summary commits verification machine changes outstanding' },
+        { page: 'session-report.html', anchor: 'mission', icon: '🎯', title: 'Session Mission & Outcomes', desc: 'The three requests: OBS settings snapshot, TV projector automation, and this report.', keywords: 'mission requests outcomes settings snapshot projector report' },
+        { page: 'session-report.html', anchor: 'deliverables', icon: '📦', title: 'Session Deliverables', desc: 'Snapshot, explainer pages, projector script, HUD update, menu/search integration and .gitignore.', keywords: 'deliverables artifacts files pages scripts hud integration gitignore' },
+        { page: 'session-report.html', anchor: 'commits', icon: '🧾', title: 'Commit Trail of the Session', desc: 'ec00d9a, dcdc797, 33695cd and 645c44c — what shipped in each and the file counts.', keywords: 'commit trail hashes ec00d9a dcdc797 33695cd 645c44c pushes main' },
+        { page: 'session-report.html', anchor: 'verification', icon: '🔬', title: 'Verification Evidence', desc: 'Live OBS 32.2.2 probe, monitor list, agent log, py_compile, node check, HTML parser and secret scan.', keywords: 'verification evidence obs 3222 websocket 574 monitor list agent log compile node html parser secret scan' },
+        { page: 'session-report.html', anchor: 'machine', icon: '🖥️', title: 'Machine-Level Changes Made', desc: 'Scripts copied into OBS user scripts, LaunchAgent restarted, OBS config untouched.', keywords: 'machine changes install scripts launchagent kickstart obs config untouched' },
+        { page: 'session-report.html', anchor: 'security', icon: '🔐', title: 'Credential Handling in the Session', desc: 'AuthSecret, AuthSalt and WebSocket password redacted; local password never leaves the Mac.', keywords: 'credential handling redaction authsecret authsalt websocket password security' },
+        { page: 'session-report.html', anchor: 'outstanding', icon: '📌', title: 'Outstanding Items After the Session', desc: 'Enable CloseExistingProjectors, first visual ⌥7 confirmation and optional Accessibility permission.', keywords: 'outstanding items closeexistingprojectors visual confirmation accessibility permission' },
+        { page: 'session-report.html', anchor: 'rollback', icon: '♻️', title: 'Verify It Yourself & Rollback Commands', desc: 'Check the agent, run --list, press ⌥7, and revert the commits if needed.', keywords: 'verify rollback revert commands launchctl log list option 7 revert commits' },
 
         // ---------- Step 04: A-Roll Lighting & Darkness ----------
         { page: 'lighting.html', anchor: '', icon: '💡', title: 'A-Roll Lighting & Darkness', desc: 'Low-key cinematic lighting for a standard flat without thousands in studio gear.', keywords: 'lighting darkness a-roll cinematic low key flat studio' },

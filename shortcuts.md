@@ -8,3 +8,4 @@
    ⌥ Option + 4                                                                  │ Open Movies Folder                                                            │ 📁 Movies Folder (Opened in Finder)
    ⌥ Option + 5                                                                  │ Copy Last Recording                                                           │ ✅ Copied to Clipboard + File Name
    ⌥ Option + 6                                                                  │ Show / Close Preview                                                          │ 👁️ Preview Shown / 🙈 Preview Closed
+   ⌥ Option + 7                                                                  │ Move TV Projector to the Samsung TV                                           │ 📺 Projector on TV / ⚠️ Failed

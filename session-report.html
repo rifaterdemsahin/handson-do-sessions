@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OBS Settings Snapshot | Hands-On DO Sessions</title>
+    <title>Session Report: OBS Snapshot &amp; TV Projector | Hands-On DO Sessions</title>
     <link rel="stylesheet" href="notes-bar.css">
     <link rel="stylesheet" href="site-search.css">
     <style>
@@ -188,7 +188,7 @@
 
         /* Hero */
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0369a1 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #312e81 55%, #0369a1 100%);
             color: white;
             padding: 4.5rem 2rem 3.5rem;
             text-align: center;
@@ -290,14 +290,14 @@
             flex-shrink: 0;
         }
 
-        .icon-save { background: #dbeafe; color: #1d4ed8; }
-        .icon-global { background: #ede9fe; color: #6d28d9; }
-        .icon-output { background: #e2e8f0; color: #334155; }
-        .icon-hotkey { background: #ede9fe; color: #6d28d9; }
-        .icon-scenes { background: #fef3c7; color: #b45309; }
-        .icon-hud { background: #fce7f3; color: #be185d; }
-        .icon-secret { background: #fee2e2; color: #b91c1c; }
-        .icon-restore { background: #dcfce7; color: #15803d; }
+        .icon-mission { background: #e0e7ff; color: #4338ca; }
+        .icon-deliver { background: #dcfce7; color: #15803d; }
+        .icon-commit { background: #ede9fe; color: #6d28d9; }
+        .icon-verify { background: #e0f2fe; color: #0369a1; }
+        .icon-machine { background: #fef3c7; color: #b45309; }
+        .icon-security { background: #fee2e2; color: #b91c1c; }
+        .icon-todo { background: #fce7f3; color: #be185d; }
+        .icon-rollback { background: #e2e8f0; color: #334155; }
 
         .card-header h2 {
             font-size: 1.5rem;
@@ -387,20 +387,44 @@
             white-space: pre;
         }
 
-        .callout-danger {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            border-left: 6px solid #ef4444;
+        .code-block .cmt {
+            color: #94a3b8;
+        }
+
+        .callout-success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 6px solid #22c55e;
             border-radius: 0 10px 10px 0;
             padding: 1.25rem 1.5rem;
             margin: 1.25rem 0;
-            color: #7f1d1d;
+            color: #14532d;
             font-size: 0.98rem;
         }
 
-        .callout-danger strong {
-            color: #991b1b;
+        .callout-warn {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 6px solid #f59e0b;
+            border-radius: 0 10px 10px 0;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+            color: #78350f;
+            font-size: 0.98rem;
         }
+
+        .status-pill {
+            display: inline-block;
+            border-radius: 9999px;
+            padding: 0.15rem 0.65rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .status-done { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .status-open { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+        .status-optional { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; }
 
         kbd {
             display: inline-block;
@@ -480,9 +504,9 @@
                         <a href="index.html" class="dropdown-item">🏠 Studio Dashboard</a>
                         <a href="shortcuts.html" class="dropdown-item">⌨️ Complete Shortcut Suite</a>
                         <a href="obs-implementations.html" class="dropdown-item">🛠️ OBS Implementations &amp; Scenes</a>
-                        <a href="obs-settings.html" class="dropdown-item nav-item-active">💾 OBS Settings Snapshot</a>
+                        <a href="obs-settings.html" class="dropdown-item">💾 OBS Settings Snapshot</a>
                         <a href="tv-projector.html" class="dropdown-item">📺 TV Projector Automation</a>
-                        <a href="session-report.html" class="dropdown-item">📋 Session Report</a>
+                        <a href="session-report.html" class="dropdown-item nav-item-active">📋 Session Report</a>
                         <a href="lighting.html" class="dropdown-item">💡 A-Roll Lighting &amp; Darkness</a>
                         <a href="cover.html" class="dropdown-item">🖼️ Official Cover (1460x752)</a>
                         <a href="index.html#confidence-monitor" class="dropdown-item">🖥️ TV Confidence Monitor</a>
@@ -525,7 +549,7 @@
                 <a href="index.html" class="nav-pill-btn gh-btn">🏠 Studio</a>
                 <a href="shortcuts.html" class="nav-pill-btn gh-btn">⌨️ Shortcuts</a>
                 <a href="obs-implementations.html" class="nav-pill-btn gh-btn">🛠️ OBS</a>
-                <a href="obs-settings.html" class="nav-pill-btn gh-btn nav-item-active">💾 OBS Settings</a>
+                <a href="obs-settings.html" class="nav-pill-btn gh-btn">💾 OBS Settings</a>
                 <a href="tv-projector.html" class="nav-pill-btn gh-btn">📺 TV Projector</a>
                 <a href="lighting.html" class="nav-pill-btn gh-btn">💡 Lighting</a>
                 <a href="hard-part.html" class="nav-pill-btn gh-btn">🎭 The Hard Part</a>
@@ -543,9 +567,9 @@
     </nav>
 
     <header>
-        <div class="header-badge">Reference • Step 03 Companion</div>
-        <h1>💾 OBS Settings Snapshot</h1>
-        <p>Every live OBS Studio setting that powers the MacBook Pro studio — profile, scene collection, hotkeys, WebSocket bridge and the HUD script — saved into this repository so the whole studio can be rebuilt in minutes.</p>
+        <div class="header-badge">Build Report • 18 September 2026</div>
+        <h1>📋 Session Report</h1>
+        <p>Everything shipped in this working session: the OBS settings snapshot, the Step 03 companion pages, and the ⌥+7 TV projector automation — including verification evidence, machine changes, and what is still open.</p>
     </header>
 
     <div class="container">
@@ -609,347 +633,371 @@
         <!-- Core Quote -->
         <div class="hero-quote">
             <blockquote>
-                "A studio is not the gear on the desk — it is the configuration that survives a machine dying. Snapshots turn a fragile setup into a rebuildable asset."
+                "Documentation is the difference between a working studio and a studio you can rebuild. Every change in this session exists as a file, a commit and a verification line."
             </blockquote>
-            <cite>— Rifat Erdem Sahin &bull; Hands-On DO Sessions</cite>
+            <cite>— Hands-On DO Sessions &bull; Session Report</cite>
         </div>
 
-        <!-- Section 1: Snapshot Manifest -->
-        <div class="hard-card" id="manifest">
+        <!-- Section 1: Mission -->
+        <div class="hard-card" id="mission">
             <div class="card-header">
-                <div class="icon-box icon-save">📦</div>
-                <h2>1. What Is In the Snapshot</h2>
+                <div class="icon-box icon-mission">🎯</div>
+                <h2>1. What Was Asked</h2>
             </div>
-            <p>
-                The live configuration was captured from <code>~/Library/Application Support/obs-studio/</code> into the <a href="https://github.com/rifaterdemsahin/handson-do-sessions/tree/main/obs-settings" target="_blank" style="color: var(--primary); font-weight: 700;"><code>obs-settings/</code></a> folder of this repository. Downloading or cloning the repo is now enough to redeploy the complete studio.
-            </p>
             <table class="settings-table">
                 <thead>
                     <tr>
-                        <th>Snapshot file</th>
-                        <th>Live location on macOS</th>
-                        <th>What it controls</th>
+                        <th>#</th>
+                        <th>Request</th>
+                        <th>Outcome</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="obs-settings/global.ini">global.ini</a></td>
-                        <td><code>obs-studio/global.ini</code></td>
-                        <td>App-wide defaults: renderer, hotkey focus behavior, dock layout, scene duplication and snapping.</td>
+                        <td>1</td>
+                        <td>Save the current OBS settings in the project, commit and push, explain them in an HTML page, and add it to the menu.</td>
+                        <td><span class="status-pill status-done">✅ Shipped</span> Settings snapshot + <a href="obs-settings.html">OBS Settings Snapshot</a> page + menu/search links.</td>
                     </tr>
                     <tr>
-                        <td><a href="obs-settings/user.ini">user.ini</a></td>
-                        <td><code>obs-studio/user.ini</code></td>
-                        <td>The active user state: last profile (Untitled) and the currently open scene collection (<strong>cleanslate</strong>), UI density, vertical volume meters and NDI tally flags.</td>
+                        <td>2</td>
+                        <td>Automate opening/moving the OBS projected screen onto the Samsung TV, document it on a page.</td>
+                        <td><span class="status-pill status-done">✅ Shipped</span> <a href="tv-projector.html">TV Projector Automation</a> page + <code>obs_tv_projector.py</code> + ⌥7 hotkey, installed live.</td>
                     </tr>
                     <tr>
-                        <td><a href="obs-settings/profiles/Untitled/basic.ini">profiles/Untitled/basic.ini</a></td>
-                        <td><code>obs-studio/basic/profiles/Untitled/basic.ini</code></td>
-                        <td>The studio profile: output mode, 1080p60 video pipeline, audio, recording splits, WebSocket server and OBS hotkeys.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="obs-settings/profiles/Untitled/streamEncoder.json">profiles/Untitled/streamEncoder.json</a></td>
-                        <td><code>obs-studio/basic/profiles/Untitled/streamEncoder.json</code></td>
-                        <td>Streaming encoder buffer flag captured alongside the profile.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="obs-settings/scenes/cleanslate.json">scenes/cleanslate.json</a></td>
-                        <td><code>obs-studio/basic/scenes/cleanslate.json</code></td>
-                        <td><strong>The active scene collection:</strong> camera and screen scenes, capture devices, Fade transition and the ⌥2/⌥3 scene hotkeys.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="obs-settings/scenes/Untitled.json">scenes/Untitled.json</a></td>
-                        <td><code>obs-studio/basic/scenes/Untitled.json</code></td>
-                        <td>Legacy scene collection kept as a reference (11 sources from the original studio build).</td>
-                    </tr>
-                    <tr>
-                        <td><a href="obs-settings/scripts/obs_indicator.py">scripts/obs_indicator.py</a></td>
-                        <td><code>obs-studio/scripts/obs_indicator.py</code></td>
-                        <td>The HUD indicator + global hotkey manager: floating pills, audio cues, Finder/clipboard shortcuts and preview toggle.</td>
-                    </tr>
-                    <tr>
-                        <td><a href="obs-settings/plugin_config/obs-websocket/config.json">plugin_config/obs-websocket/config.json</a></td>
-                        <td><code>obs-studio/plugin_config/obs-websocket/config.json</code></td>
-                        <td>WebSocket server toggle, port 4444 and auth requirement (password redacted).</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>
-                Logs, profiler traces and the 56&nbsp;MB Chromium browser cache under <code>plugin_config/obs-browser</code> were deliberately excluded — they are machine noise, not studio configuration.
-            </p>
-        </div>
-
-        <!-- Section 2: Global & UI Layer -->
-        <div class="hard-card" id="global">
-            <div class="card-header">
-                <div class="icon-box icon-global">🌐</div>
-                <h2>2. Global Application &amp; UI Layer</h2>
-            </div>
-            <p>
-                These values come from <code>global.ini</code> and <code>user.ini</code> and shape how the studio behaves before any recording starts:
-            </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Hotkey focus — <code>NeverDisableHotkeys</code>:</strong> the single most important setting. The ⌥ shortcuts fire while the browser or terminal has focus, so a take never pauses for a window switch.</li>
-                    <li><strong>Renderer <code>OpenGL</code> with macOS VSync disabled:</strong> chosen for low-latency screen capture on the MacBook Pro, restored on exit (<code>ResetOSXVSyncOnExit=true</code>).</li>
-                    <li><strong>Active scene collection <code>cleanslate</code>:</strong> restored automatically at launch, with the <code>Untitled</code> profile loaded on top of it.</li>
-                    <li><strong>Menu bar control — <code>SysTrayEnabled=true</code>:</strong> OBS can run hidden behind the take and still be reachable and controllable.</li>
-                    <li><strong>Confirm on exit:</strong> prevents accidentally killing OBS while a recording is live.</li>
-                    <li><strong>Vertical volume meters + compact UI (<code>FontScale=10</code>, <code>Density=1</code>):</strong> more channels visible on a laptop screen while monitoring the Scarlett 2i2 audio.</li>
-                    <li><strong>NDI tally flags on (<code>TallyProgramEnabled</code>):</strong> the confidence-monitor workflow can show which scene is live.</li>
-                    <li><strong>Snapping at 10&nbsp;px, scene duplication and swap enabled:</strong> safe manual editing when building new scenes on the fly.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Section 3: Recording & Video Pipeline -->
-        <div class="hard-card" id="output">
-            <div class="card-header">
-                <div class="icon-box icon-output">🎞️</div>
-                <h2>3. Recording &amp; Video Pipeline</h2>
-            </div>
-            <p>
-                The profile runs in <strong>Advanced output mode</strong>. Every value below lives in <code>profiles/Untitled/basic.ini</code>:
-            </p>
-            <table class="settings-table">
-                <thead>
-                    <tr>
-                        <th>Setting</th>
-                        <th>Value</th>
-                        <th>Why it matters</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Recording path</td>
-                        <td><code>/Users/rifaterdemsahin/Movies</code></td>
-                        <td>Recordings land in the default Movies folder, one ⌥4 away in Finder.</td>
-                    </tr>
-                    <tr>
-                        <td>Container / format</td>
-                        <td><code>mp4</code></td>
-                        <td>Direct-play files for review and upload; splits keep them crash-safe at 5-minute granularity.</td>
-                    </tr>
-                    <tr>
-                        <td>Filename formatting</td>
-                        <td><code>%CCYY-%MM-%DD %hh-%mm-%ss</code></td>
-                        <td>Chronological, sortable filenames: <code>2026-09-18 12-39-00.mp4</code>.</td>
-                    </tr>
-                    <tr>
-                        <td>Time-based splits</td>
-                        <td><code>RecSplitFileType=Time</code>, <code>RecSplitFileTime=5</code></td>
-                        <td>A new segment finalizes every 5 minutes so an interruption can never cost more than one segment. (The older 90&nbsp;MB size trigger remains in the file but is inactive.)</td>
-                    </tr>
-                    <tr>
-                        <td>Base / output resolution</td>
-                        <td><code>1920x1080</code> &rarr; <code>1920x1080</code></td>
-                        <td>Full-HD canvas for both the camera and screen scenes.</td>
-                    </tr>
-                    <tr>
-                        <td>Frame rate</td>
-                        <td><code>FPSCommon=60</code></td>
-                        <td>60&nbsp;fps for smooth screen motion, cursor travel and terminal scrolling.</td>
-                    </tr>
-                    <tr>
-                        <td>Scaling filter</td>
-                        <td><code>bicubic</code></td>
-                        <td>Balanced quality for any downscale of the 3456x2234 display capture.</td>
-                    </tr>
-                    <tr>
-                        <td>Color pipeline</td>
-                        <td><code>NV12</code>, <code>Rec.709</code>, partial range</td>
-                        <td>Standard broadcast-safe HD color; matches the ZV-1 footage.</td>
-                    </tr>
-                    <tr>
-                        <td>Stream encoder</td>
-                        <td><code>obs_x264</code></td>
-                        <td>Reference encoder for local streams and tests.</td>
-                    </tr>
-                    <tr>
-                        <td>Audio</td>
-                        <td>48&nbsp;kHz stereo, <code>CoreAudio_AAC</code>, 160&nbsp;kbps tracks</td>
-                        <td>Scarlett 2i2 input captured at video-standard sample rate; monitor output on the system default device.</td>
+                        <td>3</td>
+                        <td>Create this report, publish it as HTML, commit and push.</td>
+                        <td><span class="status-pill status-done">✅ This page</span> plus a ⌥7 entry in the <a href="shortcuts.html">Complete Shortcut Suite</a>.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- Section 4: Hotkey Map -->
-        <div class="hard-card" id="hotkeys">
+        <!-- Section 2: Deliverables -->
+        <div class="hard-card" id="deliverables">
             <div class="card-header">
-                <div class="icon-box icon-hotkey">⌨️</div>
-                <h2>4. The Six-Keystroke Studio</h2>
+                <div class="icon-box icon-deliver">📦</div>
+                <h2>2. Deliverables</h2>
             </div>
-            <p>
-                The hotkey map is split across three files — this snapshot preserves all of it end to end:
-            </p>
             <table class="settings-table">
                 <thead>
                     <tr>
-                        <th>Shortcut</th>
-                        <th>Action</th>
-                        <th>Defined in</th>
+                        <th>Artifact</th>
+                        <th>Type</th>
+                        <th>Purpose</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><kbd>⌥</kbd>+<kbd>1</kbd></td>
-                        <td>Start / stop recording (toggle)</td>
-                        <td><code>basic.ini</code> &rarr; <code>[Hotkeys]</code></td>
+                        <td><a href="https://github.com/rifaterdemsahin/handson-do-sessions/tree/main/obs-settings" target="_blank"><code>obs-settings/</code></a></td>
+                        <td>Snapshot (8 files)</td>
+                        <td>Global/user config, Untitled profile, cleanslate + Untitled scenes, WebSocket plugin config and the HUD script — secrets redacted.</td>
                     </tr>
                     <tr>
-                        <td><kbd>⌥</kbd>+<kbd>2</kbd></td>
-                        <td>Switch to the <strong>screen</strong> scene</td>
-                        <td><code>cleanslate.json</code> &rarr; scene <code>screen</code></td>
+                        <td><a href="obs-settings.html">obs-settings.html</a></td>
+                        <td>Explainer page</td>
+                        <td>Manifest, global/UI layer, recording pipeline, hotkey map, scene collection, redactions and the backup/restore runbook.</td>
                     </tr>
                     <tr>
-                        <td><kbd>⌥</kbd>+<kbd>3</kbd></td>
-                        <td>Switch to the <strong>camera</strong> scene</td>
-                        <td><code>cleanslate.json</code> &rarr; scene <code>camera</code></td>
+                        <td><a href="https://github.com/rifaterdemsahin/handson-do-sessions/blob/main/obs-settings/scripts/obs_tv_projector.py" target="_blank"><code>obs_tv_projector.py</code></a></td>
+                        <td>Automation script</td>
+                        <td>Finds the Samsung display over the OBS WebSocket API and opens/moves the Program fullscreen projector there. Modes: <code>--list</code>, <code>--open</code>, <code>--move</code>, <code>--close</code>, <code>--enable-close-existing</code>.</td>
                     </tr>
                     <tr>
-                        <td><kbd>⌥</kbd>+<kbd>4</kbd></td>
-                        <td>Open <code>~/Movies</code> in Finder (with 📁 HUD pill)</td>
-                        <td><code>obs_indicator.py</code> (Carbon global hotkey)</td>
+                        <td><code>obs_indicator.py</code></td>
+                        <td>Updated HUD agent</td>
+                        <td>Adds the global <kbd>⌥</kbd>+<kbd>7</kbd> hotkey, HUD pills and audio cues for the projector move.</td>
                     </tr>
                     <tr>
-                        <td><kbd>⌥</kbd>+<kbd>5</kbd></td>
-                        <td>Copy the newest recording to the clipboard (file + path)</td>
-                        <td><code>obs_indicator.py</code> (Carbon global hotkey)</td>
+                        <td><a href="tv-projector.html">tv-projector.html</a></td>
+                        <td>How-to page</td>
+                        <td>Setup commands, daily usage, move/permission notes, troubleshooting table and the underlying JSON payload.</td>
                     </tr>
                     <tr>
-                        <td><kbd>⌥</kbd>+<kbd>6</kbd></td>
-                        <td>Bring OBS forward for a framing check / hide it again</td>
-                        <td><code>basic.ini</code> preview hotkeys + <code>obs_indicator.py</code> toggle</td>
+                        <td><a href="session-report.html">session-report.html</a></td>
+                        <td>This report</td>
+                        <td>The build log, evidence, machine changes and outstanding items.</td>
+                    </tr>
+                    <tr>
+                        <td>Menu + search integration</td>
+                        <td>Site-wide change</td>
+                        <td>Dropdown, pill (where relevant), footer and <code>site-search.js</code> entries on every page — now 12 pages total.</td>
+                    </tr>
+                    <tr>
+                        <td><code>.gitignore</code></td>
+                        <td>Repo hygiene</td>
+                        <td>Stops <code>__pycache__/</code> and <code>*.pyc</code> from being committed.</td>
                     </tr>
                 </tbody>
             </table>
-            <p>
-                Because <code>HotkeyFocusType=NeverDisableHotkeys</code> is part of the snapshot, all of these work no matter which app is in front — including inside a live coding session.
-            </p>
         </div>
 
-        <!-- Section 5: Scene Collection -->
-        <div class="hard-card" id="scenes">
+        <!-- Section 3: Commit Trail -->
+        <div class="hard-card" id="commits">
             <div class="card-header">
-                <div class="icon-box icon-scenes">🎬</div>
-                <h2>5. The Active Scene Collection: cleanslate</h2>
+                <div class="icon-box icon-commit">🧾</div>
+                <h2>3. Commit Trail</h2>
             </div>
             <p>
-                <code>scenes/cleanslate.json</code> is the collection OBS opens on launch. It is intentionally minimal — two scenes and two capture devices:
+                Four commits were pushed to <code>main</code> during the session, plus the commit that publishes this report. The session started from <code>3e60674</code>.
             </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>📷 Scene <code>camera</code></strong> (currently live): the Capture Card Device feed for talking-head takes — hooks, mental models and wrap-ups.</li>
-                    <li><strong>🖥️ Scene <code>screen</code></strong>: the macOS Screen Capture source for live coding, terminal traces and repository walkthroughs.</li>
-                    <li><strong>Transition:</strong> Fade, 300&nbsp;ms — soft cuts that never jar the viewer.</li>
-                    <li><strong>Sources:</strong> <code>Capture Card Device</code> (<code>macos-avcapture-fast</code>) and <code>macOS Screen Capture</code> (<code>screen_capture</code>), each carrying its mute/unmute hotkey slots for future use.</li>
-                    <li><strong>Scene hotkeys:</strong> ⌥2 on <code>screen</code>, ⌥3 on <code>camera</code> — verified inside the JSON, not just in the UI.</li>
-                </ul>
-            </div>
-            <p>
-                The legacy <code>Untitled.json</code> collection (the original 11-source build) is included for reference when rebuilding PIP or multi-source scenes. The scene purposes themselves are explained in <a href="obs-implementations.html#scenes" style="color: var(--primary); font-weight: 700;">OBS Implementations &amp; Scenes</a> and <a href="index.html#footage-setup" style="color: var(--primary); font-weight: 700;">Studio Dashboard &rarr; Footage Setup</a>.
-            </p>
+            <table class="settings-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Commit</th>
+                        <th>Summary</th>
+                        <th>Scope</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12:48</td>
+                        <td><code>ec00d9a</code></td>
+                        <td>Save current OBS Studio settings snapshot for the MacBook Pro studio</td>
+                        <td>8 files, +2,015</td>
+                    </tr>
+                    <tr>
+                        <td>12:50</td>
+                        <td><code>dcdc797</code></td>
+                        <td>Render the OBS settings snapshot as a Step 03 companion page</td>
+                        <td>11 files, +1,017</td>
+                    </tr>
+                    <tr>
+                        <td>14:07</td>
+                        <td><code>33695cd</code></td>
+                        <td>Add Option+7 TV projector automation for the Samsung display</td>
+                        <td>16 files, +1,389</td>
+                    </tr>
+                    <tr>
+                        <td>14:07</td>
+                        <td><code>645c44c</code></td>
+                        <td>Stop tracking Python bytecode caches and ignore <code>__pycache__</code></td>
+                        <td>3 files, +2</td>
+                    </tr>
+                    <tr>
+                        <td>now</td>
+                        <td><em>this report</em></td>
+                        <td>Session report page, ⌥7 shortcut entry, menu/search links</td>
+                        <td>14 files</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- Section 6: HUD & Automation -->
-        <div class="hard-card" id="hud">
+        <!-- Section 4: Verification -->
+        <div class="hard-card" id="verification">
             <div class="card-header">
-                <div class="icon-box icon-hud">🔴</div>
-                <h2>6. HUD Indicator &amp; Automation Script</h2>
+                <div class="icon-box icon-verify">🔬</div>
+                <h2>4. Verification Evidence</h2>
             </div>
             <p>
-                <code>scripts/obs_indicator.py</code> (455 lines) is the bridge between OBS and your eyes. It connects to the WebSocket server, listens for state changes and draws native macOS overlay pills:
+                Everything below was executed on this MacBook Pro against the live OBS instance — nothing is assumed:
             </p>
-            <div class="highlight-box">
-                <ul>
-                    <li><strong>Recording states:</strong> 🔴 red pill on start, ⏹️ stop pill on end, with Ping/Pop/Tink system sounds.</li>
-                    <li><strong>Scene changes:</strong> 🖥️ for the screen scene and 📷 for the camera scene, so the active source is always known without looking at OBS.</li>
-                    <li><strong>Global hotkeys:</strong> ⌥4 opens <code>~/Movies</code> (📁 pill), ⌥5 copies the newest MP4/MKV via a dual pasteboard (real file for Finder/Slack, path text for editors), ⌥6 summons or dismisses the OBS preview.</li>
-                    <li><strong>Credentials:</strong> the script reads the WebSocket port and password from the obs-websocket <code>config.json</code> captured in this snapshot.</li>
-                </ul>
+            <table class="settings-table">
+                <thead>
+                    <tr>
+                        <th>Check</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>OBS / obs-websocket versions (live <code>GetVersion</code>)</td>
+                        <td>OBS Studio <strong>32.2.2</strong>, obs-websocket <strong>5.7.4</strong>, RPC v1, macOS.</td>
+                    </tr>
+                    <tr>
+                        <td>Monitor discovery (live <code>GetMonitorList</code>)</td>
+                        <td><code>0 &rarr; Built-in Retina Display(0) 1728x1117</code>; <code>1 &rarr; SAMSUNG(1) 1920x1080</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>Script discovery run (<code>--list</code>)</td>
+                        <td><code>TV match: SAMSUNG(1) (monitor index 1)</code> — auto-detection works by name.</td>
+                    </tr>
+                    <tr>
+                        <td>API support audit</td>
+                        <td><code>OpenVideoMixProjector</code> present in <code>availableRequests</code>; <code>GetProjectorList</code> returned code 204 (unsupported) — which drove the System Events close design.</td>
+                    </tr>
+                    <tr>
+                        <td>Hotkey registration (live agent log)</td>
+                        <td><code>Carbon hotkeys registered: Option+4 (Movies), Option+5 (Copy), Option+6 (Preview), Option+7 (TV Projector)</code> followed by <code>Connected to OBS WebSocket. Listening for events...</code></td>
+                    </tr>
+                    <tr>
+                        <td>Script syntax</td>
+                        <td><code>python3 -m py_compile</code> on both scripts: <strong>COMPILE OK</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td>Site JavaScript</td>
+                        <td><code>node --check site-search.js notes-bar.js</code>: <strong>OK</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td>HTML structure</td>
+                        <td>Custom tag-balance parser over every page: <strong>OK</strong> (including this one).</td>
+                    </tr>
+                    <tr>
+                        <td>Copied config files</td>
+                        <td>All JSON settings parse cleanly; all relative links in the snapshot pages resolve.</td>
+                    </tr>
+                    <tr>
+                        <td>Secret scan</td>
+                        <td>Repo-wide scan for <code>secret|password|token</code>: only redaction placeholders and code logic remain.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="callout-warn">
+                <strong>Honest note:</strong> the <code>OpenVideoMixProjector</code> call itself was deliberately <em>not</em> fired during the build, because a fullscreen projector steals focus on the TV mid-session. The request, monitor index and authentication were verified live; press <kbd>⌥</kbd>+<kbd>7</kbd> once to confirm the visual result.
             </div>
-            <p>
-                The script runs as the LaunchAgent <code>com.rifaterdemsahin.obs-indicator.plist</code> in <code>~/Library/LaunchAgents/</code>, so the HUD is alive the moment you log in. Reinstalling that plist and restarting the agent is all it takes to bring the automation back on a fresh machine.
-            </p>
         </div>
 
-        <!-- Section 7: Security -->
+        <!-- Section 5: Machine Changes -->
+        <div class="hard-card" id="machine">
+            <div class="card-header">
+                <div class="icon-box icon-machine">🖥️</div>
+                <h2>5. Machine-Level Changes</h2>
+            </div>
+            <p>Changes made outside the repository, on this MacBook Pro (approved via the install prompt):</p>
+            <table class="settings-table">
+                <thead>
+                    <tr>
+                        <th>Change</th>
+                        <th>Detail</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Installed projector script</td>
+                        <td>Copied to <code>~/Library/Application Support/obs-studio/scripts/obs_tv_projector.py</code> (12,893 bytes).</td>
+                        <td><span class="status-pill status-done">✅ Live</span></td>
+                    </tr>
+                    <tr>
+                        <td>Updated HUD agent</td>
+                        <td>Copied <code>obs_indicator.py</code> (20,350 bytes) with the ⌥7 registration over the previous version.</td>
+                        <td><span class="status-pill status-done">✅ Live</span></td>
+                    </tr>
+                    <tr>
+                        <td>Restarted LaunchAgent</td>
+                        <td><code>launchctl kickstart -k gui/$(id -u)/com.rifaterdemsahin.obs-indicator</code> — running PID 82159, reconnected to OBS.</td>
+                        <td><span class="status-pill status-done">✅ Live</span></td>
+                    </tr>
+                    <tr>
+                        <td>OBS configuration</td>
+                        <td>No changes to profiles, scenes, WebSocket credentials or <code>user.ini</code>; no OBS restart was required.</td>
+                        <td><span class="status-pill status-done">✅ Untouched</span></td>
+                    </tr>
+                    <tr>
+                        <td>Repository hygiene</td>
+                        <td>Secrets redacted in the snapshot; <code>__pycache__</code> accidentally committed once and removed in the follow-up commit; <code>.gitignore</code> added.</td>
+                        <td><span class="status-pill status-done">✅ Fixed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 6: Security -->
         <div class="hard-card" id="security">
             <div class="card-header">
-                <div class="icon-box icon-secret">🔐</div>
-                <h2>7. Credentials Were Redacted</h2>
+                <div class="icon-box icon-security">🔐</div>
+                <h2>6. Credential Handling</h2>
             </div>
-            <p>
-                This repository is public, so the three credential values that live in OBS configuration were replaced with <code>REDACTED_SET_LOCALLY_WHEN_RESTORING</code> before the snapshot was committed:
-            </p>
-            <div class="callout-danger">
-                <strong>Never commit the real values.</strong> <code>AuthSecret</code> and <code>AuthSalt</code> in <code>profiles/Untitled/basic.ini</code>, and <code>server_password</code> in <code>plugin_config/obs-websocket/config.json</code>, authenticate every WebSocket client — including <code>obs_indicator.py</code>. Leaking them would let anyone on the network control OBS.
-            </div>
-            <p>
-                Restoring is still one step: after copying the snapshot back, open <strong>OBS &rarr; Tools &rarr; WebSocket Server Settings</strong>, set a password, and paste the same password into the restored <code>obs-websocket/config.json</code>. OBS regenerates the salt/secret automatically when the settings are saved. Restart the indicator LaunchAgent afterwards.
-            </p>
+            <table class="settings-table">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Lives in</th>
+                        <th>Repo copy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>AuthSecret</code> / <code>AuthSalt</code></td>
+                        <td><code>profiles/Untitled/basic.ini</code></td>
+                        <td>Replaced with <code>REDACTED_SET_LOCALLY_WHEN_RESTORING</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>server_password</code></td>
+                        <td><code>plugin_config/obs-websocket/config.json</code></td>
+                        <td>Replaced with <code>REDACTED_SET_LOCALLY_WHEN_RESTORING</code>.</td>
+                    </tr>
+                    <tr>
+                        <td>Local WebSocket password (unchanged)</td>
+                        <td>Live OBS config on this Mac only</td>
+                        <td>Never leaves the machine; both scripts read it from disk at runtime and connect only to <code>127.0.0.1</code>.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- Section 8: Restore Runbook -->
-        <div class="hard-card" id="restore">
+        <!-- Section 7: Outstanding -->
+        <div class="hard-card" id="outstanding">
             <div class="card-header">
-                <div class="icon-box icon-restore">♻️</div>
-                <h2>8. Backup &amp; Restore Runbook</h2>
+                <div class="icon-box icon-todo">📌</div>
+                <h2>7. Outstanding Items</h2>
             </div>
-            <p>
-                <strong>Capture a fresh snapshot</strong> after any studio change — copy the live files over the ones in this repo, commit and push:
-            </p>
-            <div class="code-block">OBS="$HOME/Library/Application Support/obs-studio"
+            <table class="settings-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Why</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Enable <code>CloseExistingProjectors=true</code></td>
+                        <td>OBS rewrites <code>user.ini</code> on exit, so this needs OBS quit once. Without it, repeated ⌥7 presses can stack projector windows on the TV.</td>
+                        <td><span class="status-pill status-open">Recommended</span></td>
+                    </tr>
+                    <tr>
+                        <td>First visual confirmation of ⌥7</td>
+                        <td>The projector call was not fired during the build (focus-stealing). One press confirms the full loop.</td>
+                        <td><span class="status-pill status-open">One press</span></td>
+                    </tr>
+                    <tr>
+                        <td>Accessibility permission for <code>--close</code></td>
+                        <td>Only needed if you want the hotkey to automatically close a projector sitting on the MacBook screen; otherwise press <kbd>Esc</kbd> over that window once.</td>
+                        <td><span class="status-pill status-optional">Optional</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="code-block"><span class="cmt"># outstanding item 1 — quit OBS first, then:</span>
+/opt/homebrew/bin/python3 "$HOME/Library/Application Support/obs-studio/scripts/obs_tv_projector.py" --enable-close-existing</div>
+        </div>
 
-cp "$OBS/global.ini" obs-settings/global.ini
-cp "$OBS/user.ini" obs-settings/user.ini
-cp "$OBS/basic/profiles/Untitled/basic.ini" obs-settings/profiles/Untitled/basic.ini
-cp "$OBS/basic/profiles/Untitled/streamEncoder.json" obs-settings/profiles/Untitled/streamEncoder.json
-cp "$OBS/basic/scenes/cleanslate.json" obs-settings/scenes/cleanslate.json
-cp "$OBS/basic/scenes/Untitled.json" obs-settings/scenes/Untitled.json
-cp "$OBS/scripts/obs_indicator.py" obs-settings/scripts/obs_indicator.py
-cp "$OBS/plugin_config/obs-websocket/config.json" obs-settings/plugin_config/obs-websocket/config.json
+        <!-- Section 8: Verify + Rollback -->
+        <div class="hard-card" id="rollback">
+            <div class="card-header">
+                <div class="icon-box icon-rollback">♻️</div>
+                <h2>8. Verify It Yourself &amp; Rollback</h2>
+            </div>
+            <p><strong>Verify the automation is alive:</strong></p>
+            <div class="code-block"><span class="cmt"># 1. The agent is running and has Option+7 in its log</span>
+launchctl list | grep obs-indicator
+grep "Option+7" "$HOME/Library/Application Support/obs-studio/scripts/indicator.log"
 
-# Re-redact the auth values before committing, then:
-git add obs-settings && git commit -m "Update OBS settings snapshot" && git push</div>
-            <p>
-                <strong>Restore the studio on a new or reinstalled machine</strong> — quit OBS first, then copy the snapshot back:
-            </p>
-            <div class="code-block"># 1. Quit OBS completely (ConfirmOnExit will get in the way otherwise)
-osascript -e 'quit app "OBS"'
+<span class="cmt"># 2. OBS monitor detection</span>
+/opt/homebrew/bin/python3 "$HOME/Library/Application Support/obs-studio/scripts/obs_tv_projector.py" --list
 
-# 2. Recreate the folder structure and copy the snapshot back
-OBS="$HOME/Library/Application Support/obs-studio"
-mkdir -p "$OBS/basic/profiles/Untitled" "$OBS/basic/scenes" "$OBS/scripts" \
-         "$OBS/plugin_config/obs-websocket"
+<span class="cmt"># 3. Press Option+7 in any app — the HUD pill shows and the TV fills with the program feed</span></div>
+            <p><strong>Roll everything back</strong> if the automation ever misbehaves:</p>
+            <div class="code-block"><span class="cmt"># Repo: undo the automation commits</span>
+git revert --no-edit 645c44c 33695cd
 
-cp obs-settings/global.ini "$OBS/global.ini"
-cp obs-settings/user.ini "$OBS/user.ini"
-cp obs-settings/profiles/Untitled/basic.ini "$OBS/basic/profiles/Untitled/basic.ini"
-cp obs-settings/profiles/Untitled/streamEncoder.json "$OBS/basic/profiles/Untitled/streamEncoder.json"
-cp obs-settings/scenes/cleanslate.json "$OBS/basic/scenes/cleanslate.json"
-cp obs-settings/scenes/Untitled.json "$OBS/basic/scenes/Untitled.json"
-cp obs-settings/scripts/obs_indicator.py "$OBS/scripts/obs_indicator.py"
-cp obs-settings/plugin_config/obs-websocket/config.json "$OBS/plugin_config/obs-websocket/config.json"
-
-# 3. Re-set the WebSocket password (OBS regenerates secret + salt on save),
-#    then relaunch the HUD LaunchAgent
+<span class="cmt"># Machine: restore the pre-automation HUD agent and remove the script</span>
+OBS_SCRIPTS="$HOME/Library/Application Support/obs-studio/scripts"
+git show ec00d9a:obs-settings/scripts/obs_indicator.py &gt; "$OBS_SCRIPTS/obs_indicator.py"
+rm "$OBS_SCRIPTS/obs_tv_projector.py"
 launchctl kickstart -k gui/$(id -u)/com.rifaterdemsahin.obs-indicator</div>
-            <p>
-                After launch, verify the three anchors: <code>cleanslate</code> is the open scene collection, ⌥1 records a 5-minute split into <code>~/Movies</code>, and the HUD pills respond to scene changes. The screenshot-grade walkthrough of how these pieces were built lives in <a href="obs-implementations.html" style="color: var(--primary); font-weight: 700;">Step 03: OBS Implementations &amp; Scenes</a>.
-            </p>
         </div>
 
         <div class="source-note">
-            <strong>Source of truth:</strong> this page explains the raw files in <a href="https://github.com/rifaterdemsahin/handson-do-sessions/tree/main/obs-settings" target="_blank" style="color: var(--primary); font-weight: 700;"><code>obs-settings/</code></a>, captured from <code>~/Library/Application Support/obs-studio/</code> on 18 September 2026. The build log is in <a href="obs-implementations.html" style="color: var(--primary); font-weight: 700;">obs-implementations.html</a> (rendered from <a href="obs-implementations.md" style="color: var(--primary); font-weight: 700;">obs-implementations.md</a>).
+            <strong>Next candidates:</strong> an ⌥8 toggle that closes the projector outright, auto-opening the projector when OBS switches to the <code>camera</code> scene, and a screenshot pass on the TV so this report ships with a visual. Related pages: <a href="tv-projector.html" style="color: var(--primary); font-weight: 700;">TV Projector Automation</a>, <a href="obs-settings.html" style="color: var(--primary); font-weight: 700;">OBS Settings Snapshot</a> and <a href="obs-implementations.html" style="color: var(--primary); font-weight: 700;">OBS Implementations &amp; Scenes</a>.
         </div>
 
         <!-- Sequential Step Jump Controls -->
         <div class="step-nav-bar">
-            <a href="obs-implementations.html" class="step-nav-btn prev-step">
+            <a href="tv-projector.html" class="step-nav-btn prev-step">
                 <span class="step-nav-hint">← Step 03 (Companion)</span>
-                <span class="step-nav-label">🛠️ OBS Implementations</span>
+                <span class="step-nav-label">📺 TV Projector Automation</span>
             </a>
             <a href="lighting.html" class="step-nav-btn next-step">
                 <span class="step-nav-hint">Step 04 (Next Step) →</span>
@@ -960,7 +1008,7 @@ launchctl kickstart -k gui/$(id -u)/com.rifaterdemsahin.obs-indicator</div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Hands-On DO Sessions &bull; OBS Settings Snapshot &bull; <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
+        <p>&copy; 2026 Hands-On DO Sessions &bull; Session Report &bull; <a href="https://github.com/rifaterdemsahin" target="_blank" style="color: var(--primary); font-weight: 600;">Rifat Erdem Sahin</a></p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">
             <a href="index.html" style="color: var(--primary); font-weight: 600;">Studio Dashboard</a> &bull;
             <a href="shortcuts.html" style="color: var(--primary); font-weight: 600;">⌨️ Shortcut Suite</a> &bull;

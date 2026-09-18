@@ -7,6 +7,8 @@ OBS Studio Visual Action Indicator & Global Hotkey Manager for macOS.
 3. Option + 5: Copies the latest recording in the Movies folder to clipboard.
 4. Option + 6: Shows / closes the OBS Program Preview (toggles OBS to front to verify
    what is being recorded, or dismisses it back to the background).
+5. Option + 7: Moves the OBS Program fullscreen projector onto the Samsung TV by
+   calling obs_tv_projector.py (OBS WebSocket GetMonitorList + OpenVideoMixProjector).
 """
 
 import sys
@@ -49,10 +51,12 @@ optionKey = 2048  # altKey / optionKey modifier in Carbon
 kVK_ANSI_4 = 0x15  # Virtual key code for '4'
 kVK_ANSI_5 = 0x17  # Virtual key code for '5'
 kVK_ANSI_6 = 0x16  # Virtual key code for '6'
+kVK_ANSI_7 = 0x1A  # Virtual key code for '7'
 
 HOTKEY_ID_MOVIES_FOLDER = 1
 HOTKEY_ID_COPY_LAST_FILE = 2
 HOTKEY_ID_TOGGLE_PREVIEW = 3
+HOTKEY_ID_TV_PROJECTOR = 4
 
 carbon.GetEventDispatcherTarget.restype = c_void_p
 carbon.InstallEventHandler.argtypes = [c_void_p, c_void_p, c_uint32, POINTER(EventTypeSpec), c_void_p, POINTER(c_void_p)]
@@ -286,6 +290,62 @@ def toggle_obs_preview():
         )
 
 
+def move_projector_to_tv():
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "obs_tv_projector.py")
+
+    if not os.path.exists(script):
+        trigger_display(
+            "⚠️  TV PROJECTOR MISSING",
+            "obs_tv_projector.py not found next to obs_indicator.py",
+            bg=(0.28, 0.04, 0.04, 0.95),
+            border=(0.95, 0.2, 0.2, 0.9),
+            sound="Basso"
+        )
+        return
+
+    trigger_display(
+        "📺  TV PROJECTOR",
+        subtitle="Moving program feed to the Samsung display",
+        bg=(0.16, 0.12, 0.04, 0.96),
+        border=(0.95, 0.7, 0.15, 0.9),
+        sound="Tink"
+    )
+
+    def run():
+        try:
+            result = subprocess.run(
+                [sys.executable, script, "--move"],
+                capture_output=True, text=True, timeout=30
+            )
+            if result.returncode != 0:
+                message = (result.stdout or result.stderr or "Projector script failed").strip().splitlines()[-1]
+                trigger_display(
+                    "⚠️  TV PROJECTOR FAILED",
+                    subtitle=message,
+                    bg=(0.28, 0.14, 0.04, 0.95),
+                    border=(0.9, 0.6, 0.1, 0.8),
+                    sound="Basso"
+                )
+            else:
+                trigger_display(
+                    "📺  PROJECTOR ON TV",
+                    subtitle="Program feed moved to Samsung",
+                    bg=(0.04, 0.16, 0.24, 0.96),
+                    border=(0.2, 0.7, 0.9, 0.9),
+                    sound="Pop"
+                )
+        except Exception as exc:
+            trigger_display(
+                "⚠️  TV PROJECTOR ERROR",
+                subtitle=str(exc),
+                bg=(0.28, 0.04, 0.04, 0.95),
+                border=(0.95, 0.2, 0.2, 0.9),
+                sound="Basso"
+            )
+
+    threading.Thread(target=run, daemon=True).start()
+
+
 def hotkey_event_handler(callRef, event, userData):
     hk_id = EventHotKeyID()
     carbon.GetEventParameter(
@@ -310,6 +370,9 @@ def hotkey_event_handler(callRef, event, userData):
     elif hk_id.id == HOTKEY_ID_TOGGLE_PREVIEW:
         # Option + 6: Show / Close Program Preview
         toggle_obs_preview()
+    elif hk_id.id == HOTKEY_ID_TV_PROJECTOR:
+        # Option + 7: Move the OBS Program projector to the Samsung TV
+        move_projector_to_tv()
 
     return 0
 
@@ -338,7 +401,12 @@ def setup_carbon_hotkeys():
     ref_6 = c_void_p()
     carbon.RegisterEventHotKey(kVK_ANSI_6, optionKey, h_id_6, target, 0, byref(ref_6))
 
-    print("Carbon hotkeys registered: Option+4 (Movies), Option+5 (Copy), Option+6 (Preview)", flush=True)
+    # 4. Option + 7 (Move OBS Program Projector to the Samsung TV)
+    h_id_7 = EventHotKeyID(0x48544b59, HOTKEY_ID_TV_PROJECTOR)
+    ref_7 = c_void_p()
+    carbon.RegisterEventHotKey(kVK_ANSI_7, optionKey, h_id_7, target, 0, byref(ref_7))
+
+    print("Carbon hotkeys registered: Option+4 (Movies), Option+5 (Copy), Option+6 (Preview), Option+7 (TV Projector)", flush=True)
 
 
 async def obs_listener_loop():

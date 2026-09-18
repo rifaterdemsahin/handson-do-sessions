@@ -12,6 +12,7 @@
         'shortcuts.html': { step: 'Step 02', label: 'Shortcut Suite' },
         'obs-implementations.html': { step: 'Step 03', label: 'OBS & Scenes' },
         'obs-settings.html': { step: 'Reference', label: 'OBS Settings Snapshot' },
+        'tv-projector.html': { step: 'Reference', label: 'TV Projector' },
         'lighting.html': { step: 'Step 04', label: 'Lighting & Dark' },
         'hard-part.html': { step: 'Step 05', label: 'The Hard Part' },
         'courage.html': { step: 'Step 06', label: 'Courage to DO' },
@@ -77,6 +78,16 @@
         { page: 'obs-settings.html', anchor: 'hud', icon: '🔴', title: 'HUD Indicator & Automation Script Backup', desc: 'obs_indicator.py pills, audio cues, global hotkeys and the LaunchAgent that keeps it alive.', keywords: 'hud indicator automation script obs_indicator py pills audio cues launchagent plist' },
         { page: 'obs-settings.html', anchor: 'security', icon: '🔐', title: 'Redacted Credentials in the Snapshot', desc: 'AuthSecret, AuthSalt and the WebSocket password are redacted; how to re-set them after a restore.', keywords: 'security credentials redacted authsecret authsalt websocket password secret restore re set' },
         { page: 'obs-settings.html', anchor: 'restore', icon: '♻️', title: 'OBS Backup & Restore Runbook', desc: 'Copy-paste commands to re-capture a snapshot after changes and to rebuild the studio on a new Mac.', keywords: 'backup restore runbook commands snapshot update rebuild new mac terminal copy paste' },
+
+        // ---------- Step 03 Companion: TV Projector Automation ----------
+        { page: 'tv-projector.html', anchor: '', icon: '📺', title: 'TV Projector Automation (Option + 7)', desc: 'One keystroke opens or moves the OBS Program fullscreen projector onto the Samsung TV via the OBS WebSocket API.', keywords: 'tv projector automation samsung confidence monitor option 7 hotkey fullscreen projector move display' },
+        { page: 'tv-projector.html', anchor: 'problem', icon: '🧩', title: 'The Projector Problem and the Fix', desc: 'Why the projector defaults to the MacBook screen and how name-based Samsung detection fixes it.', keywords: 'problem fix projector defaults macbook display samsung name detection monitor index' },
+        { page: 'tv-projector.html', anchor: 'flow', icon: '🔀', title: 'How the TV Projector Works (GetMonitorList + OpenVideoMixProjector)', desc: 'Two WebSocket requests: list monitors, then open the PROGRAM mix fullscreen on the TV monitor index.', keywords: 'getmonitorlist openvideomixprojector websocket program mix monitor index obs 32' },
+        { page: 'tv-projector.html', anchor: 'setup', icon: '⚙️', title: 'TV Projector One-Time Setup', desc: 'Install the script, restart the HUD agent and enable CloseExistingProjectors so projector windows never stack.', keywords: 'setup install script launchagent closeexistingprojectors user.ini stacking hotkey restart' },
+        { page: 'tv-projector.html', anchor: 'usage', icon: '⌨️', title: 'TV Projector Daily Use & CLI Modes', desc: 'Option+7 in sessions; --open, --move, --close, --list, --type and --monitor for everything else.', keywords: 'usage command line open move close list type preview multiview monitor name flags' },
+        { page: 'tv-projector.html', anchor: 'move', icon: '🔁', title: 'Moving a Projector That Is Already Open', desc: 'Close via Escape through System Events and re-open on the TV; Accessibility permission note.', keywords: 'move existing projector close escape system events accessibility permission apple script' },
+        { page: 'tv-projector.html', anchor: 'troubleshooting', icon: '🛠️', title: 'TV Projector Troubleshooting', desc: 'WebSocket unreachable, wrong display, stacked windows, blocked AppleScript and dead hotkey fixes.', keywords: 'troubleshooting websocket unreachable wrong display stacked windows assistive access hotkey dead' },
+        { page: 'tv-projector.html', anchor: 'protocol', icon: '🔬', title: 'Under the Hood: Projector WebSocket Payload', desc: 'The exact OpenVideoMixProjector JSON request with videoMixType PROGRAM and monitorIndex 1.', keywords: 'under the hood payload json openvideomixprojector videomixtype program monitorindex rpc version 1' },
 
         // ---------- Step 04: A-Roll Lighting & Darkness ----------
         { page: 'lighting.html', anchor: '', icon: '💡', title: 'A-Roll Lighting & Darkness', desc: 'Low-key cinematic lighting for a standard flat without thousands in studio gear.', keywords: 'lighting darkness a-roll cinematic low key flat studio' },

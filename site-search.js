@@ -11,6 +11,7 @@
         'index.html': { step: 'Step 01', label: 'Studio & Rig' },
         'shortcuts.html': { step: 'Step 02', label: 'Shortcut Suite' },
         'obs-implementations.html': { step: 'Step 03', label: 'OBS & Scenes' },
+        'obs-settings.html': { step: 'Reference', label: 'OBS Settings Snapshot' },
         'lighting.html': { step: 'Step 04', label: 'Lighting & Dark' },
         'hard-part.html': { step: 'Step 05', label: 'The Hard Part' },
         'courage.html': { step: 'Step 06', label: 'Courage to DO' },
@@ -65,6 +66,17 @@
         { page: 'obs-implementations.html', anchor: 'preview', icon: '👁️', title: 'Program Preview Toggle (⌥ Option + 6)', desc: 'Workspace toggle that summons OBS for a framing check and hides it again.', keywords: 'program preview toggle option 6 obs hide front framing check' },
         { page: 'obs-implementations.html', anchor: 'tv-confidence', icon: '🖥️', title: 'TV Confidence Monitor (New Today)', desc: 'HDMI cable from the MacBook Pro to the TV, configured as a dedicated confidence monitor.', keywords: 'tv confidence monitor hdmi cable macbook pro new big screen framing check' },
         { page: 'obs-implementations.html', anchor: 'scenes', icon: '🎬', title: 'The Two Core Scenes on the MacBook Pro', desc: 'Camera scene (⌥3), screen scene (⌥2), recording toggle (⌥1) and preview (⌥6).', keywords: 'core scenes camera screen macbook pro recording toggle preview' },
+
+        // ---------- Step 03 Companion: OBS Settings Snapshot ----------
+        { page: 'obs-settings.html', anchor: '', icon: '💾', title: 'OBS Settings Snapshot (Repository Backup)', desc: 'The complete live OBS Studio configuration saved into the repo: profile, scenes, hotkeys and HUD script.', keywords: 'obs settings snapshot backup save restore profile scenes config repository' },
+        { page: 'obs-settings.html', anchor: 'manifest', icon: '📦', title: 'What Is In the OBS Snapshot', desc: 'global.ini, user.ini, Untitled profile, cleanslate scenes, obs_indicator.py and the WebSocket plugin config.', keywords: 'manifest files global.ini user.ini basic.ini cleanslate untitled obs_indicator websocket config backup contents' },
+        { page: 'obs-settings.html', anchor: 'global', icon: '🌐', title: 'Global Application & UI Layer', desc: 'NeverDisableHotkeys, OpenGL renderer with VSync off, cleanslate active, menu bar control and compact UI.', keywords: 'global application ui layer hotkey focus neverdisablehotkeys renderer opengl vsync systray density' },
+        { page: 'obs-settings.html', anchor: 'output', icon: '🎞️', title: 'Recording & Video Pipeline Settings', desc: 'Advanced output, MP4 to ~/Movies, 1080p60 Rec.709 NV12 and 5-minute time-based splits.', keywords: 'recording output video pipeline advanced mp4 movies 1080p60 rec709 nv12 splits 5 minute filename format audio 48khz aac' },
+        { page: 'obs-settings.html', anchor: 'hotkeys', icon: '⌨️', title: 'The Six-Keystroke Studio Hotkey Map', desc: '⌥1 record, ⌥2 screen, ⌥3 camera, ⌥4 Movies, ⌥5 clipboard and ⌥6 preview — across three config files.', keywords: 'hotkey map six keystroke studio option 1 2 3 4 5 6 recording screen camera movies clipboard preview' },
+        { page: 'obs-settings.html', anchor: 'scenes', icon: '🎬', title: 'Active Scene Collection: cleanslate', desc: 'Camera and screen scenes, Capture Card Device, macOS Screen Capture and the 300 ms Fade transition.', keywords: 'scene collection cleanslate camera screen capture card macos screen capture fade transition json' },
+        { page: 'obs-settings.html', anchor: 'hud', icon: '🔴', title: 'HUD Indicator & Automation Script Backup', desc: 'obs_indicator.py pills, audio cues, global hotkeys and the LaunchAgent that keeps it alive.', keywords: 'hud indicator automation script obs_indicator py pills audio cues launchagent plist' },
+        { page: 'obs-settings.html', anchor: 'security', icon: '🔐', title: 'Redacted Credentials in the Snapshot', desc: 'AuthSecret, AuthSalt and the WebSocket password are redacted; how to re-set them after a restore.', keywords: 'security credentials redacted authsecret authsalt websocket password secret restore re set' },
+        { page: 'obs-settings.html', anchor: 'restore', icon: '♻️', title: 'OBS Backup & Restore Runbook', desc: 'Copy-paste commands to re-capture a snapshot after changes and to rebuild the studio on a new Mac.', keywords: 'backup restore runbook commands snapshot update rebuild new mac terminal copy paste' },
 
         // ---------- Step 04: A-Roll Lighting & Darkness ----------
         { page: 'lighting.html', anchor: '', icon: '💡', title: 'A-Roll Lighting & Darkness', desc: 'Low-key cinematic lighting for a standard flat without thousands in studio gear.', keywords: 'lighting darkness a-roll cinematic low key flat studio' },
